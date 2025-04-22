@@ -1,0 +1,1 @@
+import{c as n,o as r}from"./index-BCyhptVy.js";const _=(t,o)=>{const c=t.__vccOpts||t;for(const[e,s]of o)c[e]=s;return c},a={},f={class:"about"};function i(t,o){return r(),n("div",f,"s")}const u=_(a,[["render",i]]);export{u as default};
