@@ -143,11 +143,20 @@ body {
   font-weight: 600;
   color: #101010;
 }
+.title_3 {
+  font-size: 38px;
+  font-weight: 600;
+  color: #101010;
+}
 @media (max-width: 1440px) {
   .container {
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 60px;
   }
-
+  .title_3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #101010;
+  }
 }

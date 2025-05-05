@@ -1,33 +1,29 @@
 <template>
-    <div class="header_mid">
-        <h1 class="title_1">Цифровые сидхи</h1>
-        <div class="header_mid-oneFon">
-            <div class="header_mid-threeFon"></div>
-            <div class="header_mid-oneFon-all">
-                <img src="@/assets/img/logo.svg" alt="">
-                <div class="header_mid-oneFon-right">
-                    <h2 class="title_2">Разработка и дизайн
-                        Онлайн-сервисов в России.</h2>
-                    <p class="text">Наши услуги — это ключи к созданию неповторимого и успешного образа вашего бизнеса</p>
-                    <div class="header_mid-oneFon-right-bot">
-                        <div class="header_mid-oneFon-right-bot-item">
-                            <h2>20+</h2>
-                            <p>Проектов реализовано</p>
-                        </div>
-                        <div class="header_mid-oneFon-right-bot-item">
-                            <h2>>5</h2>
-                            <p>Лет разрабатываем сайты</p>
-                        </div>
-                    </div>
-
+    <div class="header_mid-oneFon-all">
+        <img src="@/assets/img/logo.svg" alt="">
+        <div class="header_mid-oneFon-right">
+            <h2 class="title_2">{{ title }}</h2>
+            <p class="text">{{ text }}</p>
+            <div class="header_mid-oneFon-right-bot">
+                <div class="header_mid-oneFon-right-bot-item">
+                    <h2>20+</h2>
+                    <p>Проектов реализовано</p>
+                </div>
+                <div class="header_mid-oneFon-right-bot-item">
+                    <h2>>5</h2>
+                    <p>Лет разрабатываем сайты</p>
                 </div>
             </div>
         </div>
     </div>
 </template>
-<script setup></script>
+<script setup>
+defineProps({
+    title:String,
+    text:String,
+})
+</script>
 <style>
-
 .header_mid {
     padding: 0 40px;
 }
@@ -38,11 +34,12 @@
     margin-top: 250px;
     text-transform: uppercase;
     color: #fff;
+    position: relative;
+    z-index: 1;
 }
 .header_mid-oneFon {
     background-color: #fff;
     border-radius: 20px 20px 0 0;
-    height: 700px;
     padding: 60px 40px;
     position: relative;
     z-index: 22;
@@ -109,7 +106,7 @@
     font-size: 22px;
     line-height: 120%;
     letter-spacing: -3%;
-    max-width: 639px;
+    max-width: 800px;
 }
 .header_mid-oneFon-right {
 }
@@ -159,7 +156,8 @@
     max-width: 430px;
   }
 .text {
-font-size: 18px;
+    font-size: 18px;
+    max-width: 639px;
 }
 .header_mid-oneFon-right-bot {
     gap: 20px;
