@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
   justify-content: space-between;
   align-items: center;
   padding-top: 28px;
+  position: relative;
+  z-index: 2;
 }
 .nav_right {
   background-color: var(--frame-color);

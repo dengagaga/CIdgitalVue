@@ -1,7 +1,7 @@
 <template>
     <div class="project" :class="!item.tags ? 'project--none_tags'  : ''">
         <div class="project_top">
-            <img class="project_img" :src="item.img" alt="">
+            <img class="project_img" src="../assets/img/keus.png" alt="">
             <video class="project_video" :src="item.video"></video>
             <div class="project_plus">
                 <img class="project_plus-img" src="../assets/img/plusSm.svg" alt="">
