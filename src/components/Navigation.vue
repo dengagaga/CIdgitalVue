@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 .nav_right-burger {
   position: relative;
-  z-index: 20;
+  z-index: 4445;
   border-radius: 11px;
   background-color: var(--bgc-btn);
   height: 36px;
