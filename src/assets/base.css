@@ -121,7 +121,10 @@ button::-moz-focus-inner {
 label {
   cursor: pointer;
 }
-
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 legend {
   display: block;
 }

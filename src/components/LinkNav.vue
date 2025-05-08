@@ -1,16 +1,23 @@
 <template>
-  <router-link :href="link" class="befAll">
+  <router-link :to="item.link" class="befAll" v-if="item">
+    <div class="nav_right-link-one">
+      <p class="nav_right-link-text_rel">{{ item.title }}</p>
+      <p class="nav_right-link-text_abs">{{ item.title }}</p>
+    </div>
+  </router-link>
+  <router-link  class="befAll" v-else>
     <div class="nav_right-link-one">
       <p class="nav_right-link-text_rel">{{ title }}</p>
       <p class="nav_right-link-text_abs">{{ title }}</p>
     </div>
   </router-link>
+  
 </template>
 
 <script setup>
 defineProps({
-  title: String,
-  link: String,
+  item:Object,
+  title:String
 })
 </script>
 <style>

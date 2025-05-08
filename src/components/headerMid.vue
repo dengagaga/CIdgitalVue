@@ -4,7 +4,7 @@
         <div class="header_mid-oneFon-right">
             <h2 class="title_2">{{ title }}</h2>
             <p class="text">{{ text }}</p>
-            <div class="header_mid-oneFon-right-bot">
+            <div class="header_mid-oneFon-right-bot" v-if="title !== 'Проекты'">
                 <div class="header_mid-oneFon-right-bot-item">
                     <h2>20+</h2>
                     <p>Проектов реализовано</p>
@@ -13,6 +13,30 @@
                     <h2>>5</h2>
                     <p>Лет разрабатываем сайты</p>
                 </div>
+            </div>
+            <div class="header_mid-oneFon-right-bot-proj" v-else>
+                <div class="select_wrapper">
+                    <select class="select" name="" id="">
+                        <option value="">Услуги</option>
+                        <option value="">Услуги</option>
+                        <option value="">Услуги</option>
+                    </select>
+                </div>
+                <div class="select_wrapper">
+                    <select class="select" name="" id="">
+                        <option value="">Типы сайтов</option>
+                        <option value="">Типы сайтов</option>
+                        <option value="">Типы сайтов</option>
+                    </select>
+                </div>
+                <div class="select_wrapper">
+                    <select class="select" name="" id="">
+                        <option value="">Отрасли</option>
+                        <option value="">Отрасли</option>
+                        <option value="">Отрасли</option>
+                    </select>
+                </div>
+               
             </div>
         </div>
     </div>
@@ -42,7 +66,7 @@ defineProps({
     border-radius: 20px 20px 0 0;
     padding: 60px 40px;
     position: relative;
-    z-index: 22;
+    z-index: 1;
 }   
 .header_mid-oneFon::after {
     content: '';
@@ -113,7 +137,13 @@ defineProps({
 .header_mid-oneFon-right-bot {
     margin-top: 50px;
     display: flex;
-    gap: ни0px;
+    gap: 20px;
+    align-items: center;
+}
+.header_mid-oneFon-right-bot-proj {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
     align-items: center;
 }
 .header_mid-oneFon-right-bot-item {
@@ -137,6 +167,29 @@ defineProps({
     letter-spacing: -3%;
     text-transform: uppercase;
 
+}
+.select_wrapper {
+    position: relative;
+}
+.select_wrapper::after {
+    position: absolute;
+    content: '';
+    background-image: url(../assets/img/arrow.png);
+    height: 18px;
+    width: 18px;
+    right: 10px;
+    top: 8px;
+}
+.select {
+    border: 2px solid #F4F4F4;
+    width: 113px;
+    height: 32px;
+    border-radius: 50px;
+    padding-left: 14px;
+    font-size: 14px;
+    display: flex;
+    gap: 9px;
+    position: relative;
 }
 
 @media (max-width: 1440px) {

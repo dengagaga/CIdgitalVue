@@ -20,7 +20,7 @@
         </svg>
       </div>
       <div class="nav_right-all">
-        <NavLink v-for="item in NavArray" :key="item.title" :title="item.title" :link="item.link" />
+        <LinkNav v-for="item in NavArray" :key="item.title" :item="item" />
       </div>
       <a href="#" class="nav_right-link">
         <p>написать в telegram</p>
@@ -37,7 +37,8 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import NavLink from './NavLink.vue'
+import LinkNav from './LinkNav.vue'
+import { RouterLink } from 'vue-router'
 defineProps({
   burgerActive: Boolean,
 })
@@ -50,11 +51,11 @@ const NavArray = ref([
   },
   {
     title: 'услуги',
-     link:'/'
+    link:'/'
   },
   {
     title: 'агентство',
-     link:'/'
+    link:'/'
   },
 ])
 

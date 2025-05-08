@@ -6,7 +6,7 @@
         <div class="header_burger_left-item">
           <img src="@/assets/icon.svg" alt="" />
           <div class="header_burger_left-item-texts">
-            <NavLink class="befAll-two" title="Проекты" />
+            <LinkNav class="befAll-two" title="Проекты" />
             <p>Наши работы</p>
           </div>
         </div>
@@ -14,20 +14,20 @@
           <img src="@/assets/icon.svg" alt="" />
 
           <div class="header_burger_left-item-texts">
-            <NavLink class="befAll-two" title="Услуги" />
+            <LinkNav class="befAll-two" title="Услуги" />
             <p>Доверьтесь нам</p>
           </div>
         </div>
         <div class="header_burger_left-item befAll-two-agenstvo">
           <img src="@/assets/icon.svg" alt="" />
           <div class="header_burger_left-item-texts">
-            <NavLink class="befAll-two" title="Агентство" />
+            <LinkNav class="befAll-two" title="Агентство" />
             <p>Подробнее о нас</p>
           </div>
         </div>
         <div class="header_burger_right header_burger_right-three">
           <h4 class="header_burger_right-title">Агентство</h4>
-          <NavLink
+          <LinkNav
             class="befAll-two"
             v-for="item in NavAgenstvo"
             :title="item.title"
@@ -36,7 +36,7 @@
         </div>
         <div class="header_burger_right header_burger_right-two">
           <h4 class="header_burger_right-title">Услуги</h4>
-          <NavLink
+          <LinkNav
             class="befAll-two"
             v-for="item in NavServises"
             :title="item.title"
@@ -45,7 +45,7 @@
         </div>
         <div class="header_burger_right header_burger_right-one">
           <h4 class="header_burger_right-title">Наши веб сервисы</h4>
-          <NavLink
+          <LinkNav
             class="befAll-two"
             v-for="item in NavProject"
             :title="item.title"
@@ -55,7 +55,7 @@
         <div class="header_burger_left-item">
           <img src="@/assets/icon.svg" alt="" />
           <div class="header_burger_left-item-texts">
-            <NavLink class="befAll-two" title="Блог" />
+            <LinkNav class="befAll-two" title="Блог" />
 
             <p>Интересные истории</p>
           </div>
@@ -65,17 +65,17 @@
     <div class="header_burger-bottom">
       <div class="header_burger-bottom-top">
         <div class="header_burger-bottom-top_left">
-          <NavLink class="befAll-two" title="Документы" />
-          <NavLink class="befAll-two" title="m: hi@cidgital.ru" />
+          <LinkNav class="befAll-two" title="Документы" />
+          <LinkNav class="befAll-two" title="m: hi@cidgital.ru" />
         </div>
-        <NavLink class="befAll-two" title="p: 8 (981) 997-50-00" />
+        <LinkNav class="befAll-two" title="p: 8 (981) 997-50-00" />
       </div>
       <div class="header_burger-bottom-bot">
-        <NavLink class="befAll-two" title="Vkontakte" />
-        <NavLink class="befAll-two" title="Behance" />
-        <NavLink class="befAll-two" title="Telegram" />
-        <NavLink class="befAll-two" title="Dprofile" />
-        <NavLink class="befAll-two" title="Dribbble" />
+        <LinkNav class="befAll-two" title="Vkontakte" />
+        <LinkNav class="befAll-two" title="Behance" />
+        <LinkNav class="befAll-two" title="Telegram" />
+        <LinkNav class="befAll-two" title="Dprofile" />
+        <LinkNav class="befAll-two" title="Dribbble" />
       </div>
     </div>
   </div>
@@ -85,7 +85,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import NavLink from './NavLink.vue'
+import LinkNav from './LinkNav.vue'
 const NavServises = ref([
   {
     title: 'Аналитика',
