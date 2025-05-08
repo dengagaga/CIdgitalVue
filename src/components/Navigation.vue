@@ -302,4 +302,11 @@ document.addEventListener('DOMContentLoaded', function () {
   gap: 20px;
 }
 /*/BURGER*/
+
+@media(max-width:1440px) {
+  .logotype img{
+    max-width: 102px;
+    height: 20px;
+  }
+}
 </style>
