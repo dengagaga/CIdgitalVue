@@ -1,15 +1,16 @@
 <template>
-  <a href="#" class="befAll">
+  <router-link :href="link" class="befAll">
     <div class="nav_right-link-one">
       <p class="nav_right-link-text_rel">{{ title }}</p>
       <p class="nav_right-link-text_abs">{{ title }}</p>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script setup>
 defineProps({
   title: String,
+  link: String,
 })
 </script>
 <style>

@@ -20,7 +20,7 @@
         </svg>
       </div>
       <div class="nav_right-all">
-        <NavLink v-for="item in NavArray" :key="item.title" :title="item.title" />
+        <NavLink v-for="item in NavArray" :key="item.title" :title="item.title" :link="item.link" />
       </div>
       <a href="#" class="nav_right-link">
         <p>написать в telegram</p>
@@ -46,12 +46,15 @@ defineEmits(['toggleBurger'])
 const NavArray = ref([
   {
     title: 'проекты',
+    link:'/project'
   },
   {
     title: 'услуги',
+     link:'/'
   },
   {
     title: 'агентство',
+     link:'/'
   },
 ])
 
@@ -94,6 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 28px;
+  position: relative;
+  z-index: 2;
 }
 .nav_right {
   background-color: var(--frame-color);
@@ -133,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 .nav_right-burger {
   position: relative;
-  z-index: 20;
+  z-index: 4445;
   border-radius: 11px;
   background-color: var(--bgc-btn);
   height: 36px;
@@ -304,9 +310,14 @@ document.addEventListener('DOMContentLoaded', function () {
 /*/BURGER*/
 
 @media(max-width:1440px) {
-  .logotype img{
-    max-width: 102px;
+  .logotype {
+    max-width: 120px;
+    width: 100%;
     height: 20px;
+  }
+  .logotype img {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

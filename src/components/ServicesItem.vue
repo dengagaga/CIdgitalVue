@@ -1,0 +1,201 @@
+<template>
+    <div :class="servicesItemActive ? 'services_item services_item--active' : 'services_item'" @click="servicesItemActive = !servicesItemActive" >
+            <div class="services_item-top">
+                <div class="services_item-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M19.9967 34.9934C28.2792 34.9934 34.9934 28.2792 34.9934 19.9967C34.9934 11.7143 28.2792 5 19.9967 5C11.7143 5 5 11.7143 5 19.9967C5 28.2792 11.7143 34.9934 19.9967 34.9934Z" fill="#FE2D02" fill-opacity="0.05"></path>
+                        <path d="M31.8312 29.2144C33.4289 27.1631 34.5137 24.6844 34.8687 21.9823C34.9542 21.3314 35.0002 20.6674 35.0002 19.9902C35.0002 19.3261 34.9608 18.6752 34.8753 18.0375C33.9877 11.2722 28.5965 5.92048 21.8115 5.10522" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
+                        <path d="M17.8666 5.14453C15.217 5.51928 12.791 6.59095 10.7792 8.16228C9.74038 8.97096 8.80679 9.92428 8.01126 10.9762C6.48595 12.9946 5.46688 15.4141 5.125 18.0439" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
+                        <path d="M29.0172 31.9822C26.9593 33.5338 24.4938 34.566 21.8114 34.8882C21.2197 34.9605 20.6148 34.9999 19.9968 34.9999C19.2736 34.9999 18.5635 34.9473 17.8666 34.8487C11.2394 33.902 6.006 28.6291 5.125 21.9888" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
+                        <path d="M14.5791 18.3464V25.5851" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
+                        <path d="M19.8525 13.1592V25.5852" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
+                        <path d="M25.0918 15.7825V25.5852" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
+                    </svg>
+                    <h4 class="services_item-top-title">{{ item.title }}</h4>
+                </div>
+                <div class="services_item-rigth">
+                    <p class="text-grey">
+                        {{ item.text }}
+                    </p>
+                    <span>{{ item.id }}</span>
+                </div>
+            </div>
+            <div class="services_item-bot">
+                <div class="services_item-bot-all">
+                    <button class="services_item-bot_btn">
+                        UX-аналитика
+                    </button>
+                    <button class="services_item-bot_btn">
+                        Веб-аналитика
+                    </button>
+                    <button class="services_item-bot_btn">
+                        Исследования
+                    </button>
+                </div>
+                <div class="services_item-bot-links">
+                    <a href="Brief.html" class="blog-btn blog-btn-link">Заполнить бриф</a>
+                    <a href="portfolio.html" class="services_item-bot-link">Смотреть кейс<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M12.9277 9.91125C12.2374 9.91125 11.6777 10.4709 11.6777 11.1613C11.6777 11.8516 12.2374 12.4113 12.9277 12.4113H25.82L10.2763 27.9549C9.78812 28.4431 9.78812 29.2346 10.2763 29.7227C10.7644 30.2109 11.5559 30.2109 12.044 29.7227L27.5876 14.1791V27.0712C27.5876 27.7615 28.1473 28.3212 28.8376 28.3212C29.528 28.3212 30.0876 27.7615 30.0876 27.0712V11.1613C30.0876 10.4709 29.528 9.91125 28.8376 9.91125H12.9277Z" fill="#101010"></path>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+      
+</template>
+<script setup>
+import { ref } from 'vue'
+const servicesItemActive = ref(false)
+defineProps({
+    item: Object,
+})
+</script>
+<style>
+.services_item {
+    padding: 44px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC;
+    cursor: pointer;
+    transition: all .3s;
+}
+.services_item-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.services_item-top-title {
+    font-size: 26px;
+    font-weight: 500;
+    color: #101010;
+}
+.services_item-left {
+    transition: .4s;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    max-width: 335px;
+    width: 100%;
+}
+.services_item-rigth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 100%;
+}
+.services_item-rigth span{
+
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #101010;
+}
+.text-grey {
+    color: #717171;
+    font-family: "Manrope";
+    line-height: 28px;
+    max-width: 650px;
+    transition: .4s;
+    font-size: 20px;
+}
+.services_item-bot {
+    transition: all .3s;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin-top: 0;
+}
+
+/* .services_item:hover {
+    padding-bottom: 48px;
+} */
+.services_item--active .services_item-bot {
+    opacity: 1;
+    visibility: visible;
+    height: 140px;
+    margin-top: 44px;
+}
+
+.services_item-bot-all {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+.services_item-bot_btn {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #080808;
+    border: 2px solid #F4F4F4;
+    padding-top: 10px;
+    padding-right: 14px;
+    padding-bottom: 10px;
+    padding-left: 14px;
+    border-radius: 50px;
+
+}
+.blog-btn {
+    padding: 0px 24px;
+    background-color: #003EBB;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    border-radius: 8px;
+    border: 1px solid #003EBB;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 56px;
+
+}
+.services_item-bot-links {
+    display: flex;
+    gap: 24px;
+}
+.services_item-bot-link {
+    border: 1px solid #DCDCDC;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 56px;
+    padding: 0px 24px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #101010;
+    font-weight: 700;
+}
+.services_item-bot-link svg {
+    width: 25px;
+}
+@media(max-width:1440px) {
+    .services_item-top-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: #101010;
+}
+.text-grey {
+    color: #717171;
+    font-family: "Manrope";
+    line-height: 28px;
+    max-width: 555px;
+    transition: .4s;
+    font-size: 16px;
+}
+.services_item-rigth span{
+
+    font-weight: 300;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+}
+</style>
