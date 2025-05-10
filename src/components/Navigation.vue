@@ -26,7 +26,7 @@
         <p>написать в telegram</p>
         <img src="@/assets/ava.png" alt="" /><span class="nav_right-link-span"></span>
       </a>
-      <a href="#" class="nav_right-link nav_right-link-end">
+      <a href="#" @click="modalActive = !modalActive" class="nav_right-link nav_right-link-end">
         <p>заказать проект</p>
         <img src="@/assets/arrow.svg" alt="" />
         <span class="nav_right-link-span"></span>
@@ -34,14 +34,17 @@
       <slot></slot>
     </div>
   </nav>
+  <modalZakaz v-if="modalActive"/>
 </template>
 <script setup>
 import { ref } from 'vue'
 import LinkNav from './LinkNav.vue'
+import modalZakaz from './modalZakaz.vue'
 import { RouterLink } from 'vue-router'
 defineProps({
   burgerActive: Boolean,
 })
+const modalActive = ref(false)
 defineEmits(['toggleBurger'])
 // const burgerActive = ref(false)
 const NavArray = ref([

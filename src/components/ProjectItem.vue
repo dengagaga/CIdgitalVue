@@ -14,7 +14,7 @@
                 <div class="drop_list-right-developers">
                     <img src="../assets/img/elips2.png" alt="">
                     <img src="../assets/img/elips1.png" alt="">
-                    <img src="../assets/img/elips2.png" alt="">
+                    <img src="../assets/img/elips3.png" alt="">
                 </div>
             </div>
             <div class="project_plus" @click="active = !active">
@@ -190,6 +190,8 @@ defineProps({
 .drop_list-right-developers img {
     width: 40px;
     height: 40px;
+    box-shadow: 1px 0px 0px 0px #000000;
+
 }
 .drop_list-right-developers img:nth-child(1) {
    position: relative;
@@ -207,7 +209,7 @@ defineProps({
 @media(max-width:1440px) {
     .project_img {
     width: 100%;
-    height: 400px;
+    height: 380px;
     border-radius: 6px;
 }
 .project_logo {
