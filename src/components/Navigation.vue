@@ -34,7 +34,7 @@
       <slot></slot>
     </div>
   </nav>
-  <modalZakaz v-if="modalActive"/>
+  <modalZakaz @modalZakazToggle="modalZakazToggle" v-if="modalActive"/>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -44,6 +44,9 @@ import { RouterLink } from 'vue-router'
 defineProps({
   burgerActive: Boolean,
 })
+const modalZakazToggle = () => {
+  modalActive.value = !modalActive.value
+}
 const modalActive = ref(false)
 defineEmits(['toggleBurger'])
 // const burgerActive = ref(false)

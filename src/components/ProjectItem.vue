@@ -190,6 +190,7 @@ defineProps({
 .drop_list-right-developers img {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     box-shadow: 1px 0px 0px 0px #000000;
 
 }
