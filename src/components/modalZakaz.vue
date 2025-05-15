@@ -27,6 +27,36 @@
                     <textarea class="modal_main-task-inp" type="text"></textarea>
                     <p class="modal_main-task-text">В чем заключается задача? Какие сроки? Сфера деятельности компании?</p>
                 </div>
+                <div class="modal_main-contact">
+                    <h4 class="title_4">Контактные данные</h4>
+                    <div class="modal_main-contact-list">
+                        <dd class="inputbox-content">
+                            <input id="input0" type="text" required/>
+                            <label for="input0">Имя и фамилия *</label>
+                            <span class="underline"></span>
+                        </dd>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="text" required/>
+                            <label for="input1">Телефон *</label>
+                            <span class="underline"></span>
+                        </dd>
+                        <dd class="inputbox-content">
+                            <input id="input2" type="text" required/>
+                            <label for="input2">Контактный e-mail</label>
+                            <span class="underline"></span>
+                        </dd>
+                        <dd class="inputbox-content">
+                            <input id="input3" type="text" required/>
+                            <label for="input3">Название компании</label>
+                            <span class="underline"></span>
+                        </dd>
+                    </div>
+                   
+                </div>
+                <div class="modal_main-connection">
+                    <h4 class="title_4">Способ связи</h4>
+                
+                </div>
             </div>
         </div>
     </div>
@@ -183,5 +213,76 @@ const arrayType = ref([
 .modal_main-task-text {
     color: #696D73;
     font-size: 14px;
+}
+
+.modal_main-contact {
+    padding-bottom: 80px;
+}
+.modal_main-contact-list {
+    display: grid;
+    margin-top: 38px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 66px;
+}
+.inputbox-content {
+    position: relative;
+    width: 100%;
+}
+.inputbox-content label{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 30px;
+    line-height: 30px;
+    font-size:16px;
+    color:#080808;
+    cursor:text;
+    transition: all 200ms ease-out;
+    z-index:10;
+}
+.inputbox-content input{
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    line-height: 30px;
+    font-size:16px;
+    border:0;
+    background: none;
+    border-bottom:1px solid #ccc;
+    outline:none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    transition: all .3s;
+    &:hover{
+        border-bottom:1px solid #000;
+    }
+    &:focus,&:valid{
+    &~label{
+        color: #1010104D;
+        transform: translateY(-20px);
+        font-size:10px;
+        cursor:default;
+    }
+    }
+    &:focus{
+    &~.underline{
+        width: 100%;
+    }
+} 
+}
+.underline {
+    content:'';
+    display: block;
+    position: absolute;
+    bottom:-1px;
+    left:0;
+    width: 0;
+    height: 2px;
+    background:  #2962ff;
+    transition: all 200ms ease-out;
+}
+.modal_main-connection {
+    padding-bottom: 118px;
 }
 </style>
