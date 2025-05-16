@@ -17,8 +17,8 @@
                 <div class="modal_main-type">
                     <h4 class="title_4">Тип проекта</h4>
                     <div class="modal_main-type-list">
-                        <div class="modal_main-type-item" v-for="item in arrayType" :key="item.id">
-                            {{ item.title }}
+                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectType(item, arrayType)" v-for="item in arrayType" :key="item.id">
+                            {{ item.title }} <img @click="toggleType(item)" class="modal_main-type-item-close" v-if="item.active" src="/src/assets/img/plusSm.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -55,61 +55,107 @@
                 </div>
                 <div class="modal_main-connection">
                     <h4 class="title_4">Способ связи</h4>
-                
+                    <div class="modal_main-type-list">
+                        <div class="modal_main-type-item" v-for="item in arrayСonnection" :key="item.id">
+                            {{ item.title }}
+                        </div>
+                    </div>
                 </div>
+                <div class="modal_main-btns">
+                    <button class="modal_main-btn">Отправить</button>
+                    <p class="modal_main-btn-text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности.</p>
+                </div>
+            </div>
+            <div class="modal_bot">
+                <p class="modal_bot-text">Защита от спама Yandex SmartCaptcha. 
+                    Условия обработки данных</p>
             </div>
         </div>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue';
+const selectType = (item, array) => {
+    array.forEach(element => {
+        element.active = false
+    })
+    item.active = !item.active
+}
+const toggleType = (item) => {
+    item.active = !item.active
+}
 const emit = defineEmits(['modalZakazToggle'])
 const arrayType = ref([
     {
         id:'1',
         title:'Корпоративный сайт',
-        text:'Изучаем бизнес клиента, поведение пользователей, подбираем метрики и способы продвижения',
+        active: false,
     },
     {
         id:'2',
         title:'Лендинг',
-        text:'Привлекательный веб-дизайн, объединённый с уникальным пользовательским опытом.',
+        active: false,
     },
     {
         id:'3',
         title:'Мобильное приложение',
-        text:'Инновационные продукты, созданные с использованием передовых технологий',
+        active: false,
     },
     {
         id:'4',
         title:'Доработки и техподдержка',
-        text:'Улучшение видимости бренда в поисковых результатах для привлечения целевой аудитории',
+        active: false,
     },
     {
         id:'5',
         title:'eCommerce / b2b',
-        text:'Эффективное взаимодействие с клиентами через интегрированные CRM-решения',
+        active: false,
     },
     {
         id:'6',
         title:'Аутстаф',
-        text:'Эффективное взаимодействие с клиентами через интегрированные CRM-решения',
+        active: false,
     },
     {
         id:'7',
         title:'Личный кабинет',
-        text:'Эффективное взаимодействие с клиентами через интегрированные CRM-решения',
+        active: false,
     },
     {
         id:'8',
         title:'Внедрение 1С',
-        text:'Эффективное взаимодействие с клиентами через интегрированные CRM-решения',
+        active: false,
     },
     {
         id:'9',
         title:'Другое',
-        text:'Эффективное взаимодействие с клиентами через интегрированные CRM-решения',
+        active: false,
     },
+])
+const arrayСonnection = ref([
+    {
+        id:'1',
+        title:'Телеграм',
+        active: false,
+    },
+    {
+        id:'2',
+        title:'Whats App',
+        active: false,
+    
+    },
+    {
+        id:'3',
+        title:'По телефону',
+        active: false,
+       
+    },
+    {
+        id:'4',
+        title:'e-mail',
+        active: false,
+    },
+ 
 ])
 </script>
 <style>
@@ -190,12 +236,14 @@ const arrayType = ref([
 .modal_main-type-item {
     font-weight: 400;
     font-size: 14px;
+    cursor: pointer;
     border: 2px solid #F4F4F4;
     border-radius: 50px;
     height: 32px;
     padding: 0 14px;
     display: flex;
     align-items: center;
+    gap: 9px;
     justify-content: center;
     color: #080808;
 }
@@ -284,5 +332,53 @@ const arrayType = ref([
 }
 .modal_main-connection {
     padding-bottom: 118px;
+}
+
+.modal_main-btns {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+.modal_main-btn {
+    border: 1px solid #003EBB;
+    background-color: #003EBB;
+    border-radius: 16px;
+    padding: 19px 24px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.modal_main-btn-text {
+    color: #717171;
+    font-size: 14px;
+    max-width: 500px;
+    font-weight: 600;
+}
+.modal_bot {
+    background-color: #F8F7FF;
+    height: 107px;
+    padding-top: 44px;
+    padding-left: 42px;
+    margin-top: -20px;
+    position: relative;
+    z-index: -1;
+    border-radius: 0 0 22px 22px;
+}
+.modal_bot-text {
+    color: #717171;
+    font-weight: 600;
+    font-size: 14px;
+    max-width: 400px;
+}
+.active {
+    background: #F8F7FF;
+    border: 2px solid #F4F4F4;
+}
+.modal_main-type-item-close {
+    height: 14px;
+    width: 14px;
+    margin-top: 2px;
+    transform: rotate(45deg);
 }
 </style>
