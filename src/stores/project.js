@@ -47,5 +47,6 @@ export const useProjectStore = defineStore('project', () => {
       tags: ['Скоро кейс | Лендинг', 'Кейс | Сайт' , 'Бьюти сфера']
     },
   ])
+  
   return { projectItemArray }
 })

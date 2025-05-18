@@ -1,9 +1,10 @@
 <template>
+  <modalZakaz @modalZakazToggle="modalZakazToggle" v-if="modalActive"/>
   <header class="header">
     <div class="header_fon">
     </div>
     <div class="container">
-      <Navigation @toggleBurger="toggleBurger" :burgerActive="burgerActive">
+      <Navigation @modalZakazToggle="modalZakazToggle" @toggleBurger="toggleBurger" :burgerActive="burgerActive">
         <burgerMenu :class="burgerActive ? 'header_burger' : 'header_burger header_burger--none'" />
       </Navigation>
     </div>
@@ -21,6 +22,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import modalZakaz from '@/components/modalZakaz.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue';
 import headerMid from '@/components/headerMid.vue';
@@ -31,6 +33,11 @@ const burgerActive = ref(false)
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
 }
+const modalZakazToggle = () => {
+  modalActive.value = !modalActive.value
+
+}
+const modalActive = ref(false)
 </script>
 
 <style scoped>

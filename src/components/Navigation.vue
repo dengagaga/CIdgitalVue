@@ -26,7 +26,7 @@
         <p>написать в telegram</p>
         <img src="@/assets/ava.png" alt="" /><span class="nav_right-link-span"></span>
       </a>
-      <a href="#" @click="modalActive = !modalActive" class="nav_right-link nav_right-link-end">
+      <a href="#" @click="$emit('modalZakazToggle')" class="nav_right-link nav_right-link-end">
         <p>заказать проект</p>
         <img src="@/assets/arrow.svg" alt="" />
         <span class="nav_right-link-span"></span>
@@ -34,21 +34,18 @@
       <slot></slot>
     </div>
   </nav>
-  <modalZakaz @modalZakazToggle="modalZakazToggle" v-if="modalActive"/>
+  
 </template>
 <script setup>
 import { ref } from 'vue'
 import LinkNav from './LinkNav.vue'
-import modalZakaz from './modalZakaz.vue'
+
 import { RouterLink } from 'vue-router'
 defineProps({
   burgerActive: Boolean,
 })
-const modalZakazToggle = () => {
-  modalActive.value = !modalActive.value
-}
-const modalActive = ref(false)
-defineEmits(['toggleBurger'])
+
+defineEmits(['toggleBurger','modalZakazToggle'])
 // const burgerActive = ref(false)
 const NavArray = ref([
   {
@@ -185,9 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
   width: 225%;
   height: 562.5px;
 }
-.nav_right-link:active {
-  background-color: #60ad44;
-}
+
 /*BURGER*/
 .ham {
   cursor: pointer;

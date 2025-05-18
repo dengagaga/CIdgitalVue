@@ -18,35 +18,35 @@
                     <h4 class="title_4">Тип проекта</h4>
                     <div class="modal_main-type-list">
                         <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectType(item, arrayType)" v-for="item in arrayType" :key="item.id">
-                            {{ item.title }} <img @click="toggleType(item)" class="modal_main-type-item-close" v-if="item.active" src="/src/assets/img/plusSm.svg" alt="">
+                            {{ item.title }} 
                         </div>
                     </div>
                 </div>
                 <div class="modal_main-task">
                     <h4 class="title_4">Задача</h4>
-                    <textarea class="modal_main-task-inp" type="text"></textarea>
+                    <textarea v-model="task" class="modal_main-task-inp" type="text"></textarea>
                     <p class="modal_main-task-text">В чем заключается задача? Какие сроки? Сфера деятельности компании?</p>
                 </div>
                 <div class="modal_main-contact">
                     <h4 class="title_4">Контактные данные</h4>
                     <div class="modal_main-contact-list">
                         <dd class="inputbox-content">
-                            <input id="input0" type="text" required/>
+                            <input id="input0" v-model="name" type="text" required/>
                             <label for="input0">Имя и фамилия *</label>
                             <span class="underline"></span>
                         </dd>
                         <dd class="inputbox-content">
-                            <input id="input1" type="text" required/>
-                            <label for="input1">Телефон *</label>
+                            <ProximaPhone id="input1" v-model="number" type="text" required/>
+                            <label for="input1" >Телефон *</label>
                             <span class="underline"></span>
                         </dd>
                         <dd class="inputbox-content">
-                            <input id="input2" type="text" required/>
+                            <input id="input2" v-model="email" type="text" required/>
                             <label for="input2">Контактный e-mail</label>
                             <span class="underline"></span>
                         </dd>
                         <dd class="inputbox-content">
-                            <input id="input3" type="text" required/>
+                            <input id="input3" v-model="company" type="text" required/>
                             <label for="input3">Название компании</label>
                             <span class="underline"></span>
                         </dd>
@@ -56,13 +56,13 @@
                 <div class="modal_main-connection">
                     <h4 class="title_4">Способ связи</h4>
                     <div class="modal_main-type-list">
-                        <div class="modal_main-type-item" v-for="item in arrayСonnection" :key="item.id">
+                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectConnection(item, arrayСonnection)" v-for="item in arrayСonnection" :key="item.id">
                             {{ item.title }}
                         </div>
                     </div>
                 </div>
                 <div class="modal_main-btns">
-                    <button class="modal_main-btn">Отправить</button>
+                    <button class="modal_main-btn" @click="sendToTelegram()">Отправить</button>
                     <p class="modal_main-btn-text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности.</p>
                 </div>
             </div>
@@ -75,14 +75,18 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+import ProximaPhone from 'proxima-vue/field/phone';
 const selectType = (item, array) => {
-    array.forEach(element => {
-        element.active = false
-    })
-    item.active = !item.active
+    const wasActive = item.active; 
+    array.forEach((el) => (el.active = false)); 
+    item.active = !wasActive; 
+    type.value = item.title
 }
-const toggleType = (item) => {
-    item.active = !item.active
+const selectConnection = (item, array) => {
+    const wasActive = item.active; 
+    array.forEach((el) => (el.active = false)); 
+    item.active = !wasActive; 
+    connection.value = item.title
 }
 const emit = defineEmits(['modalZakazToggle'])
 const arrayType = ref([
@@ -157,8 +161,35 @@ const arrayСonnection = ref([
     },
  
 ])
+
+const name = ref('')
+const email = ref('')
+const type = ref('')
+const number = ref('')
+const task = ref('')
+const company = ref('')
+const connection = ref('')
+ const sendToTelegram = async () => {
+    const botToken = "7431266742:AAFZ2csa4LTw8gZvgAIk_rGpIlYp_2jzfXw";
+    const chatId = "-4566691787"; // Ваш chat_id
+    const text = `Новая заявка:\nИмя: ${name.value}\nEmail: ${email.value}\nТип: ${type.value}\nНомер телефона: ${number.value}\nЗадача: ${task.value}\nКомпания: ${company.value}\nСпособ связи: ${connection.value}`;
+    console.log(text);
+    
+    try {
+      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text }),
+      });
+      alert("Сообщение отправлено в Telegram!");
+    } catch (error) {
+      console.error("Ошибка:", error);
+    }
+  }
+
+
 </script>
-<style>
+<style scoped>
 .modal {
     backdrop-filter: blur(2px);
     background-color: #00000080;
@@ -289,18 +320,19 @@ const arrayСonnection = ref([
     transition: all 200ms ease-out;
     z-index:10;
 }
+
 .inputbox-content input{
-    width: 100%;
-    height: 30px;
-    box-sizing: border-box;
-    line-height: 30px;
-    font-size:16px;
-    border:0;
-    background: none;
-    border-bottom:1px solid #ccc;
-    outline:none;
-    border-radius: 0;
-    -webkit-appearance: none;
+    width: 100%!important;
+    height: 30px!important;
+    box-sizing: border-box!important;
+    line-height: 30px!important;
+    font-size:16px!important;
+    border:0!important;
+    background: none!important;
+    border-bottom:1px solid #ccc!important;
+    outline:none!important;
+    border-radius: 0!important;
+    -webkit-appearance: none!important;
     transition: all .3s;
     &:hover{
         border-bottom:1px solid #000;
@@ -318,6 +350,7 @@ const arrayСonnection = ref([
         width: 100%;
     }
 } 
+
 }
 .underline {
     content:'';

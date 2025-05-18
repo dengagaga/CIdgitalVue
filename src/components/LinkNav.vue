@@ -5,7 +5,7 @@
       <p class="nav_right-link-text_abs">{{ item.title }}</p>
     </div>
   </router-link>
-  <router-link  class="befAll" v-else>
+  <router-link to="/" class="befAll" v-else>
     <div class="nav_right-link-one">
       <p class="nav_right-link-text_rel">{{ title }}</p>
       <p class="nav_right-link-text_abs">{{ title }}</p>

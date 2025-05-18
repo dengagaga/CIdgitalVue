@@ -1,9 +1,10 @@
 <template>
+  <modalZakaz @modalZakazToggle="modalZakazToggle" v-if="modalActive"/>
   <header class="header">
     <div class="header_fon">
     </div>
     <div class="container">
-      <Navigation @toggleBurger="toggleBurger" :burgerActive="burgerActive">
+      <Navigation @modalZakazToggle="modalZakazToggle" @toggleBurger="toggleBurger" :burgerActive="burgerActive">
         <burgerMenu :class="burgerActive ? 'header_burger' : 'header_burger header_burger--none'" />
       </Navigation>
     </div>
@@ -32,14 +33,28 @@ import headerMid from '@/components/headerMid.vue';
 import Services from '@/components/Services.vue';
 import projectItem from '@/components/ProjectItem.vue';
 import { useProjectStore } from '@/stores/project'
+import modalZakaz from '@/components/modalZakaz.vue'
 const projectStore =  useProjectStore()
 const burgerActive = ref(false)
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
 }
+const modalZakazToggle = () => {
+  modalActive.value = !modalActive.value
+  // const body = document.querySelector('body')
+  // const header = document.querySelector('header')
+  // body.style.height = modalActive.value ? '100vh' : 'auto'
+  // header.style.height = modalActive.value ? '135vh' : 'auto'
+  // header.style.overflow = modalActive.value ? 'scroll' : 'auto';
+  // body.style.overflow = modalActive.value ? 'hidden' : 'auto';
+}
+const modalActive = ref(false)
 </script>
 
 <style>
+#app {
+  position: relative;
+}
 .header {
   position: relative;
 
