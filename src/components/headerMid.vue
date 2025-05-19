@@ -236,4 +236,35 @@ defineProps({
     font-size: 14px;
 }
 }
+
+@media(max-width: 450px) {
+    .header_mid {
+        padding: 0 4px;
+    }
+    .title_1 {
+        margin-top: 80px;
+    }
+    .header_mid-oneFon {
+        padding: 34px 14px;
+    }
+    .header_mid-oneFon-all {
+        flex-direction: column;
+        gap: 55px;
+    }
+    .header_mid-oneFon-all img{
+        max-width: 27px;
+    }
+    .title_2 {
+    font-size: 22px;
+    /* max-width: 258px; */
+  }
+  .header_mid-oneFon-right-bot-proj {
+        margin-top: 18px;
+        gap: 9px;
+  }
+  .text {
+    font-size: 14px;
+    max-width: 350px;
+  }
+ }
 </style>

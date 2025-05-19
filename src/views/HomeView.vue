@@ -75,4 +75,11 @@ const modalActive = ref(false)
   gap: 32px;
   padding-bottom: 100px;
 }
+@media(max-width: 450px) {
+  .main_projects {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+  }
 </style>

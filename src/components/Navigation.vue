@@ -322,4 +322,23 @@ document.addEventListener('DOMContentLoaded', function () {
     height: 100%;
   }
 }
+
+@media(max-width: 450px) {
+    .nav_right-all {
+      display: none;
+    }
+    .nav_right-link-end {
+      display: none;
+    }
+    .logotype {
+      max-width: 96px;
+    }
+    .nav_right-burger {
+      order: 2;
+    }
+    .nav_right-link {
+        max-width: 129px;
+    }
+   
+ }
 </style>

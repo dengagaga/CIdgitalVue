@@ -17,7 +17,7 @@
                 <div class="modal_main-type">
                     <h4 class="title_4">Тип проекта</h4>
                     <div class="modal_main-type-list">
-                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectType(item, arrayType)" v-for="item in arrayType" :key="item.id">
+                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectType(item, arrayType)" v-for="item in modalStore.arrayType" :key="item.id">
                             {{ item.title }} 
                         </div>
                     </div>
@@ -36,7 +36,8 @@
                             <span class="underline"></span>
                         </dd>
                         <dd class="inputbox-content">
-                            <ProximaPhone id="input1" v-model="number" type="text" required/>
+                            <input id="input1" v-model="number"  @input="handlePhoneInput" 
+                             type="text" required/>
                             <label for="input1" >Телефон *</label>
                             <span class="underline"></span>
                         </dd>
@@ -56,7 +57,7 @@
                 <div class="modal_main-connection">
                     <h4 class="title_4">Способ связи</h4>
                     <div class="modal_main-type-list">
-                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectConnection(item, arrayСonnection)" v-for="item in arrayСonnection" :key="item.id">
+                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectConnection(item, arrayСonnection)" v-for="item in modalStore.arrayСonnection" :key="item.id">
                             {{ item.title }}
                         </div>
                     </div>
@@ -75,7 +76,18 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import ProximaPhone from 'proxima-vue/field/phone';
+import { useModalStore } from '@/stores/modal'
+const modalStore = useModalStore()
+const emit = defineEmits(['modalZakazToggle'])
+const name = ref('')
+const email = ref('')
+const type = ref('')
+const number = ref('')
+const task = ref('')
+const company = ref('')
+const connection = ref('')
+
+
 const selectType = (item, array) => {
     const wasActive = item.active; 
     array.forEach((el) => (el.active = false)); 
@@ -88,104 +100,47 @@ const selectConnection = (item, array) => {
     item.active = !wasActive; 
     connection.value = item.title
 }
-const emit = defineEmits(['modalZakazToggle'])
-const arrayType = ref([
-    {
-        id:'1',
-        title:'Корпоративный сайт',
-        active: false,
-    },
-    {
-        id:'2',
-        title:'Лендинг',
-        active: false,
-    },
-    {
-        id:'3',
-        title:'Мобильное приложение',
-        active: false,
-    },
-    {
-        id:'4',
-        title:'Доработки и техподдержка',
-        active: false,
-    },
-    {
-        id:'5',
-        title:'eCommerce / b2b',
-        active: false,
-    },
-    {
-        id:'6',
-        title:'Аутстаф',
-        active: false,
-    },
-    {
-        id:'7',
-        title:'Личный кабинет',
-        active: false,
-    },
-    {
-        id:'8',
-        title:'Внедрение 1С',
-        active: false,
-    },
-    {
-        id:'9',
-        title:'Другое',
-        active: false,
-    },
-])
-const arrayСonnection = ref([
-    {
-        id:'1',
-        title:'Телеграм',
-        active: false,
-    },
-    {
-        id:'2',
-        title:'Whats App',
-        active: false,
-    
-    },
-    {
-        id:'3',
-        title:'По телефону',
-        active: false,
-       
-    },
-    {
-        id:'4',
-        title:'e-mail',
-        active: false,
-    },
- 
-])
-
-const name = ref('')
-const email = ref('')
-const type = ref('')
-const number = ref('')
-const task = ref('')
-const company = ref('')
-const connection = ref('')
- const sendToTelegram = async () => {
-    const botToken = "7431266742:AAFZ2csa4LTw8gZvgAIk_rGpIlYp_2jzfXw";
-    const chatId = "-4566691787"; // Ваш chat_id
+const formatPhone = () => {
+  const digits = number.value.replace(/\D/g, '');
+  if (!digits.length) {
+    number.value = '';
+    return;
+  }
+  const match = digits.match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+  if (match[1] === '8') match[1] = '7'; 
+  if (!match[1]) match[1] = '7'; 
+  number.value = !match[3] 
+    ? '+7 (' + match[2] 
+    : '+7 (' + match[2] + ') ' + match[3] + (match[4] ? '-' + match[4] : '') + (match[5] ? '-' + match[5] : '');
+}
+const handlePhoneInput = (e) => {
+  if (e.inputType === 'deleteContentBackward' && number.value.replace(/\D/g, '').length <= 1) {
+    number.value = '';
+    return;
+  }
+  formatPhone();
+}
+const sendToTelegram = async () => {
+const botToken = "7431266742:AAFZ2csa4LTw8gZvgAIk_rGpIlYp_2jzfXw";
+const chatId = "-4566691787"; // Ваш chat_id
+if (!name.value) {
+    console.log('ПУСТО');
+} else {
     const text = `Новая заявка:\nИмя: ${name.value}\nEmail: ${email.value}\nТип: ${type.value}\nНомер телефона: ${number.value}\nЗадача: ${task.value}\nКомпания: ${company.value}\nСпособ связи: ${connection.value}`;
-    console.log(text);
-    
+
     try {
-      await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id: chatId, text }),
-      });
-      alert("Сообщение отправлено в Telegram!");
+        });
+        alert("Сообщение отправлено в Telegram!");
     } catch (error) {
-      console.error("Ошибка:", error);
+        console.error("Ошибка:", error);
     }
-  }
+}
+
+}
 
 
 </script>
@@ -284,6 +239,7 @@ const connection = ref('')
 
 .modal_main-task-inp {
     margin-bottom: 16px;
+    padding: 10px;
     border: 1px solid #DCDCDC;
     border-radius: 16px;
     height: 151px;
@@ -322,17 +278,17 @@ const connection = ref('')
 }
 
 .inputbox-content input{
-    width: 100%!important;
-    height: 30px!important;
-    box-sizing: border-box!important;
-    line-height: 30px!important;
-    font-size:16px!important;
-    border:0!important;
-    background: none!important;
-    border-bottom:1px solid #ccc!important;
-    outline:none!important;
-    border-radius: 0!important;
-    -webkit-appearance: none!important;
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    line-height: 30px;
+    font-size:16px;
+    border:0;
+    background: none;
+    border-bottom:1px solid #ccc;
+    outline:none;
+    border-radius: 0;
+    -webkit-appearance: none;
     transition: all .3s;
     &:hover{
         border-bottom:1px solid #000;
@@ -413,5 +369,55 @@ const connection = ref('')
     width: 14px;
     margin-top: 2px;
     transform: rotate(45deg);
+}
+
+
+@media(max-width: 450px) {
+.modal_all {
+    width: auto;
+    
+    top: 5px;
+    left: 4px;
+    right: 4px;
+    transform: none;
+}
+.modal_main {
+    padding:  36px 12px;
+}
+.modal_main-title {
+    max-width: 258px!important;
+    margin-bottom: 30px!important;
+}
+.modal_main-top-text {
+    font-size: 14px;
+}
+.modal_main-top, .modal_main-type, .modal_main-task, .modal_main-contact {
+    padding-bottom: 40px;
+}
+.title_4 {
+    font-size: 18px;
+}
+.modal_main-contact-list {
+    display: flex;
+    flex-direction: column;
+}
+.modal_main-connection {
+    padding-bottom: 60px;
+}
+.modal_main-btns {
+    flex-direction: column;
+    align-items: start;
+}
+.modal_main-btn {
+    padding: 16px;
+    font-size: 16px;
+}
+.modal_main-btn-text {
+    font-size: 12px;
+}
+.modal_bot {
+    padding: 24px 12px;
+    padding-top: 44px;
+}
 }
 </style>

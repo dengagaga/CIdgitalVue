@@ -271,4 +271,12 @@ defineProps({
     height: 32px;
 }
 }
+@media(max-width: 450px) {
+    .project_img {
+        width: 100%;
+        height: 220px;
+        border-radius: 6px;
+    }
+   
+}
 </style>

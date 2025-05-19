@@ -198,4 +198,9 @@ defineProps({
 
 }
 }
+@media(max-width:450px) {
+    .services_item-top-title {
+        font-size: 22px;
+    }
+}
 </style>

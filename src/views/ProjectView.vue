@@ -37,11 +37,15 @@ const modalZakazToggle = () => {
   modalActive.value = !modalActive.value
 
 }
-const modalActive = ref(false)
+const modalActive = ref(true)
 </script>
 
 <style scoped>
 .main_projects {
   margin-top: 80px;
+}
+
+@media(max-width: 450px) {
+    
 }
 </style>

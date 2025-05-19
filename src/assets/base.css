@@ -163,3 +163,8 @@ body {
     color: #101010;
   }
 }
+@media (max-width: 450px) {
+  .container {
+    padding: 0 16px;
+  }
+}
