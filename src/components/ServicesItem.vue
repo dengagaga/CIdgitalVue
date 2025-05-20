@@ -218,7 +218,7 @@ border-bottom: 1px solid #015EF9;
         padding: 24px 0;
         border: none;
     }
-    .services_item-left svg{
+    .services_item-left img{
         width: 24px;
     }
     .services_item-left {
