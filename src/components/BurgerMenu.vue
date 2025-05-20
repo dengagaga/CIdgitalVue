@@ -243,4 +243,13 @@ const NavProject = ref([
   opacity: 0;
   visibility: hidden;
 }
+@media (max-width: 450px) {
+
+  .header_burger {
+    display: block;
+  }
+  .header_burger--none {
+    display: none;
+  }
+}
 </style>

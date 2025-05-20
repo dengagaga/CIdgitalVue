@@ -17,7 +17,7 @@
                 <div class="modal_main-type">
                     <h4 class="title_4">Тип проекта</h4>
                     <div class="modal_main-type-list">
-                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectType(item, arrayType)" v-for="item in modalStore.arrayType" :key="item.id">
+                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectType(item, modalStore.arrayType)" v-for="item in modalStore.arrayType" :key="item.id">
                             {{ item.title }} 
                         </div>
                     </div>
@@ -31,15 +31,17 @@
                     <h4 class="title_4">Контактные данные</h4>
                     <div class="modal_main-contact-list">
                         <dd class="inputbox-content">
-                            <input id="input0" v-model="name" type="text" required/>
-                            <label for="input0">Имя и фамилия *</label>
-                            <span class="underline"></span>
+                            <input id="input0" v-model="name" type="text" :class="erorName ? 'eror' : ''" required/>
+                            <label for="input0" :class="erorName ? 'eror' : ''">Имя и фамилия *</label>
+                            <span :class="erorName ? 'underlane--active underline' : 'underline'"></span>
+                            <p class="eror_modal" v-if="erorName">Поле необходимо заполнить</p>
                         </dd>
                         <dd class="inputbox-content">
                             <input id="input1" v-model="number"  @input="handlePhoneInput" 
-                             type="text" required/>
-                            <label for="input1" >Телефон *</label>
-                            <span class="underline"></span>
+                             type="text" :class="erorNumber ? 'eror' : ''" required/>
+                            <label for="input1" :class="erorNumber ? 'eror' : ''">Телефон *</label>
+                            <span :class="erorNumber ? 'underlane--active underline' : 'underline'"></span>
+                            <p class="eror_modal" v-if="erorNumber">Поле необходимо заполнить</p>
                         </dd>
                         <dd class="inputbox-content">
                             <input id="input2" v-model="email" type="text" required/>
@@ -57,10 +59,17 @@
                 <div class="modal_main-connection">
                     <h4 class="title_4">Способ связи</h4>
                     <div class="modal_main-type-list">
-                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectConnection(item, arrayСonnection)" v-for="item in modalStore.arrayСonnection" :key="item.id">
+                        <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectConnection(item, modalStore.arrayСonnection)" v-for="item in modalStore.arrayСonnection" :key="item.id">
                             {{ item.title }}
                         </div>
                     </div>
+                </div>
+                <div 
+                    style="height: 100px"
+                    id="captcha-container"
+                    class="smart-captcha"
+                    data-sitekey="ysc1_c50mkeZfZGNW5oSYbdcWpqm0LYs4VRiawvda6Onff025fc54"
+                    >
                 </div>
                 <div class="modal_main-btns">
                     <button class="modal_main-btn" @click="sendToTelegram()">Отправить</button>
@@ -75,7 +84,7 @@
     </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useModalStore } from '@/stores/modal'
 const modalStore = useModalStore()
 const emit = defineEmits(['modalZakazToggle'])
@@ -86,7 +95,8 @@ const number = ref('')
 const task = ref('')
 const company = ref('')
 const connection = ref('')
-
+const erorName = ref(false)
+const erorNumber = ref(false)
 
 const selectType = (item, array) => {
     const wasActive = item.active; 
@@ -123,11 +133,19 @@ const handlePhoneInput = (e) => {
 const sendToTelegram = async () => {
 const botToken = "7431266742:AAFZ2csa4LTw8gZvgAIk_rGpIlYp_2jzfXw";
 const chatId = "-4566691787"; // Ваш chat_id
-if (!name.value) {
-    console.log('ПУСТО');
+if (!name.value && !number.value) {
+    erorName.value = true
+    erorNumber.value = true
 } else {
+    if (!name.value) {
+    erorName.value = true
+} else {
+    if (!number.value ) {
+        erorNumber.value = true
+    } else {
     const text = `Новая заявка:\nИмя: ${name.value}\nEmail: ${email.value}\nТип: ${type.value}\nНомер телефона: ${number.value}\nЗадача: ${task.value}\nКомпания: ${company.value}\nСпособ связи: ${connection.value}`;
-
+        console.log('ssss');
+        emit('modalZakazToggle')
     try {
         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
@@ -139,9 +157,16 @@ if (!name.value) {
         console.error("Ошибка:", error);
     }
 }
-
+}
+}
 }
 
+watch(name, () => {
+    erorName.value = false
+})
+watch(number, () => {
+    erorNumber.value = false
+})
 
 </script>
 <style scoped>
@@ -263,6 +288,7 @@ if (!name.value) {
 .inputbox-content {
     position: relative;
     width: 100%;
+    height: max-content;
 }
 .inputbox-content label{
     position: absolute;
@@ -320,7 +346,7 @@ if (!name.value) {
     transition: all 200ms ease-out;
 }
 .modal_main-connection {
-    padding-bottom: 118px;
+    padding-bottom: 18px;
 }
 
 .modal_main-btns {
@@ -370,8 +396,19 @@ if (!name.value) {
     margin-top: 2px;
     transform: rotate(45deg);
 }
-
-
+.eror_modal {
+    color: #FF0033;
+    font-size: 13px;
+    margin-top: 5px;
+    position: absolute;
+}
+.eror {
+    color: #FF0033!important;
+    border-color:#FF0033!important ;
+}
+/* .underlane--active {
+    bottom: 23px;
+} */
 @media(max-width: 450px) {
 .modal_all {
     width: auto;
@@ -401,9 +438,9 @@ if (!name.value) {
     display: flex;
     flex-direction: column;
 }
-.modal_main-connection {
+/* .modal_main-connection {
     padding-bottom: 60px;
-}
+} */
 .modal_main-btns {
     flex-direction: column;
     align-items: start;
@@ -418,6 +455,15 @@ if (!name.value) {
 .modal_bot {
     padding: 24px 12px;
     padding-top: 44px;
+}
+.modal_top {
+    height: 103px;
+}
+.close {
+    width: 32px;
+    height: 32px;
+    top: 10px;
+    right: 10px;
 }
 }
 </style>

@@ -37,7 +37,7 @@ const modalZakazToggle = () => {
   modalActive.value = !modalActive.value
 
 }
-const modalActive = ref(true)
+const modalActive = ref(false)
 </script>
 
 <style scoped>

@@ -167,4 +167,7 @@ body {
   .container {
     padding: 0 16px;
   }
+  .title_3 {
+    font-size: 20px;
+  }
 }

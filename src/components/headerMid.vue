@@ -242,7 +242,11 @@ defineProps({
         padding: 0 4px;
     }
     .title_1 {
-        margin-top: 80px;
+        font-size: 60px;
+        margin-top: 100px;
+        margin-bottom: 20px;
+        text-align: center;
+        line-height: 60px;
     }
     .header_mid-oneFon {
         padding: 34px 14px;
@@ -265,6 +269,9 @@ defineProps({
   .text {
     font-size: 14px;
     max-width: 350px;
+  }
+  .header_mid-oneFon-right-bot-item h2 {
+    font-size: 22px;
   }
  }
 </style>

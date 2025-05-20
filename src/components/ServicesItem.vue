@@ -2,22 +2,18 @@
     <div :class="servicesItemActive ? 'services_item services_item--active' : 'services_item'" @click="servicesItemActive = !servicesItemActive" >
             <div class="services_item-top">
                 <div class="services_item-left">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <path d="M19.9967 34.9934C28.2792 34.9934 34.9934 28.2792 34.9934 19.9967C34.9934 11.7143 28.2792 5 19.9967 5C11.7143 5 5 11.7143 5 19.9967C5 28.2792 11.7143 34.9934 19.9967 34.9934Z" fill="#FE2D02" fill-opacity="0.05"></path>
-                        <path d="M31.8312 29.2144C33.4289 27.1631 34.5137 24.6844 34.8687 21.9823C34.9542 21.3314 35.0002 20.6674 35.0002 19.9902C35.0002 19.3261 34.9608 18.6752 34.8753 18.0375C33.9877 11.2722 28.5965 5.92048 21.8115 5.10522" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
-                        <path d="M17.8666 5.14453C15.217 5.51928 12.791 6.59095 10.7792 8.16228C9.74038 8.97096 8.80679 9.92428 8.01126 10.9762C6.48595 12.9946 5.46688 15.4141 5.125 18.0439" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
-                        <path d="M29.0172 31.9822C26.9593 33.5338 24.4938 34.566 21.8114 34.8882C21.2197 34.9605 20.6148 34.9999 19.9968 34.9999C19.2736 34.9999 18.5635 34.9473 17.8666 34.8487C11.2394 33.902 6.006 28.6291 5.125 21.9888" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
-                        <path d="M14.5791 18.3464V25.5851" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
-                        <path d="M19.8525 13.1592V25.5852" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
-                        <path d="M25.0918 15.7825V25.5852" stroke="#FE2D02" stroke-width="2.5" stroke-miterlimit="10"></path>
-                    </svg>
+                 <img :src="item.img" alt="">
                     <h4 class="services_item-top-title">{{ item.title }}</h4>
                 </div>
                 <div class="services_item-rigth">
                     <p class="text-grey">
                         {{ item.text }}
                     </p>
-                    <span>{{ item.id }}</span>
+                    <div class="services_item-rigth-plus">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 4V8M8 8V12M8 8H12M8 8L4 8" stroke="black" stroke-opacity="0.301961" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
             <div class="services_item-bot">
@@ -85,14 +81,18 @@ defineProps({
     max-width: 1100px;
     width: 100%;
 }
-.services_item-rigth span{
-
-    font-weight: 300;
-    font-style: italic;
-    font-size: 20px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    color: #101010;
+.services_item-rigth-plus {
+    background: #F4F4F4;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #0000001A;
+}
+.services_item-rigth-plus svg {
+    transition: all .3s;
 }
 .text-grey {
     color: #717171;
@@ -119,7 +119,19 @@ defineProps({
     height: 140px;
     margin-top: 44px;
 }
-
+.services_item--active .services_item-rigth-plus {
+background-color: #015EF91A;
+border-bottom: 1px solid #015EF9;
+}
+.services_item--active .services_item-rigth-plus svg{
+    transform: rotate(45deg);
+    position: relative;
+    z-index: 2;
+}
+.services_item--active .services_item-rigth-plus svg path{
+    stroke:#015EF9;
+    stroke-opacity: 1;
+}
 .services_item-bot-all {
     display: flex;
     gap: 8px;
@@ -200,7 +212,60 @@ defineProps({
 }
 @media(max-width:450px) {
     .services_item-top-title {
-        font-size: 22px;
+        font-size: 18px;
     }
+    .services_item {
+        padding: 24px 0;
+        border: none;
+    }
+    .services_item-left svg{
+        width: 24px;
+    }
+    .services_item-left {
+        gap: 16px;
+    }
+    .services_item-top {
+        gap: 20px;
+        position: relative;
+        align-items: start;
+        flex-direction: column;
+    }
+    .text-grey {
+        font-size: 14px;
+        line-height: 120%;
+        margin-left: 40px;
+    }
+    .services_item-rigth {
+       
+    }
+    .services_item-bot {
+        margin-top: 24px!important;
+    }
+    .services_item-bot-all {
+        flex-wrap: wrap;
+    }
+    .services_item-rigth-plus {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .services_item-bot-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .services_item--active .services_item-bot {
+        height: auto;
+    }
+    .blog-btn {
+        font-size: 16px;
+        justify-content: center;
+        height: 48px;
+    }
+    .services_item-bot-link {
+        font-size: 16px;
+        justify-content: center;
+        height: 48px;
+    }
+   
 }
 </style>
