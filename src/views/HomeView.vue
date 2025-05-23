@@ -18,11 +18,29 @@
     </div>
   </header>
   <main class="main">
-      <div class="container">
-        <div class="main_projects">
-          <projectItem v-for="item in projectStore.projectItemArray" :item="item" :key="item"></projectItem>
+    <section class="projects">
+        <div class="container">
+          <div class="main_projects">
+            <projectItem v-for="item in projectStore.projectItemArray" :item="item" :key="item"></projectItem>
+          </div>
         </div>
-      </div>
+    </section>
+    <section class="clients">
+        <div class="container">
+          <div class="clients_all">
+              <div class="clients_top">
+                <div class="clients_top-left"></div>
+                <div class="clients_top-right">
+                   <h2>“В основе каждой нашей работы лежит стремление создать что‑то большее, чем просто типовой сайт. Это и объединяет нас. <br>
+                        Мы хотим создавать и видеть проект, который сможет принести максимальную пользу своему заказчику”</h2>
+                </div>
+              </div>
+              <div class="clients_bot">
+                  <h2>Наши клиенты</h2>
+              </div>
+          </div>
+        </div>
+    </section>
     </main>
 </template>
 <script setup>
@@ -74,6 +92,37 @@ const modalActive = ref(false)
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   padding-bottom: 100px;
+}
+.clients_all {
+  padding: 94px 60px;
+  background: url("@/assets/img/clients.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  gap: 77px;
+  margin-bottom: 12px;
+}
+.clients_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clients_bot h2{
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 70px;
+}
+.clients_top-left {
+}
+.clients_top-right {
+  max-width: 670px;
+}
+.clients_top-right h2{
+  font-size: 28px;
+  font-weight: 500;
 }
 @media(max-width: 450px) {
   .main_projects {
