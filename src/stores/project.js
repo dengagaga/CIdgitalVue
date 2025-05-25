@@ -47,6 +47,33 @@ export const useProjectStore = defineStore('project', () => {
       tags: ['Скоро кейс | Лендинг', 'Кейс | Сайт' , 'Бьюти сфера']
     },
   ])
+  const clientsItemArray = ref([
+    {
+      id: 1,
+      name:'Laser Zone',
+      img: '/src/assets/img/lzLogo.png',
+    },
+    {
+      id: 2,
+      name:'Laser Zone',
+      img: '/src/assets/img/lzLogo.png',
+    },
+    {
+      id: 3,
+      name:'Laser Zone',
+      img: '/src/assets/img/lzLogo.png',
+    },
+    {
+      id: 4,
+      name:'Laser Zone',
+      img: '/src/assets/img/lzLogo.png',
+    },
+    {
+      id: 5,
+      name:'Laser Zone',
+      img: '/src/assets/img/lzLogo.png',
+    },
+  ])
   
-  return { projectItemArray }
+  return { projectItemArray, clientsItemArray }
 })
