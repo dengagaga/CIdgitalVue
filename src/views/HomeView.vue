@@ -31,7 +31,7 @@
               <div class="clients_top">
                 <div class="clients_top-left">
                    <div class="circle-text">
-                      <svg id="rotatingText" viewBox="0 0 200 200" width="200" height="200">
+                      <svg id="rotatingText" viewBox="0 0 200 200" width="354" height="354">
                         <defs>
                           <path id="circle" d="M 100, 100
                                   m -75, 0
@@ -41,7 +41,7 @@
                           </path>
                         </defs>
                         <text width="400">
-                          <textPath alignment-baseline="top" xlink:href="#circle" class="text">
+                          <textPath alignment-baseline="top" xlink:href="#circle">
                             Агентство полного цикла - cidgital -
                           </textPath>
                         </text>
@@ -51,15 +51,15 @@
                 </div>
                
                 <div class="clients_top-right">
-                   <h2>“В основе каждой нашей работы лежит стремление создать что‑то большее, чем просто типовой сайт. Это и объединяет нас. <br>
-                        Мы хотим создавать и видеть проект, который сможет принести максимальную пользу своему заказчику”</h2>
+                   <h2>“В основе каждой нашей работы лежит стремление создать что‑то большее, чем просто типовой сайт. Это и объединяет нас. <br>
+                    Мы хотим создавать и видеть проект, который сможет принести максимальную пользу своему заказчику”</h2>
                     <hr class="hr">
                     <a href="#" class="clients_top-right-link">
                         <div class="clients_top-right-link-left">
                             <img src="@/assets/img/person.png" alt="">
                             <div class="clients_top-right-link-left-texts">
                                 <p class="clients_top-right-link-left-text1">Денис Горин </p>
-                                <p class="clients_top-right-link-left-text2">Написать в Telegram</p>
+                                <p class="clients_top-right-link-left-text2">Ответственный за ваш проект</p>
                             </div>
                         </div>
                         <div class="clients_top-right-link-right">
@@ -79,6 +79,22 @@
           </div>
         </div>
     </section>
+     <section class="brifs">
+        <div class="container">
+          <div class="brifs_all">
+            <div class="brifs_all-left">
+              <h2 class="title_2">
+                Узнайте сроки разработки сайта, его стоимость и получите прототип первых блоков в подарок!
+              </h2>
+              <p>Расскажите о своей задаче прямо сейчас. Позвоним вам в течение 15 минут и обязательно поможем вам с решением.</p>
+            </div>
+            <div class="brifs_all-right">
+              <button>Заполнить бриф</button>
+            </div>
+             
+          </div>
+        </div>
+     </section>
     </main>
 </template>
 <script setup>
@@ -139,6 +155,7 @@ const modalActive = ref(false)
   background-position: center;
   background-size: cover;
   display: flex;
+  position: relative;
   flex-direction: column;
   border-radius: 22px;
   gap: 77px;
@@ -146,6 +163,7 @@ const modalActive = ref(false)
 }
 .clients_top {
   display: flex;
+  position: relative;
   justify-content: space-between;
 }
 .clients_bot h2{
@@ -157,7 +175,7 @@ const modalActive = ref(false)
   position: relative;
 }
 .clients_top-right {
-  max-width: 699px;
+  max-width: 742px;
 }
 .clients_top-right h2{
   font-size: 28px;
@@ -197,28 +215,38 @@ const modalActive = ref(false)
 }
 .clients_bot-list {
   display: flex;
-  gap: 13px;
+  gap: 24px;
   align-items: center;
 }
 .clients_top-left-logo {
   width: 100px;
+  margin-top: 130px;
+  margin-left: 130px;
 }
 
 .circle-text {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 20px;
-  letter-spacing: 2px;
-  width: 250px;
-  height: 250px;
+  font-size: 12px;
+  letter-spacing:7px;
+  width: 354px;
+  height: 354px;
   display: flex;
+  font-weight: 400;
   align-items: center;
   justify-content: center;
   animation: rotate-circle 5s linear infinite;
 }
-#rotatingText {
-  
+.brifs_all {
+  background: url("@/assets/img/brifFons.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 41px 80px;
+  border-radius: 22px;
+  gap: 77px;
+  margin-bottom: 12px;
 }
 @keyframes rotate-circle {
   to {

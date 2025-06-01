@@ -1,6 +1,10 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-
+import lahti from '/src/assets/img/lahti.png'
+import vayx from '/src/assets/img/vayx.png'
+import ultimate from '/src/assets/img/ultimate.png'
+import red from '/src/assets/img/red.png'
+import lz from '/src/assets/img/lz.png'
 export const useProjectStore = defineStore('project', () => {
 
   const projectItemArray = ref([
@@ -51,27 +55,27 @@ export const useProjectStore = defineStore('project', () => {
     {
       id: 1,
       name:'Laser Zone',
-      img: '/src/assets/img/lzLogo.png',
+      img: lz,
     },
     {
       id: 2,
       name:'Laser Zone',
-      img: '/src/assets/img/lzLogo.png',
+      img: lahti,
     },
     {
       id: 3,
       name:'Laser Zone',
-      img: '/src/assets/img/lzLogo.png',
+      img: ultimate,
     },
     {
       id: 4,
       name:'Laser Zone',
-      img: '/src/assets/img/lzLogo.png',
+      img: vayx,
     },
     {
       id: 5,
       name:'Laser Zone',
-      img: '/src/assets/img/lzLogo.png',
+      img: red,
     },
   ])
   

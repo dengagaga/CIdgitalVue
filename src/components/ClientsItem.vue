@@ -1,18 +1,18 @@
 <template>
     <div class="clients_bot-list-item">
-        <img src="" alt="">
+        <img :src="item.img" alt="">
     </div>
 </template>
 <script setup>
 defineProps({
-    img: Object
+    item: Object
 })
 </script>
 <style>
 .clients_bot-list-item {
-    border: 2px solid #F3F3F3;
-    background: #FBFBFB4D;
-    border-radius: 83px;
+    border: 2px solid #0000001A;
+    background: transparent;
+    border-radius: 103px;
     width: 100%;
     height: 190px;
     display: flex;
@@ -22,6 +22,7 @@ defineProps({
 @media(max-width: 1440px) {
     .clients_bot-list-item {
         height: 160px;
+        border-radius: 83px;
     }
 }
 </style>
