@@ -181,15 +181,20 @@ watch(number, () => {
     height: 100%;
     width: 100%;
     z-index: 9998;
+    overflow-y: auto;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 .modal_all {
-    position: absolute;
     max-width: 1000px;
-    top: 30px;
-    left: 50%;
-    transform: translate(-50%);
     border-radius: 22px;
     width: 100%;
+    position: relative; 
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .close {
     position: absolute;
@@ -197,7 +202,7 @@ watch(number, () => {
     height: 40px;
     right: 25px;
     cursor: pointer;
-    top: 25px;
+    top: 55px;
     padding: 10px;
     transform: rotate(45deg);
     border-radius: 50%;

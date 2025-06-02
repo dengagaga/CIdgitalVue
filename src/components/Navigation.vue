@@ -1,13 +1,31 @@
 <template>
   <nav class="nav">
+    <MobilBurgerMenu v-if="burgerStore.mobilBurgerActive" />
     <router-link to="/" class="logotype"><img src="@/assets/Logo.svg" alt="" /></router-link>
     <div class="nav_right">
-      <div class="nav_right-burger">
+      <div class="nav_right-burger " @click="$emit('toggleBurger')">
         <svg
           :class="burgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'"
           viewBox="0 0 100 100"
           width="42"
-          @click="$emit('toggleBurger')"
+         
+        >
+          <path
+            class="line top"
+            d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
+          />
+          <path
+            class="line bottom"
+            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
+          />
+        </svg>
+      </div>
+       <div class="nav_right-burger nav_right-burger-mob" @click="burgerStore.toggleMobilBurger()">
+        <svg
+          :class="burgerStore.mobilBurgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'"
+          viewBox="0 0 100 100"
+          width="42"
+         
         >
           <path
             class="line top"
@@ -22,7 +40,7 @@
       <div class="nav_right-all">
         <LinkNav v-for="item in NavArray" :key="item.title" :item="item" />
       </div>
-      <a href="#" class="nav_right-link">
+      <a href="#" class="nav_right-link" v-if="!burgerStore.mobilBurgerActive">
         <p>написать в telegram</p>
         <img src="@/assets/ava.png" alt="" /><span class="nav_right-link-span"></span>
       </a>
@@ -39,12 +57,13 @@
 <script setup>
 import { ref } from 'vue'
 import LinkNav from './LinkNav.vue'
-
+import MobilBurgerMenu from '@/components/MobilBurgerMenu.vue';
 import { RouterLink } from 'vue-router'
+import { useBurgerStore } from '@/stores/burger';
+const burgerStore = useBurgerStore()
 defineProps({
   burgerActive: Boolean,
 })
-
 defineEmits(['toggleBurger','modalZakazToggle'])
 // const burgerActive = ref(false)
 const NavArray = ref([
@@ -151,6 +170,9 @@ document.addEventListener('DOMContentLoaded', function () {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.nav_right-burger-mob {
+  display: none;
 }
 .nav_right-link {
   position: relative;
@@ -316,6 +338,8 @@ document.addEventListener('DOMContentLoaded', function () {
     max-width: 120px;
     width: 100%;
     height: 20px;
+    position: relative;
+    z-index: 2;
   }
   .logotype img {
     width: 100%;
@@ -335,6 +359,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     .nav_right-burger {
       order: 2;
+      display: none;
+    }
+    .nav_right-burger-mob {
+      display: flex;
     }
     .nav_right-link {
         max-width: 129px;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header_burger">
     <span class="menu">меню</span>
     <div class="header_burger-all">
       <div class="header_burger_left">
@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="header_burger_left-item befAll-two-uslugi">
-          <img src="@/assets/icon.svg" alt="" />
+          <img src="@/assets/img/icon2.svg" alt="" />
 
           <div class="header_burger_left-item-texts">
             <LinkNav class="befAll-two" title="Услуги" />
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="header_burger_left-item befAll-two-agenstvo">
-          <img src="@/assets/icon.svg" alt="" />
+          <img src="@/assets/img/icon4.png" alt="" />
           <div class="header_burger_left-item-texts">
             <LinkNav class="befAll-two" title="Агентство" />
             <p>Подробнее о нас</p>
@@ -53,7 +53,7 @@
           />
         </div>
         <div class="header_burger_left-item">
-          <img src="@/assets/icon.svg" alt="" />
+          <img src="@/assets/img/icon3.png" alt="" />
           <div class="header_burger_left-item-texts">
             <LinkNav class="befAll-two" title="Блог" />
 
@@ -171,10 +171,7 @@ const NavProject = ref([
   bottom: 5px;
   background-color: var(--frame-color);
 }
-.header_burger--none {
-  opacity: 0;
-  visibility: hidden;
-}
+
 .menu {
   position: relative;
   z-index: 3;
@@ -246,9 +243,6 @@ const NavProject = ref([
 @media (max-width: 450px) {
 
   .header_burger {
-    display: block;
-  }
-  .header_burger--none {
     display: none;
   }
 }

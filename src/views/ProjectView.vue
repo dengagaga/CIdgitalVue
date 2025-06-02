@@ -5,7 +5,7 @@
     </div>
     <div class="container">
       <Navigation @modalZakazToggle="modalZakazToggle" @toggleBurger="toggleBurger" :burgerActive="burgerActive">
-        <burgerMenu :class="burgerActive ? 'header_burger' : 'header_burger header_burger--none'" />
+        <burgerMenu v-if="burgerActive" />
       </Navigation>
     </div>
     <div class="header_mid">
@@ -35,12 +35,14 @@ const toggleBurger = () => {
 }
 const modalZakazToggle = () => {
   modalActive.value = !modalActive.value
-
+  const body = document.querySelector('body')
+  body.classList.toggle('no-scroll')
 }
 const modalActive = ref(false)
 </script>
 
 <style scoped>
+
 .main_projects {
   margin-top: 80px;
 }

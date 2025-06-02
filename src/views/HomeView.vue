@@ -5,7 +5,7 @@
     </div>
     <div class="container">
       <Navigation @modalZakazToggle="modalZakazToggle" @toggleBurger="toggleBurger" :burgerActive="burgerActive">
-        <burgerMenu :class="burgerActive ? 'header_burger' : 'header_burger header_burger--none'" />
+        <burgerMenu v-if="burgerActive" />
       </Navigation>
     </div>
     <div class="header_mid">
@@ -89,7 +89,7 @@
               <p>Расскажите о своей задаче прямо сейчас. Позвоним вам в течение 15 минут и обязательно поможем вам с решением.</p>
             </div>
             <div class="brifs_all-right">
-              <button>Заполнить бриф</button>
+              <button class="brifs_all-right-btn">Заполнить бриф</button>
             </div>
              
           </div>
@@ -107,12 +107,16 @@ import projectItem from '@/components/ProjectItem.vue';
 import { useProjectStore } from '@/stores/project'
 import clientsItem from '@/components/ClientsItem.vue';
 import modalZakaz from '@/components/modalZakaz.vue'
+
 const projectStore =  useProjectStore()
 const burgerActive = ref(false)
+
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
 }
 const modalZakazToggle = () => {
+   const body = document.querySelector('body')
+  body.classList.toggle('no-scroll')
   modalActive.value = !modalActive.value
   // const body = document.querySelector('body')
   // const header = document.querySelector('header')
@@ -131,6 +135,9 @@ const modalActive = ref(false)
 .header {
   position: relative;
 
+}
+.no-scroll {
+  overflow: hidden;
 }
 .header_fon {
   position: absolute;
@@ -240,13 +247,36 @@ const modalActive = ref(false)
 }
 .brifs_all {
   background: url("@/assets/img/brifFons.png");
-  background-position: center;
+  background-position: top;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 41px 80px;
+  padding: 80px 42px ;
+  padding-top: 223px;
   border-radius: 22px;
+  color: white;
   gap: 77px;
   margin-bottom: 12px;
+}
+.brifs_all-left .title_2{
+  color: white;
+  max-width: 840px;
+}
+.brifs_all-left {
+  max-width: 840px;
+}
+.brifs_all-right-btn {
+  background-color: #fff;
+  max-width: 195px;
+  width: 100%;
+  padding: 0px 24px;
+  height: 56px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #080808;
+  border-radius: 16px;
 }
 @keyframes rotate-circle {
   to {
