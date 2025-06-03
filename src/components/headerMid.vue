@@ -124,6 +124,15 @@ defineProps({
     max-width: 600px;
     margin-bottom: 18px;
 }
+.title_4 {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 130%;
+    letter-spacing: -3%;
+    margin-bottom: 18px;
+    max-width: 639px;
+}
 .text {
     color: #696D73;
     font-weight: 500;
