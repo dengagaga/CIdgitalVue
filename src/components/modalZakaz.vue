@@ -15,7 +15,7 @@
                     </p>
                 </div>
                 <div class="modal_main-type">
-                    <h4 class="title_4">Тип проекта</h4>
+                    <h4 class="modal_title_4">Тип проекта</h4>
                     <div class="modal_main-type-list">
                         <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectType(item, modalStore.arrayType)" v-for="item in modalStore.arrayType" :key="item.id">
                             {{ item.title }} 
@@ -23,12 +23,12 @@
                     </div>
                 </div>
                 <div class="modal_main-task">
-                    <h4 class="title_4">Задача</h4>
+                    <h4 class="modal_title_4">Задача</h4>
                     <textarea v-model="task" class="modal_main-task-inp" type="text"></textarea>
                     <p class="modal_main-task-text">В чем заключается задача? Какие сроки? Сфера деятельности компании?</p>
                 </div>
                 <div class="modal_main-contact">
-                    <h4 class="title_4">Контактные данные</h4>
+                    <h4 class="modal_title_4">Контактные данные</h4>
                     <div class="modal_main-contact-list">
                         <dd class="inputbox-content">
                             <input id="input0" v-model="name" type="text" :class="erorName ? 'eror' : ''" required/>
@@ -57,7 +57,7 @@
                    
                 </div>
                 <div class="modal_main-connection">
-                    <h4 class="title_4">Способ связи</h4>
+                    <h4 class="modal_title_4">Способ связи</h4>
                     <div class="modal_main-type-list">
                         <div :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'" @click="selectConnection(item, modalStore.arrayСonnection)" v-for="item in modalStore.arrayСonnection" :key="item.id">
                             {{ item.title }}
@@ -237,7 +237,7 @@ watch(number, () => {
 .modal_main-type {
     padding-bottom: 80px;
 }
-.title_4 {
+.modal_title_4 {
     margin-bottom: 20px;
     font-weight: 500;
     font-size: 30px;
@@ -414,6 +414,11 @@ watch(number, () => {
 /* .underlane--active {
     bottom: 23px;
 } */
+@media(max-width: 1024px) {
+    .modal_all {
+        max-width: 800px;
+    }
+}   
 @media(max-width: 450px) {
 .modal_all {
     width: auto;
@@ -436,7 +441,7 @@ watch(number, () => {
 .modal_main-top, .modal_main-type, .modal_main-task, .modal_main-contact {
     padding-bottom: 40px;
 }
-.title_4 {
+.modal_title_4 {
     font-size: 18px;
 }
 .modal_main-contact-list {

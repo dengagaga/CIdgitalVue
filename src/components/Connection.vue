@@ -29,6 +29,21 @@ import ConnectionItem from './ConnectionItem.vue';
  
 }
 @media(max-width:450px) {
- 
+    .connection_all {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .connection_item-title {
+      margin-top: 28px;
+    }
+    .connection_item {
+    background-color: #FBFBFB;
+    border-radius: 22px;
+    padding: 45px 16px 20px;
+    width: 100%;
+}
+.connection {
+  padding-bottom: 70px;
+}
 }
 </style>

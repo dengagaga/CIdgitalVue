@@ -245,7 +245,19 @@ defineProps({
     font-size: 14px;
 }
 }
-
+@media(max-width: 1024px) {
+    .title_1 {
+        font-size: 100px;
+        margin-top: 180px;
+    }
+     .title_2 {
+    font-size: 26px;
+  }
+  .text {
+    font-size: 16px;
+    max-width: 500px;
+}
+}
 @media(max-width: 450px) {
     .header_mid {
         padding: 0 4px;

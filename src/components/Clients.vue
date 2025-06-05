@@ -185,12 +185,13 @@ const projectStore =  useProjectStore()
   }
     .circle-text {
         width: 266px;
-        height: 93px;
+        height: 123px;
+        left: -30px;
     }
     .clients_top-left-logo {
         width: 87px;
-        margin-top: 9px;
-        margin-left: 93px;
+        margin-top: 24px;
+        margin-left: 60px;
     }
     .clients_top-right {
       margin-top: 100px;
@@ -224,6 +225,31 @@ const projectStore =  useProjectStore()
 }
 }
 @media(max-width:450px) {
- 
+  .clients_all {
+    padding: 30px 12px;
+  }
+  .clients_bot-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+      .clients_bot-list-item {
+        height: 120px;
+        border-radius: 73px;
+    }
+        .hr {
+        margin-top: 90px;
+    }
+        .circle-text {
+        width: 266px;
+        height: 123px;
+        left: -30px;
+        top: 30px;
+    }
+        .clients_top-left-logo {
+        width: 87px;
+        margin-top: 55px;
+        margin-left: 60px;
+    }
 }
 </style>

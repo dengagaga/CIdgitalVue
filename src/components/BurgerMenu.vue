@@ -29,7 +29,7 @@
           <h4 class="header_burger_right-title">Агентство</h4>
           <LinkNav
             class="befAll-two"
-            v-for="item in NavAgenstvo"
+            v-for="item in burgerStore.mobileBurger[3].links"
             :title="item.title"
             :key="item.title"
           />
@@ -38,7 +38,7 @@
           <h4 class="header_burger_right-title">Услуги</h4>
           <LinkNav
             class="befAll-two"
-            v-for="item in NavServises"
+            v-for="item in burgerStore.mobileBurger[1].links"
             :title="item.title"
             :key="item.title"
           />
@@ -47,7 +47,7 @@
           <h4 class="header_burger_right-title">Наши веб сервисы</h4>
           <LinkNav
             class="befAll-two"
-            v-for="item in NavProject"
+            v-for="item in burgerStore.mobileBurger[0].links"
             :title="item.title"
             :key="item.title"
           />
@@ -84,50 +84,9 @@
 
 
 <script setup>
-import { ref } from 'vue'
 import LinkNav from './LinkNav.vue'
-const NavServises = ref([
-  {
-    title: 'Аналитика',
-  },
-  {
-    title: 'Дизайн',
-  },
-  {
-    title: 'Разработка',
-  },
-  {
-    title: 'Продвижение',
-  },
-  {
-    title: 'CRM',
-  },
-])
-const NavAgenstvo = ref([
-  {
-    title: 'Сертификаты',
-  },
-  {
-    title: 'Команда',
-  },
-  {
-    title: 'Достижения',
-  },
-  {
-    title: 'Отзывы',
-  },
-])
-const NavProject = ref([
-  {
-    title: 'CMS сайта',
-  },
-  {
-    title: 'CPlace Templates',
-  },
-  {
-    title: 'Digame',
-  },
-])
+import { useBurgerStore } from '@/stores/burger';
+const burgerStore = useBurgerStore()
 </script>
 <style>
 

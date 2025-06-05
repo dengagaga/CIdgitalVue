@@ -210,6 +210,17 @@ border-bottom: 1px solid #015EF9;
 
 }
 }
+@media(max-width:1024px) {
+    .services_item-top-title {
+        font-size: 20px;
+    }
+    .services_item-left {
+    max-width: 265px;
+}
+    .text-grey {
+        font-size: 15px;
+    }
+}
 @media(max-width:450px) {
     .services_item-top-title {
         font-size: 18px;

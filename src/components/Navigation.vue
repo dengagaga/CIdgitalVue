@@ -1,7 +1,7 @@
 <template>
   <MobilBurgerMenu v-if="burgerStore.mobilBurgerActive" />
   <nav class="nav">
-    <router-link to="/" class="logotype"><img src="@/assets/Logo.svg" alt="" /></router-link>
+    <router-link to="/" class="logotype" ><img src="@/assets/Logo.svg" alt="" v-if="!burgerStore.mobilBurgerActive" /></router-link>
     <div class="nav_right">
       <div class="nav_right-burger " @click="$emit('toggleBurger')">
         <svg

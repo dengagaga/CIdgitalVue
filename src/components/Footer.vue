@@ -61,6 +61,14 @@
  
 }
 @media(max-width:450px) {
- 
+    .footer_all {
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 40px;
+    padding-bottom: 26px;
+}
+.footer_left {
+    gap: 50px;
+}
 }
 </style>

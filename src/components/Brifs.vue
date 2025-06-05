@@ -86,6 +86,9 @@
     }
 }
 @media(max-width:450px) {
- 
+ .brifs_all {
+  padding: 12px 12px;
+  padding-top: 140px;
+ }
 }
 </style>

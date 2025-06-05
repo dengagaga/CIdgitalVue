@@ -1,14 +1,18 @@
 <template>
     <div class="mobil_header_burger">
+        <img class="mobil_header_burger-logo" src="@/assets/Logo.svg" alt="">
         <h4 class="header_mobburger_right-title">меню</h4>
         <div class="mobil_header_burger_list">
             <div class="header_burger_left-item" v-for="item in burgerStore.mobileBurger" :key="item.id">
                 <img :src="item.img" alt="" />
                 <div class="header_burger_left-item-texts">
-                    <LinkNav class="befAll-two" :title="item.title" />
+                    <button @click="avtiveMobilMenu(item)" class="befAll-two mobil_header_burger-btn">{{ item.title }}</button>
                     <p>{{ item.text }}</p>
                 </div>
             </div>
+            <transition>
+                <MobilMenu @closeMobilmenu="closeMobilmenu" :mobilMenuTitle="mobilMenuTitle" v-if="mobilMenu" />
+            </transition>
         </div>
         <div class="mobil_header_burger-bgc">
             <h3 class="mobil_header_burger-bgc-title">
@@ -45,7 +49,7 @@
 
             </div>
             <div class="mobil_header_burger_bot-bot">
-               <LinkNav class="befAll-two" title="Vkontakte" />
+                <LinkNav class="befAll-two" title="Vkontakte" />
                 <LinkNav class="befAll-two" title="Behance" />
                 <LinkNav class="befAll-two" title="Telegram" />
                 <LinkNav class="befAll-two" title="Dprofile" />
@@ -58,9 +62,30 @@
 <script setup>
 import LinkNav from './LinkNav.vue'
 import { useBurgerStore } from '@/stores/burger';
+import MobilMenu from './MobilMenu.vue';
+import { ref } from 'vue';
 const burgerStore = useBurgerStore()
+const mobilMenu = ref(false)
+const mobilMenuTitle = ref('')
+const avtiveMobilMenu = (item) => {
+    mobilMenu.value = !mobilMenu.value
+    mobilMenuTitle.value = item.title
+}
+const closeMobilmenu = () => {
+    mobilMenu.value = false
+}
 </script>
 <style>
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  /* opacity: 0; */
+  left: -500px;
+}
 .mobil_header_burger {
     display: none;
 }
@@ -76,7 +101,12 @@ const burgerStore = useBurgerStore()
     background-color: #FBFBFB;
     z-index: 2;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: 100vh;
+}
+.mobil_header_burger-logo {
+    max-width: 92px;
+    margin-top: 10px;
 }
 .header_mobburger_right-title {
     position: fixed;
@@ -90,8 +120,11 @@ const burgerStore = useBurgerStore()
     width: 100%;
 }
 .mobil_header_burger_list {
-    margin-top: 65px;
-    margin-bottom: 32px;
+    position: relative;
+    margin-top: 20px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+    margin-bottom: 17px;
 }
 .mobil_header_burger-bgc {
     padding: 29px 23px;
@@ -179,6 +212,10 @@ const burgerStore = useBurgerStore()
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+}
+.mobil_header_burger-btn {
+    font-size: 16px;
+    color: #111b29;
 }
 }
 </style>
