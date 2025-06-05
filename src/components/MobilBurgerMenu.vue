@@ -105,8 +105,9 @@ const closeMobilmenu = () => {
     max-height: 100vh;
 }
 .mobil_header_burger-logo {
-    max-width: 92px;
-    margin-top: 10px;
+    max-width: 96px;
+    height: 20px;
+    margin-top: 7px;
 }
 .header_mobburger_right-title {
     position: fixed;

@@ -240,16 +240,25 @@ const projectStore =  useProjectStore()
         .hr {
         margin-top: 90px;
     }
+    .clients_top-left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
         .circle-text {
         width: 266px;
         height: 123px;
-        left: -30px;
-        top: 30px;
+        margin-top: 50px;
+        position: initial;
     }
         .clients_top-left-logo {
         width: 87px;
-        margin-top: 55px;
-        margin-left: 60px;
+        margin-top: 0;
+        margin-left: 0;
+        left: 50%;
+        top: 75px;
+        transform: translateX(-48%);
+        position: absolute;
     }
 }
 </style>

@@ -75,6 +75,13 @@ export const useModalStore = defineStore('modal', () => {
      
     ])
   
-  
-  return {  arrayType, arrayСonnection }
+  const projectModal = ref(false)
+    const toggleProjectModal = () => {
+        projectModal.value = !projectModal.value
+        console.log(projectModal.value);
+        const body = document.querySelector('body')
+        body.classList.toggle('body-active_fon')
+        
+    }
+  return {  arrayType, arrayСonnection, projectModal, toggleProjectModal }
 })

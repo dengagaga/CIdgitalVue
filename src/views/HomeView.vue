@@ -1,6 +1,7 @@
 <template>
   <modalZakaz @modalZakazToggle="modalZakazToggle" v-if="modalActive"/>
   <header class="header">
+    <projectModal v-if="modalStore.projectModal" />
     <div class="header_fon">
     </div>
     <div class="container">
@@ -9,12 +10,12 @@
       </Navigation>
     </div>
     <div class="header_mid">
-        <h1 class="title_1">Цифровые сидхи</h1>
-        <div class="header_mid-oneFon">
-            <div class="header_mid-threeFon"></div>
-            <headerMid title="Разработка и дизайн Онлайн-сервисов в России." text="Наши услуги — это ключи к созданию неповторимого и успешного образа вашего бизнеса" />
-            <Services />
-        </div>
+      <h1 class="title_1">Цифровые сидхи</h1>
+      <div class="header_mid-oneFon">
+        <div class="header_mid-threeFon"></div>
+        <headerMid title="Разработка и дизайн Онлайн-сервисов в России." text="Наши услуги — это ключи к созданию неповторимого и успешного образа вашего бизнеса" />
+        <Services />
+      </div>
     </div>
   </header>
   <main class="main">
@@ -33,12 +34,14 @@ import headerMid from '@/components/headerMid.vue';
 import Services from '@/components/Services.vue';
 import Clients from '@/components/Clients.vue';
 import Brifs from '@/components/Brifs.vue';
+import projectModal from '@/components/projectModal.vue';
 import Projects from '@/components/Projects.vue';
 import Connection from '@/components/Connection.vue';
 import modalZakaz from '@/components/modalZakaz.vue'
 import Footer from '@/components/Footer.vue';
+import { useModalStore } from '../stores/modal'
 const burgerActive = ref(false)
-
+const modalStore = useModalStore()
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
 }

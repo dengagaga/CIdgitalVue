@@ -27,11 +27,13 @@
             </div>
         </div>
         <img class="project_logo" src="../assets/img/logoProj.png" alt="" v-else>
-        <h4 class="services_item-top-title">{{ item.name }}</h4>
+        <h4 @click="modalStore.toggleProjectModal()" class="services_item-top-title">{{ item.name }}</h4>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue'
+import { useModalStore } from '../stores/modal'
+const modalStore = useModalStore()
 const active = ref(false)
 defineProps({
     item:Object
@@ -277,6 +279,34 @@ defineProps({
         height: 220px;
         border-radius: 6px;
     }
-   
+.project_plus {
+    opacity:1 ;
+    background-color: #ffffff4b;
+}
+   .drop_list-right {
+    opacity: 1;
+    left: 62px;
+    gap: 15px;
+   }
+   .drop_list-right-link {
+    font-size: 12px;
+   }
+   .drop_list {
+    opacity: 1;
+    bottom: 62px;
+   }
+   .drop_list-btn {
+    font-size: 12px;
+    height: 25px;
+    max-width: 68px;
+   }
+   .drop_list-btn:nth-child(3) {
+        max-width: 100px;
+        width: 100px;
+    }
+   .drop_list-btn:nth-child(4) {
+        max-width: 100px;
+        width: 90px;
+    }
 }
 </style>
