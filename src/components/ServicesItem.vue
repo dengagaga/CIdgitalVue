@@ -18,14 +18,8 @@
             </div>
             <div class="services_item-bot">
                 <div class="services_item-bot-all">
-                    <button class="services_item-bot_btn">
-                        UX-аналитика
-                    </button>
-                    <button class="services_item-bot_btn">
-                        Веб-аналитика
-                    </button>
-                    <button class="services_item-bot_btn">
-                        Исследования
+                    <button class="services_item-bot_btn" v-for="item in item.tegs" :key="item">
+                        {{ item.teg }}
                     </button>
                 </div>
                 <div class="services_item-bot-links">
@@ -110,13 +104,10 @@ defineProps({
     margin-top: 0;
 }
 
-/* .services_item:hover {
-    padding-bottom: 48px;
-} */
 .services_item--active .services_item-bot {
     opacity: 1;
     visibility: visible;
-    height: 140px;
+    height: max-content;
     margin-top: 44px;
 }
 .services_item--active .services_item-rigth-plus {
@@ -134,9 +125,11 @@ border-bottom: 1px solid #015EF9;
 }
 .services_item-bot-all {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     font-size: 14px;
     margin-bottom: 40px;
+    max-width: 442px;
 }
 .services_item-bot_btn {
     font-weight: 400;

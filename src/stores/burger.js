@@ -12,28 +12,29 @@ export const useBurgerStore = defineStore('burger', () => {
     mobilBurgerActive.value = !mobilBurgerActive.value
     const body = document.querySelector('body')
     body.classList.toggle('no-scroll')
+    
   }
-
-
   const mobileBurger = ref([
     {
         id:1,
         title: 'Проекты',
         text:'Наши работы',
         img:project,
-        links: [
-          {
-            id:1,
-            title:'CMS сайта',
-          },
-          {
-            id:2,
-            title:'CPlace Templates',
-          },
-          {
-            id:3,
-            title:'Digame',
-          },
+        link:'/project',
+        default:[
+           {
+              id:1,
+              title: 'CMS сайта',
+            },
+            {
+              id:2,
+              title: 'CPlace Templates',
+            },
+            {
+              id:3,
+              title: 'Digame',
+            },
+      
         ]
     },
     {
@@ -69,7 +70,7 @@ export const useBurgerStore = defineStore('burger', () => {
         title: 'Блог',
         text:'Интересные истории',
         img:blog,
-        links: []
+        link:'/project'
     },
     {
         id:4,
@@ -96,6 +97,31 @@ export const useBurgerStore = defineStore('burger', () => {
         ]
     },
 ])
+  const social = ref([
+    {
+        id:1,
+        title: 'Vkontakte',
+    },
+    {
+        id:2,
+        title: 'Behance',
 
-  return { mobilBurgerActive, toggleMobilBurger, mobileBurger }
+    },
+    {
+        id:3,
+        title: 'Telegram',
+
+    },
+    {
+        id:4,
+        title: 'Dprofile',
+     
+    },
+    {
+        id:5,
+        title: 'Dribble',
+     
+    },
+  ])
+  return { mobilBurgerActive, social, toggleMobilBurger, mobileBurger }
 })

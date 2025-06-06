@@ -1,44 +1,47 @@
 <template>
     <div class="mobil_header_burger">
-        <img class="mobil_header_burger-logo" src="@/assets/Logo.svg" alt="">
-        <h4 class="header_mobburger_right-title">меню</h4>
-        <div class="mobil_header_burger_list">
-            <div class="header_burger_left-item" v-for="item in burgerStore.mobileBurger" :key="item.id">
-                <img :src="item.img" alt="" />
-                <div class="header_burger_left-item-texts">
-                    <button @click="avtiveMobilMenu(item)" class="befAll-two mobil_header_burger-btn">{{ item.title }}</button>
-                    <p>{{ item.text }}</p>
+        <div class="container">
+            <img class="mobil_header_burger-logo" src="@/assets/Logo.svg" alt="">
+            <h4 class="header_mobburger_right-title">меню</h4>
+            <div class="mobil_header_burger_list">
+                <div @click="item.links ? avtiveMobilMenu(item) : mobilMenuLink(item)" class="header_burger_left-item" v-for="item in burgerStore.mobileBurger" :key="item.id">
+                    <img :src="item.img" alt="" />
+                    <div class="header_burger_left-item-texts">
+                        <div class="befAll-two mobil_header_burger-btn">{{ item.title }}</div>
+                        <p>{{ item.text }}</p>
+                    </div>
                 </div>
+                <transition>
+                    <MobilMenu @closeMobilmenu="closeMobilmenu" :mobilMenuTitle="mobilMenuTitle" v-if="mobilMenu" />
+                </transition>
             </div>
-            <transition>
-                <MobilMenu @closeMobilmenu="closeMobilmenu" :mobilMenuTitle="mobilMenuTitle" v-if="mobilMenu" />
-            </transition>
+            <div class="mobil_header_burger-bgc">
+                <h3 class="mobil_header_burger-bgc-title">
+                    Денис Горин
+                </h3>
+                <p class="mobil_header_burger-bgc-text">Ответственный за ваш проект</p>
+                <a class="mobil_header_burger-bgc-button">
+                    <div class="mobil_header_burger-bgc-button-left">
+                        <img src="@/assets/img/person.png" alt="">
+                        <p>Написать в Telegram</p>
+                    </div>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-inspector="src/views/HomeView.vue:66:29"><path d="M1 11L11 1M11 1V10.82M11 1H1.15275" stroke="black" stroke-opacity="0.301961" stroke-width="1.6" data-v-inspector="src/views/HomeView.vue:67:31"></path></svg>
+                </a>
+                <a class="mobil_header_burger-bgc-button-2" @click="modalStore.modalZakazToggle">
+                    <p>Заказать проект</p>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 11L11 1M11 1V10.82M11 1H1.15275" stroke="#717171" stroke-width="1.1"/>
+                    </svg>
+                </a>
+            </div>
+            <h5 class="mobil_header_burger-our_services-title">Наши веб сервисы</h5>
+            <div class="mobil_header_burger-our_services">
+                <LinkNav class="befAll-two" title="CMS сайта" />
+                <LinkNav class="befAll-two" title="CPlace Templates" />
+                <LinkNav class="befAll-two" title="Digame" />
+            </div>
         </div>
-        <div class="mobil_header_burger-bgc">
-            <h3 class="mobil_header_burger-bgc-title">
-                Денис Горин
-            </h3>
-            <p class="mobil_header_burger-bgc-text">Ответственный за ваш проект</p>
-            <a class="mobil_header_burger-bgc-button">
-                <div class="mobil_header_burger-bgc-button-left">
-                    <img src="@/assets/img/person.png" alt="">
-                    <p>Написать в Telegram</p>
-                </div>
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-inspector="src/views/HomeView.vue:66:29"><path d="M1 11L11 1M11 1V10.82M11 1H1.15275" stroke="black" stroke-opacity="0.301961" stroke-width="1.6" data-v-inspector="src/views/HomeView.vue:67:31"></path></svg>
-            </a>
-            <a class="mobil_header_burger-bgc-button-2">
-                <p>Заказать проект</p>
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 11L11 1M11 1V10.82M11 1H1.15275" stroke="#717171" stroke-width="1.1"/>
-                </svg>
-            </a>
-        </div>
-        <h5 class="mobil_header_burger-our_services-title">Наши веб сервисы</h5>
-        <div class="mobil_header_burger-our_services">
-            <LinkNav class="befAll-two" title="CMS сайта" />
-            <LinkNav class="befAll-two" title="CPlace Templates" />
-            <LinkNav class="befAll-two" title="Digame" />
-        </div>
+       
         <div class="mobil_header_burger_bot">
             <div class="mobil_header_burger_bot-top">
                  <LinkNav class="befAll-two" title="Документы" />
@@ -49,11 +52,7 @@
 
             </div>
             <div class="mobil_header_burger_bot-bot">
-                <LinkNav class="befAll-two" title="Vkontakte" />
-                <LinkNav class="befAll-two" title="Behance" />
-                <LinkNav class="befAll-two" title="Telegram" />
-                <LinkNav class="befAll-two" title="Dprofile" />
-                <LinkNav class="befAll-two" title="Dribbble" />
+                <LinkNav class="befAll-two" v-for="item in burgerStore.social" :title="item.title" :key="item.title" />
             </div>
         </div>
        
@@ -62,17 +61,25 @@
 <script setup>
 import LinkNav from './LinkNav.vue'
 import { useBurgerStore } from '@/stores/burger';
+import { useModalStore } from '@/stores/modal';
 import MobilMenu from './MobilMenu.vue';
 import { ref } from 'vue';
+import router from '@/router';
 const burgerStore = useBurgerStore()
+const modalStore = useModalStore()
 const mobilMenu = ref(false)
 const mobilMenuTitle = ref('')
 const avtiveMobilMenu = (item) => {
     mobilMenu.value = !mobilMenu.value
     mobilMenuTitle.value = item.title
 }
+const mobilMenuLink = (item) => {
+    router.push(item.link)
+    burgerStore.toggleMobilBurger()
+}
 const closeMobilmenu = () => {
     mobilMenu.value = false
+    
 }
 </script>
 <style>
@@ -93,11 +100,12 @@ const closeMobilmenu = () => {
     
 .mobil_header_burger {
     display: block;
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
-    padding: 34px 16px;
+    padding: 34px 0px;
+    padding-bottom: 0;
     background-color: #FBFBFB;
     z-index: 2;
     overflow-y: auto;

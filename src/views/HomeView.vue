@@ -1,11 +1,11 @@
 <template>
-  <modalZakaz @modalZakazToggle="modalZakazToggle" v-if="modalActive"/>
+  <modalZakaz  v-if="modalStore.modalActive"/>
   <header class="header">
     <projectModal v-if="modalStore.projectModal" />
     <div class="header_fon">
     </div>
     <div class="container">
-      <Navigation @modalZakazToggle="modalZakazToggle" @toggleBurger="toggleBurger" :burgerActive="burgerActive">
+      <Navigation @toggleBurger="toggleBurger" :burgerActive="burgerActive">
         <burgerMenu v-if="burgerActive" />
       </Navigation>
     </div>
@@ -45,12 +45,7 @@ const modalStore = useModalStore()
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
 }
-const modalZakazToggle = () => {
-   const body = document.querySelector('body')
-  body.classList.toggle('no-scroll')
-  modalActive.value = !modalActive.value
-}
-const modalActive = ref(false)
+
 </script>
 
 <style>

@@ -1,7 +1,7 @@
 <template>
     <div class="modal">
         <div class="modal_all">
-            <img class="close" @click="$emit('modalZakazToggle')" src="../assets/img/plusSm.svg" alt="">
+            <img class="close" @click="modalStore.modalZakazClose" src="../assets/img/plusSm.svg" alt="">
             <div class="modal_top">
 
             </div>
@@ -87,7 +87,7 @@
 import { ref, watch } from 'vue';
 import { useModalStore } from '@/stores/modal'
 const modalStore = useModalStore()
-const emit = defineEmits(['modalZakazToggle'])
+
 const name = ref('')
 const email = ref('')
 const type = ref('')
@@ -143,9 +143,9 @@ if (!name.value && !number.value) {
     if (!number.value ) {
         erorNumber.value = true
     } else {
-    const text = `Новая заявка:\nИмя: ${name.value}\nEmail: ${email.value}\nТип: ${type.value}\nНомер телефона: ${number.value}\nЗадача: ${task.value}\nКомпания: ${company.value}\nСпособ связи: ${connection.value}`;
-        console.log('ssss');
-        emit('modalZakazToggle')
+        const text = `Новая заявка:\nИмя: ${name.value}\nEmail: ${email.value}\nТип: ${type.value}\nНомер телефона: ${number.value}\nЗадача: ${task.value}\nКомпания: ${company.value}\nСпособ связи: ${connection.value}`;
+        
+        modalStore.modalZakazClose()
     try {
         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
@@ -421,11 +421,13 @@ watch(number, () => {
 }   
 @media(max-width: 450px) {
 .modal_all {
-    width: auto;
+    /* width: auto;
+        left: 4px;
+    right: 4px; */
     
+    width: 98%;
     top: 5px;
-    left: 4px;
-    right: 4px;
+
     transform: none;
 }
 .modal_main {
@@ -474,6 +476,10 @@ watch(number, () => {
     height: 32px;
     top: 10px;
     right: 10px;
+}
+.modal_all {
+    padding-top: 0;
+    padding-bottom: 4px;
 }
 }
 </style>

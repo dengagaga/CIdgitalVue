@@ -3,21 +3,8 @@
     <span class="menu">меню</span>
     <div class="header_burger-all">
       <div class="header_burger_left">
-        <div class="header_burger_left-item">
-          <img src="@/assets/icon.svg" alt="" />
-          <div class="header_burger_left-item-texts">
-            <LinkNav class="befAll-two" title="Проекты" />
-            <p>Наши работы</p>
-          </div>
-        </div>
-        <div class="header_burger_left-item befAll-two-uslugi">
-          <img src="@/assets/img/icon2.svg" alt="" />
-
-          <div class="header_burger_left-item-texts">
-            <LinkNav class="befAll-two" title="Услуги" />
-            <p>Доверьтесь нам</p>
-          </div>
-        </div>
+        <headerBurgerLeftItem :img="`/src/assets/icon.svg`" title="Проекты" text="Наши работы" />
+        <headerBurgerLeftItem class="befAll-two-uslugi" :img="`/src/assets/img/icon2.svg`" title="Услуги" text="Доверьтесь нам" />
         <div class="header_burger_left-item befAll-two-agenstvo">
           <img src="@/assets/img/icon4.png" alt="" />
           <div class="header_burger_left-item-texts">
@@ -47,7 +34,7 @@
           <h4 class="header_burger_right-title">Наши веб сервисы</h4>
           <LinkNav
             class="befAll-two"
-            v-for="item in burgerStore.mobileBurger[0].links"
+            v-for="item in burgerStore.mobileBurger[0].default"
             :title="item.title"
             :key="item.title"
           />
@@ -56,7 +43,6 @@
           <img src="@/assets/img/icon3.png" alt="" />
           <div class="header_burger_left-item-texts">
             <LinkNav class="befAll-two" title="Блог" />
-
             <p>Интересные истории</p>
           </div>
         </div>
@@ -71,20 +57,14 @@
         <LinkNav class="befAll-two" title="p: 8 (981) 997-50-00" />
       </div>
       <div class="header_burger-bottom-bot">
-        <LinkNav class="befAll-two" title="Vkontakte" />
-        <LinkNav class="befAll-two" title="Behance" />
-        <LinkNav class="befAll-two" title="Telegram" />
-        <LinkNav class="befAll-two" title="Dprofile" />
-        <LinkNav class="befAll-two" title="Dribbble" />
+        <LinkNav class="befAll-two" v-for="item in burgerStore.social" :title="item.title" :key="item.title" />
       </div>
     </div>
   </div>
 </template>
-
-
-
 <script setup>
 import LinkNav from './LinkNav.vue'
+import headerBurgerLeftItem from './headerBurgerLeftItem.vue'
 import { useBurgerStore } from '@/stores/burger';
 const burgerStore = useBurgerStore()
 </script>
@@ -152,7 +132,6 @@ const burgerStore = useBurgerStore()
   display: flex;
   align-items: start;
   gap: 16px;
-  max-width: 180px;
   margin-bottom: 20px;
 }
 .header_burger_left-item img {

@@ -44,7 +44,7 @@
         <p>написать в telegram</p>
         <img src="@/assets/ava.png" alt="" /><span class="nav_right-link-span"></span>
       </a>
-      <a href="#" @click="$emit('modalZakazToggle')" class="nav_right-link nav_right-link-end">
+      <a href="#" @click="modalStore.modalZakazToggle" class="nav_right-link nav_right-link-end">
         <p>заказать проект</p>
         <img src="@/assets/arrow.svg" alt="" />
         <span class="nav_right-link-span"></span>
@@ -60,11 +60,13 @@ import LinkNav from './LinkNav.vue'
 import MobilBurgerMenu from '@/components/MobilBurgerMenu.vue';
 import { RouterLink } from 'vue-router'
 import { useBurgerStore } from '@/stores/burger';
+import { useModalStore } from '@/stores/modal';
+const modalStore = useModalStore()
 const burgerStore = useBurgerStore()
 defineProps({
   burgerActive: Boolean,
 })
-defineEmits(['toggleBurger','modalZakazToggle'])
+defineEmits(['toggleBurger'])
 // const burgerActive = ref(false)
 const NavArray = ref([
   {

@@ -147,7 +147,7 @@ const projectStore =  useProjectStore()
   font-weight: 400;
   align-items: center;
   justify-content: center;
-  animation: rotate-circle 5s linear infinite;
+  animation: rotate-circle 14s linear infinite;
 }
 
 @keyframes rotate-circle {

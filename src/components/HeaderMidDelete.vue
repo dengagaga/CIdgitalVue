@@ -18,15 +18,6 @@
                             <div>
                                 <div class="flip_three">Быстрых решений</div>
                             </div>
-                            <!--<div>
-                                <div>Приложений</div>
-                            </div>
-                            <div>
-                                <div>Сервисов</div>
-                            </div>
-                            <div>
-                                <div>Крупных компаний</div>
-                            </div> -->
                         </div>
                     </div>
                 </div>

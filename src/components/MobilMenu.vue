@@ -24,9 +24,12 @@ onMounted(() => {
     burgerStore.mobileBurger.forEach(item => {
         if (item.title == props.mobilMenuTitle) {
             menu.value = []
-            if (item.links.length > 0) {
-                menu.value = item.links
+            if (item.links) {
+                  if (item.links.length > 0) {
+                        menu.value = item.links
+                    }
             }
+          
         }
     })
 })

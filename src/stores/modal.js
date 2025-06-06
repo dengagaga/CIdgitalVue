@@ -1,7 +1,9 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { useBurgerStore } from './burger'
 
 export const useModalStore = defineStore('modal', () => {
+    const burgerStore = useBurgerStore()
     const arrayType = ref([
         {
             id:'1',
@@ -80,8 +82,19 @@ export const useModalStore = defineStore('modal', () => {
         projectModal.value = !projectModal.value
         console.log(projectModal.value);
         const body = document.querySelector('body')
-        body.classList.toggle('body-active_fon')
-        
+        body.classList.toggle('body-active_fon') 
     }
-  return {  arrayType, arrayСonnection, projectModal, toggleProjectModal }
+    const modalActive = ref(false)
+    const modalZakazToggle = () => {
+        modalActive.value = true
+        const body = document.querySelector('body')
+        body.classList.add('no-scroll')
+        burgerStore.mobilBurgerActive = false
+    }
+    const modalZakazClose = () => {
+        modalActive.value = false
+        const body = document.querySelector('body')
+        body.classList.remove('no-scroll')
+    }
+  return {  arrayType, modalActive, modalZakazToggle, modalZakazClose,  arrayСonnection, projectModal, toggleProjectModal }
 })
