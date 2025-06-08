@@ -97,17 +97,15 @@ defineProps({
     font-size: 20px;
 }
 .services_item-bot {
-    transition: all .3s;
     opacity: 0;
-    visibility: hidden;
-    height: 0;
+    max-height: 0; 
     margin-top: 0;
+    overflow: hidden;
+    transition: all .4s ease-in-out; 
 }
-
 .services_item--active .services_item-bot {
     opacity: 1;
-    visibility: visible;
-    height: max-content;
+    max-height: 500px;
     margin-top: 44px;
 }
 .services_item--active .services_item-rigth-plus {

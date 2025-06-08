@@ -3,15 +3,9 @@
     <span class="menu">меню</span>
     <div class="header_burger-all">
       <div class="header_burger_left">
-        <headerBurgerLeftItem :img="`/src/assets/icon.svg`" title="Проекты" text="Наши работы" />
-        <headerBurgerLeftItem class="befAll-two-uslugi" :img="`/src/assets/img/icon2.svg`" title="Услуги" text="Доверьтесь нам" />
-        <div class="header_burger_left-item befAll-two-agenstvo">
-          <img src="@/assets/img/icon4.png" alt="" />
-          <div class="header_burger_left-item-texts">
-            <LinkNav class="befAll-two" title="Агентство" />
-            <p>Подробнее о нас</p>
-          </div>
-        </div>
+        <headerBurgerLeftItem :img="icon" title="Проекты" text="Наши работы" />
+        <headerBurgerLeftItem :img="iconTwo" class="befAll-two-uslugi"  title="Услуги" text="Доверьтесь нам" />
+        <headerBurgerLeftItem :img="iconFour" class="befAll-two-agenstvo"  title="Агентство" text="Подробнее о нас" />
         <div class="header_burger_right header_burger_right-three">
           <h4 class="header_burger_right-title">Агентство</h4>
           <LinkNav
@@ -39,13 +33,7 @@
             :key="item.title"
           />
         </div>
-        <div class="header_burger_left-item">
-          <img src="@/assets/img/icon3.png" alt="" />
-          <div class="header_burger_left-item-texts">
-            <LinkNav class="befAll-two" title="Блог" />
-            <p>Интересные истории</p>
-          </div>
-        </div>
+        <headerBurgerLeftItem :img="iconThree"  title="Блог" text="Интересные истории" />
       </div>
     </div>
     <div class="header_burger-bottom">
@@ -64,6 +52,10 @@
 </template>
 <script setup>
 import LinkNav from './LinkNav.vue'
+import icon from '@/assets/icon.svg'
+import iconTwo from '@/assets/img/icon2.svg'
+import iconThree from '@/assets/img/icon3.png'
+import iconFour from '@/assets/img/icon4.png'
 import headerBurgerLeftItem from './headerBurgerLeftItem.vue'
 import { useBurgerStore } from '@/stores/burger';
 const burgerStore = useBurgerStore()

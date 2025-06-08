@@ -1,8 +1,8 @@
 <template>
-      <div class="connection_item">
+      <a :href="text == 'Связаться по телефону' ? 'tel:+79819975000' : 'mailto:hi@cidgital.ru'" class="connection_item">
             <p class="connection_item-text">{{ text }}</p>
             <h6 class="connection_item-title">{{ title }}</h6>
-      </div>
+      </a>
 
 </template>
 <script setup>
@@ -18,6 +18,7 @@ defineProps({
   border-radius: 22px;
   padding: 45px 42px 20px;
   width: 100%;
+  color: #000000;
 }
 .connection_item-text {
   font-weight: 500;

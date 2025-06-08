@@ -38,7 +38,7 @@
                         </dd>
                         <dd class="inputbox-content">
                             <input id="input1" v-model="number"  @input="handlePhoneInput" 
-                             type="text" :class="erorNumber ? 'eror' : ''" required/>
+                             type="tel" :class="erorNumber ? 'eror' : ''" required/>
                             <label for="input1" :class="erorNumber ? 'eror' : ''">Телефон *</label>
                             <span :class="erorNumber ? 'underlane--active underline' : 'underline'"></span>
                             <p class="eror_modal" v-if="erorNumber">Поле необходимо заполнить</p>
