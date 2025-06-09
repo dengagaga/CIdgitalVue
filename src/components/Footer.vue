@@ -4,18 +4,20 @@
             <div class="footer_all">
                 <div class="footer_left">
                     <p class="footer-text">© Cidgita. All Rights Reservedl</p>
-                    <router-link to="/" class="footer-link">Документы</router-link>
+                    <LinkNav class="befAll-two footer-link" title="Документы" />
                 </div>
                 <div class="footer_right">
-                    <router-link to="/" class="footer-link">Telegram</router-link>
-                    <router-link to="/" class="footer-link">ВКонтакте</router-link>
+                    <LinkNav class="befAll-two footer-link" title="Telegram" />
+                    <LinkNav class="befAll-two footer-link" title="ВКонтакте" />
                 </div>
             </div>
         </div>
     </footer>
 
 </template>
-<script setup></script>
+<script setup>
+import LinkNav from './LinkNav.vue'
+</script>
 <style>
 .footer_all {
     border-top: 1px solid #0000001A;
@@ -33,10 +35,21 @@
     font-weight: 600;
     font-size: 20px;
 }
-.footer-link {
+.footer-link .nav_right-link-one{
      color: #6F737C;
     font-weight: 500;
     font-size: 20px;
+}
+.footer-link .nav_right-link-one{
+     color: #6F737C;
+    font-weight: 500;
+    font-size: 20px;
+}
+.footer-link .nav_right-link-one:hover .nav_right-link-text_rel {
+  transform: translateY(-28px);
+}
+.footer-link .nav_right-link-one:hover .nav_right-link-text_abs {
+  transform: translateY(-27px);
 }
 .footer_right {
      display: flex;
@@ -48,10 +61,16 @@
     font-weight: 600;
     font-size: 16px;
 }
-.footer-link {
+.footer-link .nav_right-link-one{
      color: #6F737C;
     font-weight: 500;
     font-size: 16px;
+}
+.footer-link .nav_right-link-one:hover .nav_right-link-text_rel {
+  transform: translateY(-22px);
+}
+.footer-link .nav_right-link-one:hover .nav_right-link-text_abs {
+  transform: translateY(-21px);
 }
 }
 @media(max-width: 1366px) {

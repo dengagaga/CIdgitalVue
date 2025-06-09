@@ -75,7 +75,7 @@ const NavArray = ref([
   },
   {
     title: 'услуги',
-    link:'/'
+    link:'/services'
   },
   {
     title: 'агентство',
@@ -83,39 +83,58 @@ const NavArray = ref([
   },
 ])
 
-document.addEventListener('DOMContentLoaded', function () {
-  var buttonElements = document.querySelectorAll('.nav_right-link')
-
-  buttonElements.forEach(function (button) {
-    button.addEventListener('mouseenter', function (e) {
-      var rect = button.getBoundingClientRect()
-      var relX = e.clientX - rect.left
-      var relY = e.clientY - rect.top
-      var span = button.querySelector('span')
-      span.style.top = relY + 'px'
-      span.style.left = relX + 'px'
-      span.style.position = 'absolute' // Ensure span is positioned absolutely
-    })
-
-    button.addEventListener('mouseout', function (e) {
-      var rect = button.getBoundingClientRect()
-      var relX = e.clientX - rect.left
-      var relY = e.clientY - rect.top
-      var span = button.querySelector('span')
-      span.style.top = relY + 'px'
-      span.style.left = relX + 'px'
-      span.style.position = 'absolute' // Ensure span is positioned absolutely
-    })
-  })
-
-  // Prevent default action for links with href="#"
-  var links = document.querySelectorAll('a[href="#"]')
-  links.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      e.preventDefault()
-    })
-  })
-})
+document.addEventListener('DOMContentLoaded', function() {
+  // Находим все кнопки с классом .nav_right-link
+  const buttons = document.querySelectorAll('.nav_right-link');
+  
+  // Обрабатываем каждую кнопку
+  buttons.forEach(button => {
+    // Находим span внутри кнопки один раз
+    const rippleSpan = button.querySelector('span');
+    
+    // Устанавливаем базовые стили для span
+    Object.assign(rippleSpan.style, {
+      position: 'absolute',
+      pointerEvents: 'none',
+      transform: 'translate(-50%, -50%)',
+      transition: 'all 0.4s ease-out'
+    });
+    
+    // Обработчик движения мыши
+    const handleMouseMove = (e) => {
+      const rect = button.getBoundingClientRect();
+      const relX = e.clientX - rect.left;
+      const relY = e.clientY - rect.top;
+      
+      // Обновляем позицию span
+      rippleSpan.style.left = `${relX}px`;
+      rippleSpan.style.top = `${relY}px`;
+    };
+    
+    // Обработчик наведения
+    const handleMouseEnter = (e) => {
+      handleMouseMove(e);
+      rippleSpan.style.opacity = '1';
+      rippleSpan.style.width = '200px';
+      rippleSpan.style.height = '200px';
+    };
+    
+    // Обработчик ухода мыши
+    const handleMouseLeave = () => {
+      rippleSpan.style.opacity = '0';
+      rippleSpan.style.width = '0';
+      rippleSpan.style.height = '0';
+    };
+    
+    // Добавляем обработчики событий
+    button.addEventListener('mousemove', handleMouseMove);
+    button.addEventListener('mouseenter', handleMouseEnter);
+    button.addEventListener('mouseleave', handleMouseLeave);
+  });
+  document.querySelectorAll('a[href="#"]').forEach(link => {
+    link.addEventListener('click', e => e.preventDefault());
+  });
+});
 </script>
 <style>
 .nav {
@@ -146,6 +165,9 @@ document.addEventListener('DOMContentLoaded', function () {
   gap: 8px;
   align-items: center;
   background-color: var(--bgc-btn);
+  position: relative;
+  overflow: hidden;
+
 }
 .nav_right-link svg {
   width: 17px;
@@ -176,10 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
 .nav_right-burger-mob {
   display: none;
 }
-.nav_right-link {
-  position: relative;
-  overflow: hidden;
-}
+
 .nav_right-link img {
   position: relative;
   z-index: 2;
@@ -188,23 +207,27 @@ document.addEventListener('DOMContentLoaded', function () {
   position: relative;
   z-index: 2;
 }
-.nav_right-link-span {
+.nav_right-link span {
   position: absolute;
-  display: block;
   width: 0;
   height: 0;
   border-radius: 50%;
-  background-color: #ffffff;
-  transition:
-    width 0.4s ease-in-out,
-    height 0.4s ease-in-out;
-  transform: translate(-50%, -50%);
-  /* z-index: -1; */
+  background-color: #fff;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: 
+    transform 0.4s ease-out,
+    opacity 0.3s ease-out,
+    width 0.4s ease-out,
+    height 0.4s ease-out;
+  z-index: 0;
 }
 
 .nav_right-link:hover span {
-  width: 225%;
-  height: 562.5px;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  width: 200px;
+  height: 200px;
 }
 
 /*BURGER*/
@@ -312,7 +335,6 @@ document.addEventListener('DOMContentLoaded', function () {
   z-index: 3;
   left: 13px;
   right: 13px;
-
   bottom: 20px;
   background-color: #fff;
   padding: 24px;

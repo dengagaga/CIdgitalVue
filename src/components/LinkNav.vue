@@ -57,11 +57,9 @@ defineProps({
 .befAll:nth-child(3)::after {
   content: '';
   transition: all 0.3s;
-  /* opacity: 0; */
   width: 0px;
   height: 0px;
   border-radius: 3px;
-  /* bottom: 5px; */
   transform: translateX(-50%);
   bottom: 19px;
   left: 50%;
@@ -72,17 +70,14 @@ defineProps({
 .befAll:nth-child(1):hover.befAll:nth-child(1)::after {
   width: 6px;
   height: 6px;
-  /* opacity: 1; */
 }
 .befAll:nth-child(2):hover.befAll:nth-child(2)::after {
   width: 6px;
   height: 6px;
-  /* opacity: 1; */
 }
 .befAll:nth-child(3):hover.befAll:nth-child(3)::after {
   width: 6px;
   height: 6px;
-  /* opacity: 1; */
 }
 .nav_right-link-one {
   font-size: 15px;
@@ -105,5 +100,11 @@ defineProps({
   position: absolute;
   transform: translateY(0px);
   transition: all 0.3s;
+}
+
+@media(max-width: 1366px) {
+  .nav_right-link-one:hover .nav_right-link-text_abs {
+    transform: translateY(-19px);
+}
 }
 </style>

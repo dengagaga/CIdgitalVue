@@ -102,6 +102,17 @@ const projectStore =  useProjectStore()
   align-items: center;
   justify-content: space-between;
   padding: 14px 20px;
+  transition: all .3s;
+}
+.clients_top-right-link svg{
+  transition: all .3s;
+  
+}
+.clients_top-right-link:hover{
+  border: 1px solid #0000001A;
+}
+.clients_top-right-link:hover svg{
+  transform: rotate(45deg);
 }
 .clients_top-right-link-left {
   display: flex;
