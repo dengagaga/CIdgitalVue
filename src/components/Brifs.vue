@@ -89,6 +89,9 @@
  .brifs_all {
   padding: 12px 12px;
   padding-top: 140px;
+  background: url("@/assets/img/brifFonsMob.png");
+  background-repeat: no-repeat;
+  background-size: cover;
  }
 }
 </style>
