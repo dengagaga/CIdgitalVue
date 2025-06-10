@@ -23,8 +23,8 @@
     <Clients />
     <Brifs />
     <Connection />
-    <Footer />
   </main>
+  <Foter />
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -38,7 +38,7 @@ import projectModal from '@/components/projectModal.vue';
 import Projects from '@/components/Projects.vue';
 import Connection from '@/components/Connection.vue';
 import modalZakaz from '@/components/modalZakaz.vue'
-import Footer from '@/components/Footer.vue';
+import Foter from '@/components/Foter.vue';
 import { useModalStore } from '../stores/modal'
 const burgerActive = ref(false)
 const modalStore = useModalStore()

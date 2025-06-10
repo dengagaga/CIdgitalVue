@@ -15,18 +15,22 @@
         </div>
     </div>
   </header>
+  <main class="main">
+    <Industries />
+    <Solutions />
+  </main>
+  <Foter />
 </template>
 <script setup>
 import { ref } from 'vue'
+import Solutions from '@/components/Solutions.vue';
+import Foter from '@/components/Foter.vue';
 import modalZakaz from '@/components/modalZakaz.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue';
-import headerMid from '@/components/headerMid.vue';
 import Services from '@/components/Services.vue';
-import { useProjectStore } from '@/stores/project'
+import Industries from '@/components/Industries.vue';
 import { useModalStore } from '@/stores/modal';
-import projectItem from '@/components/ProjectItem.vue';
-const projectStore =  useProjectStore()
 const modalStore =  useModalStore()
 const burgerActive = ref(false)
 const toggleBurger = () => {

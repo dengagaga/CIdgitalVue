@@ -70,7 +70,7 @@ defineProps({
     display: flex;
     gap: 24px;
     align-items: center;
-    max-width: 335px;
+    max-width: 500px;
     width: 100%;
 }
 .services_item-rigth {
@@ -115,7 +115,7 @@ defineProps({
     transition: all .4s ease-in-out; 
 }
 .services_item-bot-left {
-    max-width: 335px;
+    max-width: 500px;
     width: 100%;
 }
 .services_item--active .services_item-bot {
@@ -215,6 +215,14 @@ border-bottom: 1px solid #015EF9;
     font-size: 22px;
     font-weight: 500;
     color: #101010;
+}
+.services_item-left {
+    max-width: 335px;
+    width: 100%;
+}
+.services_item-bot-left {
+    max-width: 335px;
+    width: 100%;
 }
 .text-grey {
     color: #717171;

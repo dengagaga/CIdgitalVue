@@ -10,7 +10,7 @@
     </div>
     <div class="header_mid">
         <h1 class="title_1"></h1>
-        <div class="header_mid-oneFon">
+        <div class="header_mid-oneFon header_mid-oneFon-projects">
             <div class="header_mid-threeFon"></div>
             <headerMid title="Проекты" text="Мы накопили уникальный опыт, работая с клиентами из различных сфер, и каждый из них подарил нам уникальные знания и навыки. " />
             <div class="main_projects">
@@ -19,9 +19,11 @@
         </div>
     </div>
   </header>
+  <Foter />
 </template>
 <script setup>
 import { ref } from 'vue'
+import Foter from '@/components/Foter.vue';
 import modalZakaz from '@/components/modalZakaz.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue';
@@ -43,8 +45,15 @@ const toggleBurger = () => {
 .main_projects {
   margin-top: 80px;
 }
-
+.header_mid-oneFon-projects .main_projects {
+  padding-bottom: 0;
+}
+.header_mid-oneFon-projects {
+  padding-bottom: 0;
+}
 @media(max-width: 450px) {
-    
+    .header_mid-oneFon-projects .main_projects {
+  padding-bottom: 0;
+}
 }
 </style>

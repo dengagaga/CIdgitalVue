@@ -24,6 +24,7 @@ const projectStore =  useProjectStore()
   display: flex;
   flex-direction: column;
   gap: 23px;
+  padding-bottom: 70px;
 }
   }
 </style>

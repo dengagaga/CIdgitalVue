@@ -13,7 +13,7 @@ import ConnectionItem from './ConnectionItem.vue';
 </script>
 <style>
 .connection {
-  padding-bottom: 105px;
+  /* padding-bottom: 105px; */
 }
 .connection_all {
   display: flex;
@@ -43,7 +43,7 @@ import ConnectionItem from './ConnectionItem.vue';
     width: 100%;
 }
 .connection {
-  padding-bottom: 70px;
+  /* padding-bottom: 70px; */
 }
 }
 </style>

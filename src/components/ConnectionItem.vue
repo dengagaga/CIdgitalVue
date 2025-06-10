@@ -1,79 +1,58 @@
 <template>
-      <a :href="text == 'Связаться по телефону' ? 'tel:+79819975000' : 'mailto:hi@cidgital.ru'" class="connection_item">
+      <a :href="text == 'Связаться по телефону' ? 'tel:+79819975000' : 'mailto:hi@cidgital.ru'" ref="button" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" @mouseenter="handleMouseEnter" class="connection_item">
             <p class="connection_item-text">{{ text }}</p>
             <h6 class="connection_item-title">{{ title }}</h6>
-            <span></span>
+            <span :style="rippleStyle"></span>
       </a>
 
 </template>
 <script setup>
-import { onMounted } from 'vue'
+import { ref } from 'vue'
 defineProps({
   title: String,
   text: String
 })
-onMounted(() => {
-  
-  initRippleEffect()
+
+const button = ref(null);
+const rippleStyle = ref({
+        position: 'absolute',
+        pointerEvents: 'none',
+        transform: 'translate(-50%, -50%)',
+        transition: 'all 0.7s ease-out',
+        opacity: '0',
+        background: '#ededed',
+        borderRadius: '50%',
+        width: '0',
+        height: '0',
+        left: '0',
+        top: '0'
 })
-
-const initRippleEffect = () => { 
-  document.addEventListener('DOMContentLoaded', function() {
-  // Находим все кнопки с классом .nav_right-link
-  const buttons = document.querySelectorAll('.connection_item');
+const handleMouseMove = (e) => {
+  if (!button.value) return;
   
-  // Обрабатываем каждую кнопку
-  buttons.forEach(button => {
-    // Находим span внутри кнопки один раз
-    const rippleSpan = button.querySelector('span');
-    
-    // Устанавливаем базовые стили для span
-    Object.assign(rippleSpan.style, {
-      position: 'absolute',
-      pointerEvents: 'none',
-      transform: 'translate(-50%, -50%)',
-      transition: 'all 0.6s ease-out'
-    });
-    
-    // Обработчик движения мыши
-    const handleMouseMove = (e) => {
-      const rect = button.getBoundingClientRect();
-      const relX = e.clientX - rect.left;
-      const relY = e.clientY - rect.top;
-      
-      // Обновляем позицию span
-      rippleSpan.style.left = `${relX}px`;
-      rippleSpan.style.top = `${relY}px`;
-    };
-    
-    // Обработчик наведения
-    const handleMouseEnter = (e) => {
-      handleMouseMove(e);
-      rippleSpan.style.opacity = '1';
-      rippleSpan.style.width = '1000px';
-      rippleSpan.style.height = '1000px';
-    };
-    
-    // Обработчик ухода мыши
-    const handleMouseLeave = () => {
-      rippleSpan.style.opacity = '0';
-      rippleSpan.style.width = '0';
-      rippleSpan.style.height = '0';
-    };
-    
-    // Добавляем обработчики событий
-    button.addEventListener('mousemove', handleMouseMove);
-    button.addEventListener('mouseenter', handleMouseEnter);
-    button.addEventListener('mouseleave', handleMouseLeave);
-  });
-  document.querySelectorAll('a[href="#"]').forEach(link => {
-    link.addEventListener('click', e => e.preventDefault());
-  });
-});
+  const rect = button.value.getBoundingClientRect();
+  const relX = e.clientX - rect.left;
+  const relY = e.clientY - rect.top;
+  
+  rippleStyle.value.left = `${relX}px`;
+  rippleStyle.value.top = `${relY}px`;
+};
 
-}
+const handleMouseEnter = (e) => {
+  handleMouseMove(e);
+  rippleStyle.value.opacity = '1';
+  rippleStyle.value.width = '1700px';
+  rippleStyle.value.height = '1700px';
+};
+
+const handleMouseLeave = () => {
+  rippleStyle.value.opacity = '0';
+  rippleStyle.value.width = '0';
+  rippleStyle.value.height = '0';
+};
+
 </script>
-<style>
+<style scoped>
 .connection_item {
   background-color: #FBFBFB;
   border-radius: 22px;
@@ -97,7 +76,7 @@ const initRippleEffect = () => {
   z-index: 2;
 }
 
-.connection_item span {
+/* .connection_item span {
   position: absolute;
   width: 0;
   height: 0;
@@ -111,13 +90,20 @@ const initRippleEffect = () => {
     width 0.4s ease-out,
     height 0.4s ease-out;
   z-index: 0;
-}
+} */
 
 .connection_item:hover span {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   width: 100%;
   height: 100%;
+}
+.active {
+    position: absolute;
+    pointer-events: none;
+    transition: all 0.6s ease-out;
+
+    transform: translate(-50%, -50%);
 }
 @media(max-width: 1440px) {
 

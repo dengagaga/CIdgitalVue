@@ -1,7 +1,7 @@
 <template>
-    <div class="clients_bot-list-item">
+    <router-link :to="'/clients/' + item.id" class="clients_bot-list-item">
         <img :src="item.img" alt="">
-    </div>
+    </router-link>
 </template>
 <script setup>
 defineProps({
@@ -13,8 +13,10 @@ defineProps({
     border: 2px solid #0000001A;
     background: transparent;
     border-radius: 103px;
+    cursor: pointer;
     width: 100%;
     height: 190px;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;

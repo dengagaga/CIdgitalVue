@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer сlass="footer">
         <div class="container">
             <div class="footer_all">
                 <div class="footer_left">
@@ -19,6 +19,9 @@
 import LinkNav from './LinkNav.vue'
 </script>
 <style>
+footer {
+    margin-top: 105px;
+}
 .footer_all {
     border-top: 1px solid #0000001A;
     padding: 40px 0;
@@ -85,6 +88,9 @@ import LinkNav from './LinkNav.vue'
     gap: 32px;
     padding-top: 40px;
     padding-bottom: 26px;
+}
+footer {
+    margin-top: 70px;
 }
 .footer_left {
     gap: 50px;

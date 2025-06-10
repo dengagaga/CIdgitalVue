@@ -40,15 +40,7 @@
       <div class="nav_right-all">
         <LinkNav v-for="item in NavArray" :key="item.title" :item="item" />
       </div>
-      <a href="#" class="nav_right-link" v-if="!burgerStore.mobilBurgerActive">
-        <p>написать в telegram</p>
-        <img src="@/assets/ava.png" alt="" /><span class="nav_right-link-span"></span>
-      </a>
-      <a href="#" @click="modalStore.modalZakazToggle" class="nav_right-link nav_right-link-end">
-        <p>заказать проект</p>
-        <img src="@/assets/arrow.svg" alt="" />
-        <span class="nav_right-link-span"></span>
-      </a>
+      <navRightLink v-if="!burgerStore.mobilBurgerActive" />
       <slot></slot>
     </div>
   </nav>
@@ -57,11 +49,10 @@
 <script setup>
 import { ref } from 'vue'
 import LinkNav from './LinkNav.vue'
+import navRightLink from './navRightLink.vue';
 import MobilBurgerMenu from '@/components/MobilBurgerMenu.vue';
 import { RouterLink } from 'vue-router'
 import { useBurgerStore } from '@/stores/burger';
-import { useModalStore } from '@/stores/modal';
-const modalStore = useModalStore()
 const burgerStore = useBurgerStore()
 defineProps({
   burgerActive: Boolean,
@@ -83,58 +74,6 @@ const NavArray = ref([
   },
 ])
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Находим все кнопки с классом .nav_right-link
-  const buttons = document.querySelectorAll('.nav_right-link');
-  
-  // Обрабатываем каждую кнопку
-  buttons.forEach(button => {
-    // Находим span внутри кнопки один раз
-    const rippleSpan = button.querySelector('span');
-    
-    // Устанавливаем базовые стили для span
-    Object.assign(rippleSpan.style, {
-      position: 'absolute',
-      pointerEvents: 'none',
-      transform: 'translate(-50%, -50%)',
-      transition: 'all 0.4s ease-out'
-    });
-    
-    // Обработчик движения мыши
-    const handleMouseMove = (e) => {
-      const rect = button.getBoundingClientRect();
-      const relX = e.clientX - rect.left;
-      const relY = e.clientY - rect.top;
-      
-      // Обновляем позицию span
-      rippleSpan.style.left = `${relX}px`;
-      rippleSpan.style.top = `${relY}px`;
-    };
-    
-    // Обработчик наведения
-    const handleMouseEnter = (e) => {
-      handleMouseMove(e);
-      rippleSpan.style.opacity = '1';
-      rippleSpan.style.width = '200px';
-      rippleSpan.style.height = '200px';
-    };
-    
-    // Обработчик ухода мыши
-    const handleMouseLeave = () => {
-      rippleSpan.style.opacity = '0';
-      rippleSpan.style.width = '0';
-      rippleSpan.style.height = '0';
-    };
-    
-    // Добавляем обработчики событий
-    button.addEventListener('mousemove', handleMouseMove);
-    button.addEventListener('mouseenter', handleMouseEnter);
-    button.addEventListener('mouseleave', handleMouseLeave);
-  });
-  document.querySelectorAll('a[href="#"]').forEach(link => {
-    link.addEventListener('click', e => e.preventDefault());
-  });
-});
 </script>
 <style>
 .nav {
