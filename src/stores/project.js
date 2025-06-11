@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useProjectStore = defineStore('project', () => {
   const projectItemArraySelect = ref([])
+  const selectedProject = ref([])
   const projectItemArray = ref([
     {
       id: 1,
@@ -314,5 +315,5 @@ export const useProjectStore = defineStore('project', () => {
 ])
   
   
-  return { projectItemArray,  selectProject, projectItemArraySelect }
+  return { projectItemArray, selectedProject,  selectProject, projectItemArraySelect }
 })

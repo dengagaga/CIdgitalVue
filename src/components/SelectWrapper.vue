@@ -4,6 +4,7 @@
             <p class="select_wrapper-title" >{{ item.title }}<span class="select_wrapper-count">{{ item.select.length }}</span></p>
             <img src="@/assets/img/arrow.png" alt="">
         </button>
+       
         <transition>
             <div class="select_dropList" v-if="item.active"> 
                 <ul class="select_list" >
@@ -11,6 +12,12 @@
                 </ul>
             </div>
         </transition>
+        
+    </div>
+     <div v-if="projectStore.selectedProject">
+            <ul>
+                <li class="select_wrapper-item" v-for="item in projectStore.selectedProject" :key="item">{{ item.title }}</li>
+            </ul>
     </div>
 </template>
 <script setup>
@@ -24,19 +31,56 @@ const toggleSelect = (item, array) => {
 
 const toggleSelectItem = (item) => {
     item.active = !item.active
+    projectStore.selectedProject.push(item)
+    console.log(projectStore.selectedProject);
     if (item.active) {
-          projectStore.projectItemArraySelect = projectStore.projectItemArray.map((el) => {
-            if (el.tags.includes(item.title)) {
-                console.log(el);
-                return el
-            } else {
-                projectStore.projectItemArraySelect = []
-            }
-    }) 
+        projectStore.projectItemArraySelect = []
+        projectStore.selectedProject.forEach((el) => {
+            projectStore.projectItemArray.forEach((item) => {
+                if (item.tags.includes(el.title)) {
+                    projectStore.projectItemArraySelect.push(item)
+                }
+            })
+        })
+        console.log(projectStore.projectItemArraySelect);
     } else {
         projectStore.projectItemArraySelect = []
-}  
+        projectStore.selectedProject = []
+    }
+  
+    
 }
+
+// const toggleSelectItem = (item) => {
+//     item.active = !item.active;
+    
+//     if (item.active) {
+//         if (!projectStore.selectedProject.some(el => el === item)) {
+//             projectStore.selectedProject.push(item);
+//         }
+//     } else {
+//         projectStore.selectedProject = projectStore.selectedProject.filter(el => el !== item);
+//     }
+
+//     console.log(projectStore.selectedProject);
+//     if (item.active) {
+//         projectStore.projectItemArraySelect = [];
+//         projectStore.selectedProject.forEach((el) => {
+//             projectStore.projectItemArray.forEach((projectItem) => {
+//                 if (projectItem.tags.includes(el.title)) {
+//                     if (!projectStore.projectItemArraySelect.some(x => x === projectItem)) {
+//                         projectStore.projectItemArraySelect.push(projectItem);
+//                     }
+//                 }
+//             });
+//         });
+//         console.log(projectStore.projectItemArraySelect);
+//     } else {
+//         if (projectStore.selectedProject.length === 0) {
+//             projectStore.projectItemArraySelect = [];
+//         }
+//     }
+// };
 
 </script>
 <style>
@@ -95,5 +139,8 @@ const toggleSelectItem = (item) => {
 }
 .select_list-item--active {
     background-color: #F5F5F5;
+}
+.select_wrapper-item {
+    font-size: 14px;
 }
 </style>
