@@ -20,7 +20,7 @@
                 <div class="services_item-bot-left">
 
                 </div>
-                <div >
+                <div class="services_item-bot-right">
                     <div class="services_item-bot-all">
                         <button class="services_item-bot_btn" v-for="item in item.tegs" :key="item">
                             {{ item.teg }}
@@ -297,6 +297,7 @@ border-bottom: 1px solid #015EF9;
     }
     .services_item-bot-links {
         flex-direction: column;
+        width: 100%;
         gap: 10px;
     }
     .services_item--active .services_item-bot {
@@ -306,11 +307,16 @@ border-bottom: 1px solid #015EF9;
         font-size: 16px;
         justify-content: center;
         height: 48px;
+        width: 100%;
     }
     .services_item-bot-link {
         font-size: 16px;
+        width: 100%;
         justify-content: center;
         height: 48px;
+    }
+    .services_item-bot-right {
+        width: 100%;
     }
    
 }
