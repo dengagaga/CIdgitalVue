@@ -1,5 +1,5 @@
 <template>
-    <div class="project" :class="!item.tags ? 'project--none_tags'  : ''">
+    <div class="project" v-if="item" :class="!item.tags ? 'project--none_tags'  : ''">
         <div class="project_top" :class="active ? 'project_top--active' : ''">
             <img class="project_img" src="../assets/img/keus.png" alt="">
             <video class="project_video" :src="item.video"></video>

@@ -19,7 +19,7 @@
     </div>
   </header>
   <main class="main">
-    <Projects />
+    <Projects :limit="6"  />
     <Clients />
     <Brifs />
     <Connection />

@@ -47,7 +47,7 @@
               <div class="clients_bot">
                   <h2>Наши клиенты</h2>
                   <div class="clients_bot-list">
-                      <clientsItem v-for="item in projectStore.clientsItemArray" :item="item" :key="item"></clientsItem>
+                      <clientsItem v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
                   </div>
               </div>
           </div>
@@ -57,6 +57,8 @@
 <script setup>
 import { useProjectStore } from '@/stores/project'
 import clientsItem from '@/components/ClientsItem.vue';
+import { useClientStore } from '@/stores/client';
+const clientStore = useClientStore()
 const projectStore =  useProjectStore()
 </script>
 <style>

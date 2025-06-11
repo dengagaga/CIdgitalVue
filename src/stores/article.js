@@ -29,6 +29,23 @@ export const useArticleStore = defineStore('article', () => {
         },
        
     ])
+
+    const articleItemArray = ref([
+    {
+      id: 1,
+      name:'Разработка и редизайн сайта Laser Zone',
+      img: '/src/assets/img/keus.png',
+      video:'',
+      tags: ['Скоро кейс | Лендинг', 'Кейс | Сайт' , 'Бьюти сфера']
+    },
+    {
+      id: 2,
+      name:'Lasez Zone v1.0',
+      img: '/src/assets/img/keus.png',
+      video:'',
+      tags: ['Скоро кейс | Лендинг', 'Кейс | Сайт' , 'Бьюти сфера']
+    },
+  ])
   
-  return { article }
+  return { article, articleItemArray }
 })

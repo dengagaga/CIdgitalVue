@@ -15,33 +15,13 @@
                 </div>
             </div>
             <div class="header_mid-oneFon-right-bot-proj" v-else>
-                <div class="select_wrapper">
-                    <select class="select" name="" id="">
-                        <option value="">Услуги</option>
-                        <option value="">Услуги</option>
-                        <option value="">Услуги</option>
-                    </select>
-                </div>
-                <div class="select_wrapper">
-                    <select class="select" name="" id="">
-                        <option value="">Типы сайтов</option>
-                        <option value="">Типы сайтов</option>
-                        <option value="">Типы сайтов</option>
-                    </select>
-                </div>
-                <div class="select_wrapper">
-                    <select class="select" name="" id="">
-                        <option value="">Отрасли</option>
-                        <option value="">Отрасли</option>
-                        <option value="">Отрасли</option>
-                    </select>
-                </div>
-               
+                <SelectWrapper />
             </div>
         </div>
     </div>
 </template>
 <script setup>
+import SelectWrapper from './SelectWrapper.vue';
 defineProps({
     title:String,
     text:String,
@@ -177,29 +157,7 @@ defineProps({
     text-transform: uppercase;
 
 }
-.select_wrapper {
-    position: relative;
-}
-.select_wrapper::after {
-    position: absolute;
-    content: '';
-    background-image: url(../assets/img/arrow.png);
-    height: 18px;
-    width: 18px;
-    right: 10px;
-    top: 8px;
-}
-.select {
-    border: 2px solid #F4F4F4;
-    width: 113px;
-    height: 32px;
-    border-radius: 50px;
-    padding-left: 14px;
-    font-size: 14px;
-    display: flex;
-    gap: 9px;
-    position: relative;
-}
+
 
 @media (max-width: 1440px) {
     .header_mid {

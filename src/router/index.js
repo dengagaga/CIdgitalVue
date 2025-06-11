@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ProjectView from '../views/ProjectView.vue'
+import ProjectView from '../views/ProjectsView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import ClientsView from '../views/ClientsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+    scrollBehavior() {
+    return window.scrollTo(0, 0)
+  },
   routes: [
     {
       path: '/',

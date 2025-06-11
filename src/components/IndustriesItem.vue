@@ -61,8 +61,10 @@ const industriesStore = useIndustriesStore()
     color: #696D73;
     display: flex;
     align-items: center;
+    transition: all 0.3s;
     justify-content: space-between;
 }
+
 .industries_item-btn::after {
     content: '';
     right: 39px;
@@ -108,9 +110,12 @@ const industriesStore = useIndustriesStore()
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s;
 }
 
-
+.industries_item-btn:hover .industries_item-btn-right{
+    transform: translateX(5px);
+}
 @media(max-width: 1440px) {
 .industries_item-top-title {
     font-size: 21px;

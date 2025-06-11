@@ -59,6 +59,9 @@ footer {
     gap: 66px;
 }
 @media(max-width: 1440px) {
+    footer {
+        margin-top: 80px;
+    }
 .footer-text {
     color: #1E1E1E;
     font-weight: 600;

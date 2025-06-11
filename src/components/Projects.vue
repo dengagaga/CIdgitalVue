@@ -2,7 +2,7 @@
      <section class="projects">
         <div class="container">
           <div class="main_projects">
-            <projectItem v-for="item in projectStore.projectItemArray" :item="item" :key="item"></projectItem>
+            <projectItem v-for="item in projectItemArrayLimit" :item="item" :key="item"></projectItem>
           </div>
         </div>
     </section>
@@ -11,6 +11,11 @@
 import projectItem from '@/components/ProjectItem.vue';
 import { useProjectStore } from '@/stores/project'
 const projectStore =  useProjectStore()
+const props = defineProps({
+  limit:Number
+})
+const projectItemArray = projectStore.projectItemArray
+const projectItemArrayLimit = projectItemArray.slice(0, props.limit)
 </script>
 <style>
 .main_projects {
