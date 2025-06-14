@@ -1,5 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import keus from '/src/assets/img/keus.png'
+import lz from '/src/assets/img/oblLZ.png'
 
 export const useProjectStore = defineStore('project', () => {
   const projectItemArraySelect = ref([])
@@ -8,65 +10,84 @@ export const useProjectStore = defineStore('project', () => {
     {
       id: 1,
       name:'Сайт российского игрового издательства Reegames',
-      img: '/src/assets/img/keus.png',
+      title: 'Reegames',
+      img: keus,
       video:'',
       tags: ['Лендинг', 'Кейс | Сайт' , 'Gamedev']
     },
     {
       id: 2,
       name:'Медвежьегорс Втормет - сервис по приёму металла с админ панелью ',
-      img: '/src/assets/img/keus.png',
+      title: 'Медвежьегорс Втормет',
+      img: keus,
       video:'',
       tags: ['Лендинг', 'Кейс | Сайт' , 'Металлургия']
     },
     {
       id: 3,
       name:'Сайт и айдентика по строительству домов из карельской сосны кело “Кархум Кело”',
-      img: '/src/assets/img/keus.png',
+      title: 'Кархум Кело',
+      img: keus,
       video:'',
       tags: ['Лендинг', 'Кейс | Сайт' , 'Строительство и ремонт']
     },
     {
       id: 4,
       name:'Сайт для Карельского перевозчика “Карел экспресс”',
-      img: '/src/assets/img/keus.png',
+      title: 'Карел экспресс',
+      img: keus,
       video:'',
       tags: ['Система сайтов', 'Кейс | Сайт' , 'Транспорт и логистика']
     },
     {
       id: 5,
       name:'Разработка сайта для узнаваемости игры “Beat the Humans”',
-      img: '/src/assets/img/keus.png',
+      title: 'Beat the Humans',
+      img: keus,
       video:'',
       tags: ['Лендинг', 'Кейс | Сайт' , 'Gamedev']
     },
     {
       id: 6,
       name:'АЗС КиТЭК — современный сайт для автозаправочной станции',
-      img: '/src/assets/img/keus.png',
+      title: 'АЗС КиТЭК',
+      img: keus,
       video:'',
       tags: ['Система сайтов', 'Кейс | Сайт' , 'Промышленность']
     },
     {
       id: 7,
       name:'Финант — аналитический сервис по финансам и экономическим новостям',
-      img: '/src/assets/img/keus.png',
+      title: 'Финант',
+      img: keus,
       video:'',
       tags: ['Лендинг', 'Кейс | Сайт' , 'Финансы']
     },
     {
       id: 8,
       name:'Олклин — интернет-магазин стеклоомывающей жидкости от производителя',
-      img: '/src/assets/img/keus.png',
+      title: 'Олклин',
+      img: keus,
       video:'',
       tags: ['Control Place', 'Кейс | Сайт' , 'Промышленность']
     },
     {
       id: 9,
       name:'Разработка и редизайн сайта Laser Zone',
-      img: '/src/assets/img/keus.png',
+      title: 'Laser Zone',
+      text: 'Первая студия лазерной эпиляции в Петрозаводске с 2018 года',
+      img: lz,
+      link: 'https://laserzone.ru/',
+      linkTitle: 'laserzon.ru',
+      year: '2020',
+      team: '3 человека',
+      duration: '3 месяца',
+      platform: 'Web',
       video:'',
-      tags: ['Корпоративные сайты', 'Кейс | Сайт' , 'Бьюти сфера']
+      stack:['Frontend', 'Backend', 'Design'],
+      industries:['Бьюти', 'Retail'],
+      tags: ['Корпоративные сайты', 'Кейс | Сайт' , 'Бьюти сфера'],
+      service:['Предпроектные исследования', 'UX/UI дизайн' , 'Разработка сайта '],
     },
   ])
   const selectProject = ref([

@@ -29,59 +29,68 @@ const toggleSelect = (item, array) => {
   item.active = !wasActive;   
 }
 
-const toggleSelectItem = (item) => {
-    item.active = !item.active
-    projectStore.selectedProject.push(item)
-    console.log(projectStore.selectedProject);
-    if (item.active) {
-        projectStore.projectItemArraySelect = []
-        projectStore.selectedProject.forEach((el) => {
-            projectStore.projectItemArray.forEach((item) => {
-                if (item.tags.includes(el.title)) {
-                    projectStore.projectItemArraySelect.push(item)
-                }
-            })
-        })
-        console.log(projectStore.projectItemArraySelect);
-    } else {
-        projectStore.projectItemArraySelect = []
-        projectStore.selectedProject = []
-    }
-  
-    
-}
-
 // const toggleSelectItem = (item) => {
+//     // Переключаем активное состояние элемента
 //     item.active = !item.active;
     
-//     if (item.active) {
-//         if (!projectStore.selectedProject.some(el => el === item)) {
-//             projectStore.selectedProject.push(item);
-//         }
+//     // Добавляем или удаляем элемент из selectedProject
+//     if (projectStore.selectedProject.includes(item)) {
+//         projectStore.selectedProject.splice(projectStore.selectedProject.indexOf(item), 1);
 //     } else {
-//         projectStore.selectedProject = projectStore.selectedProject.filter(el => el !== item);
+//         projectStore.selectedProject.push(item);
 //     }
+    
+//     console.log('Selected projects:', projectStore.selectedProject);
 
-//     console.log(projectStore.selectedProject);
-//     if (item.active) {
+//     // Пересчитываем projectItemArraySelect на основе всех выбранных проектов
+//     if (projectStore.selectedProject.length === 0) {
+//         // Если ничего не выбрано, очищаем массив
 //         projectStore.projectItemArraySelect = [];
-//         projectStore.selectedProject.forEach((el) => {
-//             projectStore.projectItemArray.forEach((projectItem) => {
-//                 if (projectItem.tags.includes(el.title)) {
-//                     if (!projectStore.projectItemArraySelect.some(x => x === projectItem)) {
-//                         projectStore.projectItemArraySelect.push(projectItem);
-//                     }
-//                 }
-//             });
-//         });
-//         console.log(projectStore.projectItemArraySelect);
 //     } else {
-//         if (projectStore.selectedProject.length === 0) {
-//             projectStore.projectItemArraySelect = [];
-//         }
+//         // Иначе фильтруем projectItemArray по всем выбранным тегам
+//         const selectedTags = projectStore.selectedProject.map(project => project.title);
+        
+//         projectStore.projectItemArraySelect = projectStore.projectItemArray.filter(item => {
+//             // Проверяем, содержит ли item хотя бы один из выбранных тегов
+//             return selectedTags.some(tag => item.tags.includes(tag));
+//         });
 //     }
+    
+//     console.log('Filtered items:', projectStore.projectItemArraySelect);
 // };
 
+
+
+const toggleSelectItem = (item) => {
+    // Переключаем активное состояние элемента
+    item.active = !item.active;
+    
+    // Добавляем или удаляем элемент из selectedProject
+    const itemIndex = projectStore.selectedProject.indexOf(item);
+    if (itemIndex !== -1) {
+        projectStore.selectedProject.splice(itemIndex, 1);
+    } else {
+        projectStore.selectedProject.push(item);
+    }
+    
+    console.log('Selected projects:', projectStore.selectedProject);
+
+    // Пересчитываем projectItemArraySelect на основе всех выбранных проектов
+    if (projectStore.selectedProject.length === 0) {
+        // Если ничего не выбрано, очищаем массив
+        projectStore.projectItemArraySelect = [];
+    } else {
+        // Получаем все выбранные теги
+        const selectedTags = projectStore.selectedProject.map(project => project.title);
+        
+        // Фильтруем элементы, которые содержат ВСЕ выбранные теги
+        projectStore.projectItemArraySelect = projectStore.projectItemArray.filter(item => {
+            return selectedTags.every(tag => item.tags.includes(tag));
+        });
+    }
+    
+    console.log('Filtered items (must match ALL tags):', projectStore.projectItemArraySelect);
+};
 </script>
 <style>
 .v-enter-active,

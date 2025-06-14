@@ -1,7 +1,7 @@
 <template>
     <div class="project" v-if="item" :class="!item.tags ? 'project--none_tags'  : ''">
         <div class="project_top" :class="active ? 'project_top--active' : ''">
-            <img class="project_img" src="../assets/img/keus.png" alt="">
+            <img class="project_img" :src="item.img" alt="">
             <video class="project_video" :src="item.video"></video>
             <div class="drop_list" v-if="active">
                 <button class="drop_list-btn">Backend</button>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <img class="project_logo" src="../assets/img/logoProj.png" alt="" v-else>
-        <h4 @click="modalStore.toggleProjectModal()" class="services_item-top-title">{{ item.name }}</h4>
+        <h4 @click="modalStore.toggleProjectModal(item.id)" class="services_item-top-title">{{ item.name }}</h4>
     </div>
 </template>
 <script setup>

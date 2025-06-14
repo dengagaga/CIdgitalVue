@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useBurgerStore } from './burger'
+import router from '@/router';
 
 export const useModalStore = defineStore('modal', () => {
     const burgerStore = useBurgerStore()
@@ -78,11 +79,12 @@ export const useModalStore = defineStore('modal', () => {
     ])
   
   const projectModal = ref(false)
-    const toggleProjectModal = () => {
-        projectModal.value = !projectModal.value
-        console.log(projectModal.value);
-        const body = document.querySelector('body')
-        body.classList.toggle('body-active_fon') 
+    const toggleProjectModal = (id) => {
+        // projectModal.value = !projectModal.value
+        // console.log(projectModal.value);
+        // const body = document.querySelector('body')
+        // body.classList.toggle('body-active_fon') 
+        router.push('/project/' + id)
     }
     const modalActive = ref(false)
     const modalZakazToggle = () => {
