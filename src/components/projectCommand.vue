@@ -45,7 +45,7 @@ defineProps({
     project: Object
 })
 </script>
-<style>
+<style scoped>
 .project_command {
     background-color: #F8F7FF;
     border-radius: 6px;

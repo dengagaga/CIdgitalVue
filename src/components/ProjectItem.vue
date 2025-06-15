@@ -39,7 +39,7 @@ defineProps({
     item:Object
 })
 </script>
-<style>
+<style scoped>
 .project {
     display: flex;
     flex-direction: column;

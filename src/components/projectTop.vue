@@ -20,7 +20,7 @@ defineProps({
     project: Object
 })
 </script>
-<style>
+<style scoped>
 .project_top {
     padding: 17px 28px;
     padding-bottom: 0px;

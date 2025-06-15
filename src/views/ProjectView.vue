@@ -15,6 +15,7 @@
                 <div class="project">
                    <projectTop :project="project[0]"/>
                    <projectCommand :project="project[0]" />
+                   <ProjectDescription :project="project[0]" />
                 </div>
                
             </div>
@@ -31,6 +32,7 @@ import projectCommand from '@/components/projectCommand.vue';
 import { useRoute } from 'vue-router'
 import { onMounted, ref } from 'vue'
 import { useProjectStore } from '../stores/project'
+import ProjectDescription from '@/components/projectDescription.vue';
 const projectStore =  useProjectStore()
 const burgerActive = ref(false)
 const toggleBurger = () => {
