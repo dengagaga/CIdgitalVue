@@ -31,4 +31,18 @@ defineProps({
 .project_description-text {
     font-size: 16px;
 }
+@media(max-width: 450px) {
+    .project_description {
+        margin-top: 40px;
+        padding: 0 12px;
+        
+    }
+   .project_description-title_3 {
+     font-size: 18px;
+    margin-bottom: 20px;
+}
+.project_description-text {
+    font-size: 14px;
+}
+}
 </style>

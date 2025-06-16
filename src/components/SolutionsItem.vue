@@ -5,7 +5,6 @@
             <p class="solutions_item-text">{{ item.text }}</p>
             <button class="solutions_item-btn"><img src="@/assets/img/arrowSolution.svg" alt=""></button>
         </div>
-       
     </div>
 </template>
 <script setup>

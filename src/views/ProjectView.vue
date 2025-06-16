@@ -1,4 +1,5 @@
 <template>
+    <ModalZakaz v-if="modalStore.modalActive"/>
     <header class="header">
       <div class="container">
         <Navigation  @toggleBurger="toggleBurger" :burgerActive="burgerActive">
@@ -16,8 +17,12 @@
                    <projectTop :project="project[0]"/>
                    <projectCommand :project="project[0]" />
                    <ProjectDescription :project="project[0]" />
+                   <img class="project_img" :src="project[0].imgGlav" alt="">
+                   <ProjectWorked :project="project[0]" />
+                   <div class="project_footer-container">
+                     <ProjectFooter />
+                   </div>
                 </div>
-               
             </div>
         </div>
     </main>
@@ -33,6 +38,11 @@ import { useRoute } from 'vue-router'
 import { onMounted, ref } from 'vue'
 import { useProjectStore } from '../stores/project'
 import ProjectDescription from '@/components/projectDescription.vue';
+import ProjectWorked from '@/components/projectWorked.vue';
+import ProjectFooter from '@/components/projectFooter.vue';
+import { useModalStore } from '@/stores/modal'
+import ModalZakaz from '@/components/modalZakaz.vue';
+const modalStore = useModalStore()
 const projectStore =  useProjectStore()
 const burgerActive = ref(false)
 const toggleBurger = () => {
@@ -50,6 +60,9 @@ onMounted(() => {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
+}
+.project_footer-container {
+  padding: 0 27px;
 }
 .project_all {
     padding-bottom: 36px;
@@ -75,5 +88,34 @@ onMounted(() => {
     
 }
 
+.project_img {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  border-radius: 32px;
+  border: 1px solid #0000001A;
+}
 
+@media(max-width: 1440px) {
+ .container_project {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+}
+@media(max-width: 450px) {
+  .project {
+    padding: 0;
+    margin-top: -40px;
+  }
+  .project_footer-container {
+    padding: 0 12px;
+  }
+  .project_img {
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
     <section class="project_top">
             <div class="project_top-left">
-                <img src="" alt="">
+                <img :src="project.ava" alt="">
                 <h3 class="project_top-title">{{ project.title }}</h3>
             </div>
             <div class="project_top-rigth">
@@ -30,7 +30,14 @@ defineProps({
 }
 .project_top-left {
     display: flex;
+    align-items: center;
     gap: 12px;
+    max-height: 68px;
+}
+.project_top-left img {
+    width: 68px;
+    border-radius: 22px;
+    height: 68px;
 }
 .project_top-title {
     font-size: 28px;
@@ -56,5 +63,25 @@ defineProps({
     gap: 12px;
     font-size: 18px;
     color: #000;
+}
+@media(max-width: 450px) {
+  .project_top {
+    padding: 17px 12px;
+    flex-direction: column;
+    gap: 50px;
+
+}
+.project_top-rigth-title {
+    font-size: 22px;
+    font-weight: 500;
+}
+.project_top-rigth {
+    max-width: 260px;
+    gap: 30px;
+}
+.project_top-rigth-text {
+    font-size: 14px;
+    color: #696D73;
+}
 }
 </style>

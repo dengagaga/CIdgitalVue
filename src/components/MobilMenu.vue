@@ -6,7 +6,7 @@
         </div>
         <ul class="mobil_menu--list">
             <li class="mobil_menu--item" v-for="item in menu" :key="item.id">
-                <router-link class="mobil_menu--link" to="">{{ item.title }}</router-link>
+                <router-link class="mobil_menu--link" @click="burgerStore.toggleMobilBurger()"  :to="item.link">{{ item.title }}</router-link>
             </li>
         </ul>
     </div>

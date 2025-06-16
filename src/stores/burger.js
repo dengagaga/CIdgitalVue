@@ -25,14 +25,17 @@ export const useBurgerStore = defineStore('burger', () => {
            {
               id:1,
               title: 'CMS сайта',
+              link:'/'
             },
             {
               id:2,
               title: 'CPlace Templates',
+              link:'/'
             },
             {
               id:3,
               title: 'Digame',
+              link:'/'
             },
       
         ]
@@ -44,25 +47,34 @@ export const useBurgerStore = defineStore('burger', () => {
         img:services,
         links: [
            {
+              id:13,
+              title: 'Все услуги',
+              link:'/services'
+            },
+           {
               id:4,
               title: 'Аналитика',
+              link:'/'
             },
             {
               id:5,
               title: 'Дизайн',
+              link:'/'
             },
             {
               id:6,
               title: 'Разработка',
+              link:'/'
             },
             {
               id:7,
               title: 'Продвижение',
+              link:'/'
             },
-            {
-              id:8,
-              title: 'CRM',
-            },
+            // {
+            //   id:8,
+            //   title: 'CRM',
+            // },
         ]
     },
     {
@@ -81,18 +93,22 @@ export const useBurgerStore = defineStore('burger', () => {
            {
             id:9,
               title: 'Сертификаты',
+              link:'/'
             },
             {
               id:10,
               title: 'Команда',
+              link:'/'
             },
             {
               id:11,
               title: 'Достижения',
+              link:'/'
             },
             {
               id:12,
               title: 'Отзывы',
+              link:'/'
             },
         ]
     },

@@ -4,9 +4,10 @@ import ProjectsView from '../views/ProjectsView.vue'
 import ProjectView from '../views/ProjectView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import ClientsView from '../views/ClientsView.vue'
+import DocumentsView from '../views/DocumentsView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
     scrollBehavior() {
     return window.scrollTo(0, 0)
   },
@@ -35,6 +36,11 @@ const router = createRouter({
       path: '/project/:id',
       name: 'ProjectView',
       component: ProjectView,
+    },
+    {
+      path: '/documents',
+      name: 'DocumentsView',
+      component: DocumentsView,
     },
     
   ],

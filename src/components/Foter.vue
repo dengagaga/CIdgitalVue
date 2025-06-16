@@ -4,7 +4,7 @@
             <div class="footer_all">
                 <div class="footer_left">
                     <p class="footer-text">© Cidgita. All Rights Reservedl</p>
-                    <LinkNav class="befAll-two footer-link" title="Документы" />
+                    <LinkNav class="befAll-two footer-link" :item="footerLinks[0]" />
                 </div>
                 <div class="footer_right">
                     <LinkNav class="befAll-two footer-link" title="Telegram" />
@@ -17,6 +17,20 @@
 </template>
 <script setup>
 import LinkNav from './LinkNav.vue'
+const footerLinks = [
+    {
+        title: 'Документы',
+        link: '/documents'
+    },
+    {
+        title: 'Telegram',
+        link: '/'
+    },
+    {
+        title: 'ВКонтакте',
+        link: '/'
+    }
+]
 </script>
 <style>
 footer {

@@ -1,4 +1,5 @@
 <template>
+    <ModalZakaz  v-if="modalStore.modalActive"/>
     <header class="header">
       <div class="header_fon cliets_view-header_fon">
       </div>
@@ -42,6 +43,9 @@ import { onMounted, ref } from 'vue'
 import { useArticleStore } from '@/stores/article';
 import projectItem from '@/components/ProjectItem.vue';
 import { useClientStore } from '@/stores/client';
+import { useModalStore } from '@/stores/modal'
+import ModalZakaz from '@/components/modalZakaz.vue';
+const modalStore = useModalStore()
 const clientStore = useClientStore()
 const articleStore = useArticleStore()
 const burgerActive = ref(false)

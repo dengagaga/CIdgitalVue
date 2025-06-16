@@ -78,8 +78,6 @@ defineProps({
 .project_command-one-text {
     font-size: 18px;
 }
-.project_command-two {
-}
 .project_command-two-texts {
     display: flex;
     gap: 37px;
@@ -87,10 +85,25 @@ defineProps({
     font-size: 18px;
     color: #080808;
 }
-.project_command-two-text {
+@media(max-width: 450px) {
+    .project_command-one {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 40px;
+    }
+    .project_command-one-all {
+        padding: 0;
+    }
+    .project_command-one-all:nth-child(2) {
+        border-right: none;
+        padding-left: 37px;
 }
-.project_command-three {
+    .project_command-one-all:nth-child(4) {
+        padding-left: 37px;
 }
-.project_command-four {
+.project_command-two-texts {
+    flex-wrap: wrap;
+
+}
 }
 </style>

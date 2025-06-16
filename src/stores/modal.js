@@ -92,6 +92,7 @@ export const useModalStore = defineStore('modal', () => {
         const body = document.querySelector('body')
         body.classList.add('no-scroll')
         burgerStore.mobilBurgerActive = false
+        window.scrollTo(0, 0)
     }
     const modalZakazClose = () => {
         modalActive.value = false
