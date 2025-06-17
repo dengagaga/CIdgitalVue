@@ -66,8 +66,14 @@ const toggleBurger = () => {
   height: 100vh;
   width: 100%;
   z-index: 0;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media(max-width: 450px) {
+  .header_fon {
 
+  background-position: left;
+}
+}
 </style>

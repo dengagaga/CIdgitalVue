@@ -62,7 +62,7 @@ onMounted(() => {
 </script>
 <style>
 .title_1-cliets_view {
-    margin-top: 350px;
+    /* margin-top: 350px; */
 }
 
 .cliets_view-main_projects {
@@ -93,7 +93,6 @@ onMounted(() => {
 @media (max-width: 1440px) {
     .title_1-cliets_view {
         font-size: 120px;
-        margin-top: 200px;
     }
     .cliets_view-top-right-title {
     font-size: 28px;

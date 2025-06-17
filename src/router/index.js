@@ -5,6 +5,7 @@ import ProjectView from '../views/ProjectView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import ClientsView from '../views/ClientsView.vue'
 import DocumentsView from '../views/DocumentsView.vue'
+import DetailsView from '../views/DetailsView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -41,6 +42,11 @@ const router = createRouter({
       path: '/documents',
       name: 'DocumentsView',
       component: DocumentsView,
+    },
+    {
+      path: '/details',
+      name: 'DetailsView',
+      component: DetailsView,
     },
     
   ],

@@ -106,6 +106,9 @@ footer {
     padding-top: 40px;
     padding-bottom: 26px;
 }
+.footer-text {
+        font-size: 15px;
+    }
 footer {
     margin-top: 70px;
 }

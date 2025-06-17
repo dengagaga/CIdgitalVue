@@ -17,7 +17,10 @@
                    <projectTop :project="project[0]"/>
                    <projectCommand :project="project[0]" />
                    <ProjectDescription :project="project[0]" />
-                   <img class="project_img" :src="project[0].imgGlav" alt="">
+                   <div class="container_sw">
+                     <swiper />
+                     <img class="project_img" :src="project[0].imgGlav" alt="">
+                   </div>
                    <ProjectWorked :project="project[0]" />
                    <div class="project_footer-container">
                      <ProjectFooter />
@@ -42,6 +45,7 @@ import ProjectWorked from '@/components/projectWorked.vue';
 import ProjectFooter from '@/components/projectFooter.vue';
 import { useModalStore } from '@/stores/modal'
 import ModalZakaz from '@/components/modalZakaz.vue';
+import swiper from '@/components/swiper.vue';
 const modalStore = useModalStore()
 const projectStore =  useProjectStore()
 const burgerActive = ref(false)
@@ -115,6 +119,9 @@ onMounted(() => {
   .project_img {
     margin-top: 40px;
     margin-bottom: 50px;
+  }
+  .container_sw {
+    padding: 0 12px;
   }
 
 }

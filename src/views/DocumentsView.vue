@@ -12,10 +12,10 @@
       <h1 class="title_1"></h1>
       <div class="header_mid-oneFon">
             <h2 class="title_2">Документы</h2>
-             <div class="solutions_item" v-for="item in documents" :key="item.id">
+             <router-link :to="item.link" class="solutions_item" v-for="item in documents" :key="item.id">
                 <h4 class="solutions_item-title">{{ item.title }}</h4>
                 <button class="solutions_item-btn"><img src="@/assets/img/arrowSolution.svg" alt=""></button>
-            </div>
+            </router-link >
       </div>
     </div>
   </header>
@@ -38,7 +38,7 @@ const documents = ref([
     {
         id:1,
         title:'Реквизиты',
-        link:'/'
+        link:'/details'
     },
     {
         id:2,
@@ -55,8 +55,12 @@ const documents = ref([
 
 <style scoped>
 .title_1 {
-    margin-top: 400px;
+    /* margin-top: 400px; */
 }
+.header_fon {
+       height: 80vh;
+       background-position: bottom;
+   }
 .solutions_item {
     width: 100%;
     justify-content: space-between;
@@ -64,5 +68,35 @@ const documents = ref([
 .solutions_item-title {
     max-width: 800px;
     width: 100%;
+}
+@media(max-width: 1440px) {
+    .title_1 {
+        /* margin-top: 250px; */
+    }
+}
+@media(max-width: 450px) {
+   .header_fon {
+       height: 50vh;
+   }
+   .title_1 {
+      margin-top: 100px;
+        margin-bottom: 20px;
+   }  
+   footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 2;
+        }
+    .solutions_item-title {
+    max-width: 300px;
+    width: 100%;
+}
+  
+}
+@media(max-width: 380px) {
+ .title_1 {
+    margin-top: 70px;
+   } 
 }
 </style>
