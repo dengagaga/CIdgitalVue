@@ -28,7 +28,7 @@ const modalStore = useModalStore()
 const navRightLink = ref([
   {
     title: 'написать в telegram',
-    link: '#',
+    link: 'https://t.me/realgorin',
     img: ava
   },
   {

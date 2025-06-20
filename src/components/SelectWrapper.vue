@@ -92,7 +92,7 @@ const toggleSelectItem = (item) => {
     console.log('Filtered items (must match ALL tags):', projectStore.projectItemArraySelect);
 };
 </script>
-<style>
+<style scoped>
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.3s ease;
@@ -152,4 +152,20 @@ const toggleSelectItem = (item) => {
 .select_wrapper-item {
     font-size: 14px;
 }
+@media(max-width: 450px) {
+    .select_wrapper-title {
+        font-size: 11px;
+    }
+    .select_wrapper-count {
+        margin-left: 3px;
+    }
+    .select_wrapper-btn {
+        gap: 6px;
+        padding: 9px 9px;
+    }
+    .header_mid-oneFon-all img {
+        max-width: 14px;
+    }
+}
+
 </style>

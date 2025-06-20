@@ -20,7 +20,7 @@
                     Денис Горин
                 </h3>
                 <p class="mobil_header_burger-bgc-text">Ответственный за ваш проект</p>
-                <a class="mobil_header_burger-bgc-button">
+                <a href="https://t.me/realgorin" class="mobil_header_burger-bgc-button">
                     <div class="mobil_header_burger-bgc-button-left">
                         <img src="@/assets/img/person.png" alt="">
                         <p>Написать в Telegram</p>

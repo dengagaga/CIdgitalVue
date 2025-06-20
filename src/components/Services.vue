@@ -2,7 +2,9 @@
     <div class="services">
         <h3 class="title_3">Услуги</h3>
         <div class="services_item-list">
+             
             <ServicesItem v-for="item in servicesArray" :item="item" :key="item" />
+             
         </div>
     </div>
 </template>

@@ -1,38 +1,47 @@
 <template>
-    <div class="project" v-if="item" :class="!item.tags ? 'project--none_tags'  : ''">
-        <div class="project_top" :class="active ? 'project_top--active' : ''">
-            <img class="project_img" :src="item.img" alt="">
-            <video class="project_video" :src="item.video"></video>
-            <div class="drop_list" v-if="active">
-                <button class="drop_list-btn">Backend</button>
-                <button class="drop_list-btn">Frontend</button>
-                <button class="drop_list-btn">UX/UI дизайн</button>
-                <button class="drop_list-btn">Аналитика</button>
-            </div>
-            <div class="drop_list-right" v-if="active">
-                <a href="https://www.laserzon.ru/" class="drop_list-right-link"><img src="../assets/img/lzLogo.png" alt="">Laser Zone</a>
-                <div class="drop_list-right-developers">
-                    <img src="../assets/img/elips2.png" alt="">
-                    <img src="../assets/img/elips1.png" alt="">
-                    <img src="../assets/img/elips3.png" alt="">
+  <div data-aos="fade-up"
+         data-aos-offset="50"
+         data-aos-delay="50"
+         data-aos-duration="800"
+         data-aos-easing="ease-in-out">
+        <div class="project" v-if="item" :class="!item.tags ? 'project--none_tags'  : ''">
+            <div class="project_top" :class="active ? 'project_top--active' : ''">
+                <img class="project_img" :src="item.img" alt="">
+                <video class="project_video" :src="item.video"></video>
+                <div class="drop_list" v-if="active">
+                    <button class="drop_list-btn">Backend</button>
+                    <button class="drop_list-btn">Frontend</button>
+                    <button class="drop_list-btn">UX/UI дизайн</button>
+                    <button class="drop_list-btn">Аналитика</button>
+                </div>
+                <div class="drop_list-right" v-if="active">
+                    <a href="https://www.laserzon.ru/" class="drop_list-right-link"><img src="../assets/img/lzLogo.png" alt="">Laser Zone</a>
+                    <div class="drop_list-right-developers">
+                        <img src="../assets/img/elips2.png" alt="">
+                        <img src="../assets/img/elips1.png" alt="">
+                        <img src="../assets/img/elips3.png" alt="">
+                    </div>
+                </div>
+                <div class="project_plus" @click="active = !active">
+                    <img class="project_plus-img" :class="active ? 'project_plus-img--active' : ''" src="../assets/img/plusSm.svg" alt="">
                 </div>
             </div>
-            <div class="project_plus" @click="active = !active">
-                <img class="project_plus-img" :class="active ? 'project_plus-img--active' : ''" src="../assets/img/plusSm.svg" alt="">
+            <div class="tags" v-if="item.tags">
+                <div class="tag" v-for="tag in item.tags" :key="tag">
+                    {{ tag }}
+                </div>
             </div>
+            <img class="project_logo" src="../assets/img/logoProj.png" alt="" v-else>
+            <h4 @click="modalStore.toggleProjectModal(item.id)" class="services_item-top-title">{{ item.name }}</h4>
         </div>
-        <div class="tags" v-if="item.tags">
-            <div class="tag" v-for="tag in item.tags" :key="tag">
-                {{ tag }}
-            </div>
-        </div>
-        <img class="project_logo" src="../assets/img/logoProj.png" alt="" v-else>
-        <h4 @click="modalStore.toggleProjectModal(item.id)" class="services_item-top-title">{{ item.name }}</h4>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue'
 import { useModalStore } from '../stores/modal'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 const modalStore = useModalStore()
 const active = ref(false)
 defineProps({

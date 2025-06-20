@@ -18,6 +18,7 @@
       </div>
     </div>
   </header>
+  
   <main class="main">
     <Projects :limit="6"  />
     <Clients />
@@ -40,6 +41,7 @@ import Connection from '@/components/Connection.vue';
 import modalZakaz from '@/components/modalZakaz.vue'
 import Foter from '@/components/Foter.vue';
 import { useModalStore } from '../stores/modal'
+
 const burgerActive = ref(false)
 const modalStore = useModalStore()
 const toggleBurger = () => {

@@ -6,11 +6,11 @@
             <p class="text">{{ text }}</p>
             <div class="header_mid-oneFon-right-bot" v-if="title !== 'Проекты'">
                 <div class="header_mid-oneFon-right-bot-item">
-                    <h2>20+</h2>
+                    <h2 class="header_mid-oneFon-right-bot-item-title"><span>+</span></h2>
                     <p>Проектов реализовано</p>
                 </div>
                 <div class="header_mid-oneFon-right-bot-item">
-                    <h2>>5</h2>
+                    <h2 class="header_mid-oneFon-right-bot-item-title-2"><span>></span></h2>
                     <p>Лет разрабатываем сайты</p>
                 </div>
             </div>
@@ -145,7 +145,39 @@ defineProps({
     font-size: 44px;
     line-height: 130%;
     letter-spacing: -3%;
-
+}
+.header_mid-oneFon-right-bot-item-title {
+    animation: countUp 3s ease-out forwards;
+    counter-reset: num var(--num);
+}
+.header_mid-oneFon-right-bot-item-title-2 {
+    animation: countUp2 3.5s ease-out forwards;
+    counter-reset: num var(--num);
+}
+@keyframes countUp {
+    from {
+        --num: 0;
+    }
+    to {
+        --num: 20;
+    }
+}
+@keyframes countUp2 {
+    from {
+        --num: 0;
+    }
+    to {
+        --num: 5;
+    }
+}
+    
+.header_mid-oneFon-right-bot-item h2::after {  
+    content: counter(num);
+}
+ @property --num {
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 0;
 }
 .header_mid-oneFon-right-bot-item p{
     color: #696D73;

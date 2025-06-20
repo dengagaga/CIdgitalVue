@@ -1,5 +1,10 @@
 <template>
-    <div :class="servicesItemActive ? 'services_item services_item--active' : 'services_item'" @click="servicesItemActive = !servicesItemActive" >
+    <div data-aos="fade-right"
+         data-aos-offset="50"
+         data-aos-delay="50"
+         data-aos-duration="500"
+         data-aos-easing="ease-in-out">
+            <div :class="servicesItemActive ? 'services_item services_item--active' : 'services_item'" @click="servicesItemActive = !servicesItemActive" >
             <div class="services_item-top">
                 <div class="services_item-left">
                  <img :src="item.img" alt="">
@@ -35,11 +40,14 @@
                 </div>
                 
             </div>
-        </div>
-      
+            </div>
+    </div>
 </template>
 <script setup>
 import { ref } from 'vue'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 const servicesItemActive = ref(false)
 defineProps({
     item: Object,

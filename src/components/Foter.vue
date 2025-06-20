@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer_all">
                 <div class="footer_left">
-                    <p class="footer-text">© Cidgita. All Rights Reservedl</p>
+                    <p class="footer-text">© Cidgital. All Rights Reservedl</p>
                     <LinkNav class="befAll-two footer-link" :item="footerLinks[0]" />
                 </div>
                 <div class="footer_right">

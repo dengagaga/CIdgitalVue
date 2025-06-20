@@ -46,20 +46,25 @@
               </div>
               <div class="clients_bot">
                   <h2>Наши клиенты</h2>
-                  <div class="clients_bot-list">
-                      <clientsItem v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
+                  <div class="clients_bot-container">
+                      <div class="clients_bot-list">
+                        <clientsItem  v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
+                      </div>
+                      <Vue3Marquee>
+                          <clientsItem v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
+                      </Vue3Marquee>
                   </div>
+                 
               </div>
           </div>
         </div>
     </section>
 </template>
 <script setup>
-import { useProjectStore } from '@/stores/project'
 import clientsItem from '@/components/ClientsItem.vue';
+import { Vue3Marquee } from 'vue3-marquee'
 import { useClientStore } from '@/stores/client';
 const clientStore = useClientStore()
-const projectStore =  useProjectStore()
 </script>
 <style>
 .clients_all {
@@ -162,7 +167,9 @@ const projectStore =  useProjectStore()
   justify-content: center;
   animation: rotate-circle 14s linear infinite;
 }
-
+.vue3-marquee {
+  display: none!important;
+}
 @keyframes rotate-circle {
   to {
     transform: rotate(1turn);
@@ -241,16 +248,29 @@ const projectStore =  useProjectStore()
   .clients_all {
     padding: 30px 12px;
   }
-  .clients_bot-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-      .clients_bot-list-item {
-        height: 120px;
-        border-radius: 73px;
-    }
-        .hr {
+.clients_bot-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  --gap: 16px;
+}
+
+.clients_bot-list {
+  display: none;
+}
+.clients_bot-container-mob {
+  display: flex;
+}
+.clients_bot-list-item {
+  flex: 0 0 200px;
+  height: 120px;
+  border-radius: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+    .hr {
         margin-top: 90px;
     }
     .clients_top-left {
@@ -274,4 +294,5 @@ const projectStore =  useProjectStore()
         position: absolute;
     }
 }
+
 </style>
