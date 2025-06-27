@@ -29,7 +29,18 @@
                 <div class="project_command-three">
                     <span class="project_command-one-span">Стек:</span>
                       <div class="project_command-two-texts">
-                        <p class="project_command-two-text" v-for="item in project.stack" :key="item">{{ item }}</p>
+                        <div class="project_command-two-text" v-for="item in project.stack" :key="item">
+                            {{ item }} 
+                            <div class="project_command-two-text-imgs" v-if="item === 'Frontend'">
+                                <img src="@/assets/img/react.svg" alt="">
+                                <img src="@/assets/img/vue.svg" alt="">
+                            </div>
+                            <div class="project_command-two-text-imgs" v-if="item === 'Design'">
+                                <img src="@/assets/img/figma.svg" alt="">
+                                <img src="@/assets/img/ai.svg" alt="">
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="project_command-four">
@@ -77,6 +88,16 @@ defineProps({
 }
 .project_command-one-text {
     font-size: 18px;
+}
+.project_command-two-text {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.project_command-two-text-imgs {
+    display: flex;
+    align-items: center;
+    gap: 2px;
 }
 .project_command-two-texts {
     display: flex;

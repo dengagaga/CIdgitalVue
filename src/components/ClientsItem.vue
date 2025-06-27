@@ -24,6 +24,7 @@ defineProps({
 @media(max-width: 1440px) {
     .clients_bot-list-item {
         height: 160px;
+        width: 230px;
         border-radius: 83px;
     }
 }

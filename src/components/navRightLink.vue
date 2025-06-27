@@ -1,6 +1,7 @@
 <template>
   <a 
     v-for="(item, index) in navRightLink" 
+    :target="item.title === 'заказать проект' ? '_self' : '_blank'"
     :key="item.title"
     :href="item.link"
     @click="item.title === 'заказать проект' ? modalStore.modalZakazToggle() : ''"

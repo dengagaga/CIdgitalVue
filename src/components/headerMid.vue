@@ -119,10 +119,9 @@ defineProps({
     font-size: 22px;
     line-height: 120%;
     letter-spacing: -3%;
-    max-width: 800px;
+    max-width: 854px;
 }
-.header_mid-oneFon-right {
-}
+
 .header_mid-oneFon-right-bot {
     margin-top: 50px;
     display: flex;
@@ -233,6 +232,12 @@ defineProps({
 }
 .nav_right-link-one {
     font-size: 14px;
+}
+}
+@media(max-width: 1366px) {
+    .text {
+    font-size: 18px;
+    max-width: 598px;
 }
 }
 @media(max-width: 1024px) {

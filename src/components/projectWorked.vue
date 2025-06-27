@@ -1,5 +1,7 @@
 <template>
+  
     <section class="project_worked">
+        
         <h3 class="project_worked-title">Над проектом работали</h3>
         <div class="project_worked-one-all">
            <projectWorkedOne title="Арт-директор" :text="project.art" />
@@ -23,6 +25,7 @@
 </template>
 <script setup>
 import projectWorkedOne from './projectWorkedOne.vue';
+
 defineProps({
     project: Object
 })

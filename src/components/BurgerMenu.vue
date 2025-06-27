@@ -3,9 +3,10 @@
     <span class="menu">меню</span>
     <div class="header_burger-all">
       <div class="header_burger_left">
-        <headerBurgerLeftItem :img="icon" title="Проекты" text="Наши работы" />
-        <headerBurgerLeftItem :img="iconTwo" class="befAll-two-uslugi"  title="Услуги" text="Доверьтесь нам" />
-        <headerBurgerLeftItem :img="iconFour" class="befAll-two-agenstvo"  title="Агентство" text="Подробнее о нас" />
+        
+        <headerBurgerLeftItem :item="headerBurgerLeft[0]" />
+        <headerBurgerLeftItem  class="befAll-two-uslugi"  :item="headerBurgerLeft[1]" />
+        <headerBurgerLeftItem  class="befAll-two-agenstvo"  :item="headerBurgerLeft[3]" />
         <div class="header_burger_right header_burger_right-three">
           <h4 class="header_burger_right-title">Агентство</h4>
           <LinkNav
@@ -33,7 +34,7 @@
             :key="item.title"
           />
         </div>
-        <headerBurgerLeftItem :img="iconThree"  title="Блог" text="Интересные истории" />
+        <headerBurgerLeftItem :item="headerBurgerLeft[2]" />
       </div>
     </div>
     <div class="header_burger-bottom">
@@ -58,7 +59,38 @@ import iconThree from '@/assets/img/icon3.png'
 import iconFour from '@/assets/img/icon4.png'
 import headerBurgerLeftItem from './headerBurgerLeftItem.vue'
 import { useBurgerStore } from '@/stores/burger';
+import { ref } from 'vue'
 const burgerStore = useBurgerStore()
+const headerBurgerLeft = ref([
+    {
+      id:1,
+      img:icon,
+      title:'Проекты',
+      link:'/project',
+      text:''
+    },
+    {
+      id:2,
+      img:iconTwo,
+      title:'Услуги',
+      link:'/services',
+      text:''
+    },
+    {
+      id:3,
+      img:iconThree,
+      title:'Блог',
+      link:'/',
+      text:'Интересные истории'
+    },
+    {
+      id:4,
+      img:iconFour,
+      title:'Агентство',
+      link:'/',
+      text:'Подробнее о нас'
+    },
+])
 </script>
 <style>
 
@@ -127,12 +159,15 @@ const burgerStore = useBurgerStore()
   margin-bottom: 20px;
 }
 .header_burger_left-item img {
-  padding-top: 4px;
+  padding-top: 3px;
 }
 .header_burger_left-item-texts {
   color: #677489;
   font-size: 14px;
   font-weight: 500;
+}
+.header_burger_left-item-texts p {
+  min-height: 19px;
 }
 .header_burger_right {
   position: absolute;

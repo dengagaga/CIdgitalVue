@@ -28,7 +28,7 @@
                    <h2>“В основе каждой нашей работы лежит стремление создать что‑то большее, чем просто типовой сайт. Это и объединяет нас. <br>
                     Мы хотим создавать и видеть проект, который сможет принести максимальную пользу своему заказчику”</h2>
                     <hr class="hr">
-                    <a href="#" class="clients_top-right-link">
+                    <a href="https://t.me/realgorin" target="_blank" class="clients_top-right-link">
                         <div class="clients_top-right-link-left">
                             <img src="@/assets/img/person.png" alt="">
                             <div class="clients_top-right-link-left-texts">
@@ -47,12 +47,18 @@
               <div class="clients_bot">
                   <h2>Наши клиенты</h2>
                   <div class="clients_bot-container">
-                      <div class="clients_bot-list">
+                      <!-- <div class="clients_bot-list">
                         <clientsItem  v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
-                      </div>
-                      <Vue3Marquee>
+                      </div> -->
+                      <Vue3Marquee >
                           <clientsItem v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
                       </Vue3Marquee>
+                      <div class="mobil_clients-items">
+                        <Vue3Marquee >
+                            <clientsItem v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
+                        </Vue3Marquee>
+                      </div>
+                     
                   </div>
                  
               </div>
@@ -67,8 +73,20 @@ import { useClientStore } from '@/stores/client';
 const clientStore = useClientStore()
 </script>
 <style>
+.vue3-marquee.horizontal>.marquee {
+  gap: 26px;
+}
+.vue3-marquee.horizontal{
+   display: flex;
+  gap: 26px;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+
 .clients_all {
-  padding: 94px 60px;
+  padding: 94px 0px;
   background: url("@/assets/img/clients.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -83,12 +101,14 @@ const clientStore = useClientStore()
 .clients_top {
   display: flex;
   position: relative;
+  padding: 0 62px;
   justify-content: space-between;
 }
 .clients_bot h2{
   font-size: 28px;
   font-weight: 500;
   margin-bottom: 70px;
+  padding-left: 62px;
 }
 .clients_top-left {
   position: relative;
@@ -170,6 +190,9 @@ const clientStore = useClientStore()
 .vue3-marquee {
   display: none!important;
 }
+.mobil_clients-items {
+  display: none!important;
+}
 @keyframes rotate-circle {
   to {
     transform: rotate(1turn);
@@ -236,7 +259,7 @@ const clientStore = useClientStore()
     font-size: 16px;
 }
 .clients_all {
-      padding: 70px 50px;
+      padding: 70px 0px;
       gap: 60px;
 }
 .clients_bot h2 {
@@ -246,7 +269,17 @@ const clientStore = useClientStore()
 }
 @media(max-width:450px) {
   .clients_all {
-    padding: 30px 12px;
+    padding: 30px 0px;
+  }
+  .mobil_clients-items {
+    display: block!important;
+    margin-top: 15px;
+  }
+  .clients_bot h2 {
+    padding-left: 12px;
+  }
+  .clients_top {
+    padding: 0 12px;
   }
 .clients_bot-container {
   width: 100%;
@@ -266,6 +299,8 @@ const clientStore = useClientStore()
   height: 120px;
   border-radius: 73px;
   display: flex;
+  width: 170px;
+  max-width: 170px;
   align-items: center;
   justify-content: center;
   font-size: 24px;

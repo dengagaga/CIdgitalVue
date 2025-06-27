@@ -15,7 +15,7 @@
                     <button class="drop_list-btn">Аналитика</button>
                 </div>
                 <div class="drop_list-right" v-if="active">
-                    <a href="https://www.laserzon.ru/" class="drop_list-right-link"><img src="../assets/img/lzLogo.png" alt="">Laser Zone</a>
+                    <a href="https://www.laserzon.ru/" target="_blank" class="drop_list-right-link"><img src="../assets/img/lzLogo.png" alt="">Laser Zone</a>
                     <div class="drop_list-right-developers">
                         <img src="../assets/img/elips2.png" alt="">
                         <img src="../assets/img/elips1.png" alt="">
@@ -131,7 +131,7 @@ defineProps({
     opacity: 1;
 }
 .project_plus:hover {
-    background-color: #FBFBFB;
+    background-color: #F5F5F5;
 }
 .project--none_tags {
     justify-content: space-between;

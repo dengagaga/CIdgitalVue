@@ -18,7 +18,7 @@ export const useBurgerStore = defineStore('burger', () => {
     {
         id:1,
         title: 'Проекты',
-        text:'Наши работы',
+        text:'',
         img:project,
         link:'/project',
         default:[
@@ -43,7 +43,7 @@ export const useBurgerStore = defineStore('burger', () => {
     {
         id:2,
         title: 'Услуги',
-        text:'Доверьтесь нам',
+        text:'',
         img:services,
         links: [
            {

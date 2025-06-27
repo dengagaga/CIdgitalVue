@@ -104,6 +104,7 @@ const details = ref([
   width: 100%;
   font-size: 28px;
   font-weight: 500;
+  margin-left: 200px;
   color: #080808 ;
   text-align: left;
 }
@@ -116,6 +117,11 @@ const details = ref([
       max-width: 400px;
       width: 100%;
       font-size: 22px;
+}
+}
+@media(max-width: 1024px) {
+.details_item-text {
+  margin-left: 0;
 }
 }
 @media(max-width: 450px) {

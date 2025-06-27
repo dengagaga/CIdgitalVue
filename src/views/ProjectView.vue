@@ -1,5 +1,6 @@
 <template>
     <ModalZakaz v-if="modalStore.modalActive"/>
+    <modalResume v-if="modalStore.modalResume"/>
     <header class="header">
       <div class="container">
         <Navigation  @toggleBurger="toggleBurger" :burgerActive="burgerActive">
@@ -18,7 +19,7 @@
                    <projectCommand :project="project[0]" />
                    <ProjectDescription :project="project[0]" />
                    <div class="container_sw">
-                     <swiper />
+                     <swiper :project="project[0]" />
                      <img class="project_img" :src="project[0].imgGlav" alt="">
                    </div>
                    <ProjectWorked :project="project[0]" />
@@ -41,11 +42,12 @@ import { useRoute } from 'vue-router'
 import { onMounted, ref } from 'vue'
 import { useProjectStore } from '../stores/project'
 import ProjectDescription from '@/components/projectDescription.vue';
+import modalResume from '@/components/modalResume.vue';
 import ProjectWorked from '@/components/projectWorked.vue';
 import ProjectFooter from '@/components/projectFooter.vue';
-import { useModalStore } from '@/stores/modal'
 import ModalZakaz from '@/components/modalZakaz.vue';
 import swiper from '@/components/swiper.vue';
+import { useModalStore } from '@/stores/modal'
 const modalStore = useModalStore()
 const projectStore =  useProjectStore()
 const burgerActive = ref(false)

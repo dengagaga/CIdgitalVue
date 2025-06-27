@@ -12,15 +12,8 @@
             :modules="modules"
             class="main-swiper"
         >
-            <swiper-slide>
-                <img src="@/assets/img/ImgGlavLZ.png" alt="Main image 1" />
-            </swiper-slide>
-            
-            <swiper-slide>
-                <img src="@/assets/img/oblLzTwo.png" alt="Main image 2" />
-            </swiper-slide>
-            <swiper-slide>
-                <img src="@/assets/img/oblLZ.png" alt="Main image 2" />
+            <swiper-slide v-for="item in project.swiper" :key="item.id">
+                <img :src="item.img" alt="Main image 1" />
             </swiper-slide>
         </swiper>
         
@@ -34,22 +27,17 @@
             :modules="modules"
             class="thumbs-swiper"
         >
-            <swiper-slide>
-                <img src="@/assets/img/ImgGlavLZ.png" alt="Thumbnail 1" />
-            </swiper-slide>
-           
-             <swiper-slide>
-                <img src="@/assets/img/oblLzTwo.png" alt="Main image 2" />
-            </swiper-slide>
-             <swiper-slide>
-                <img src="@/assets/img/oblLZ.png" alt="Thumbnail 2" />
+             <swiper-slide @click="text = item.text, title = item.title" v-for="item in project.swiper" :key="item.id">
+                <img :src="item.img" alt="Main image 1" />
             </swiper-slide>
         </swiper>
     </div>
+    <p class="swiper_text">{{ text }}</p>
+    <p class="swiper_title">{{ title }}</p>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
@@ -57,13 +45,22 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
+const props = defineProps({
+    project: Object
+})
 
+const text = ref('')
+const title = ref('')
 const modules = [FreeMode, Navigation, Thumbs];
 const thumbsSwiper = ref(null);
 
 const setThumbsSwiper = (swiper) => {
     thumbsSwiper.value = swiper;
 };
+onMounted(() => {
+    text.value = props.project.swiper[0].text
+    title.value = props.project.swiper[0].title
+})
 </script>
 <style scoped>
 /* Основной контейнер */
@@ -136,11 +133,27 @@ const setThumbsSwiper = (swiper) => {
 .thumbs-swiper .swiper-slide-thumb-active {
     opacity: 1;
 }
+.swiper_text {
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 30px;
+    color: #696D73;
+}
+.swiper_title {
+    margin-top: 50px;
+    font-size: 16px;
+    color: black;
+    max-width: 449px;
+        margin-left: auto;
+}
 @media(max-width: 1440px) {
     .main-swiper {
     height: 580px;
 }
+.swiper_text {
+    padding-left: 20px;
 
+}
 /* Стили для слайдера миниатюр */
 .thumbs-swiper {
     height: 80px!important;
@@ -163,6 +176,14 @@ const setThumbsSwiper = (swiper) => {
 @media(max-width: 450px) {
 .main-swiper {
     height: 240px;
+}
+.swiper_title {
+    margin-top: 40px;
+    font-size: 14px;
+}
+.swiper_text {
+    font-size: 14px;
+    padding-left: 10px;
 }
 .thumbs-swiper {
     height: 70px!important;

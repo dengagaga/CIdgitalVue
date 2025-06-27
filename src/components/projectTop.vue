@@ -7,7 +7,7 @@
             <div class="project_top-rigth">
                 <h2 class="project_top-rigth-title">{{ project.name }}</h2>
                 <p class="project_top-rigth-text">{{ project.text }}</p>
-                <a :href="project.link" class="project_top-rigth-link">
+                <a target="_blank" :href="project.link" class="project_top-rigth-link">
                     <img src="@/assets/img/link.svg" alt="">
                     {{ project.linkTitle }}
                     <img src="@/assets/img/arrowRight.svg" alt="">

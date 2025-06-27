@@ -1,5 +1,6 @@
 <template>
   <modalZakaz v-if="modalStore.modalActive"/>
+  
   <header class="header">
     <div class="header_fon">
     </div>
@@ -31,6 +32,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed  } from 'vue'
 import Foter from '@/components/Foter.vue';
+
 import modalZakaz from '@/components/modalZakaz.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue';

@@ -1,5 +1,5 @@
 <template>
-      <a :href="text == 'Связаться по телефону' ? 'tel:+79819975000' : 'mailto:hi@cidgital.ru'" ref="button" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" @mouseenter="handleMouseEnter" class="connection_item">
+      <a target="_blank" :href="text == 'Связаться по телефону' ? 'tel:+79819975000' : 'mailto:hi@cidgital.ru'" ref="button" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave" @mouseenter="handleMouseEnter" class="connection_item">
             <p class="connection_item-text">{{ text }}</p>
             <h6 class="connection_item-title">{{ title }}</h6>
             <span :style="rippleStyle"></span>

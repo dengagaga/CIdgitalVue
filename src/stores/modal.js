@@ -87,6 +87,11 @@ export const useModalStore = defineStore('modal', () => {
         router.push('/project/' + id)
     }
     const modalActive = ref(false)
+    const modalResume = ref(false)
+    const modalResumeToggle = () => {
+        modalResume.value = !modalResume.value
+        
+    }
     const modalZakazToggle = () => {
         modalActive.value = true
         const body = document.querySelector('body')
@@ -99,5 +104,5 @@ export const useModalStore = defineStore('modal', () => {
         const body = document.querySelector('body')
         body.classList.remove('no-scroll')
     }
-  return {  arrayType, modalActive, modalZakazToggle, modalZakazClose,  arrayСonnection, projectModal, toggleProjectModal }
+  return {  arrayType, modalActive, modalZakazToggle, modalResumeToggle, modalZakazClose, modalResume,  arrayСonnection, projectModal, toggleProjectModal }
 })

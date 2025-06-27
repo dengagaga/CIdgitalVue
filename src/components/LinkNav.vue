@@ -106,5 +106,8 @@ defineProps({
   .nav_right-link-one:hover .nav_right-link-text_abs {
     transform: translateY(-19px);
 }
+.befAll-1366 .nav_right-link-one:hover .nav_right-link-text_abs {
+transform: translateY(-22px);
+}
 }
 </style>

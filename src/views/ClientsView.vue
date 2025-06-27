@@ -90,6 +90,9 @@ onMounted(() => {
   border: 2px solid #F9F9F9;
   
 }
+.cliets_view-header_fon {
+  height: 88vh;
+}
 @media (max-width: 1440px) {
     .title_1-cliets_view {
         font-size: 120px;
