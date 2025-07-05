@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import keus from '/src/assets/img/keus.png'
 export const useArticleStore = defineStore('article', () => {
     const article = ref([
         {
@@ -34,14 +35,14 @@ export const useArticleStore = defineStore('article', () => {
     {
       id: 1,
       name:'Разработка и редизайн сайта Laser Zone',
-      img: '/src/assets/img/keus.png',
+      img: keus,
       video:'',
       tags: ['Скоро кейс | Лендинг', 'Кейс | Сайт' , 'Бьюти сфера']
     },
     {
       id: 2,
       name:'Lasez Zone v1.0',
-      img: '/src/assets/img/keus.png',
+      img: keus,
       video:'',
       tags: ['Скоро кейс | Лендинг', 'Кейс | Сайт' , 'Бьюти сфера']
     },

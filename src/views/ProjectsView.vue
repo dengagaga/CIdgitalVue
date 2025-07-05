@@ -15,8 +15,8 @@
             <div class="header_mid-threeFon"></div>
             <headerMid title="Проекты" text="Мы накопили уникальный опыт, работая с клиентами из различных сфер, и каждый из них подарил нам уникальные знания и навыки. " />
             <div class="main_projects">
-              <projectItem v-for="item in displayedProjects" :item="item" :key="item"></projectItem>
-              <button  v-if="!showHideButton"
+              <projectItem v-for="item in (isMobile ? projectItemArrayMob : displayedProjects)" :item="item" :key="item"></projectItem>
+              <button  v-if="!showHideButton && isMobile"
               class="watch_add" 
               @click="loadMore">Показать ещё</button>
             </div>
@@ -30,7 +30,7 @@
   <Foter />
 </template>
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed  } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed, watch  } from 'vue'
 import Foter from '@/components/Foter.vue';
 
 import modalZakaz from '@/components/modalZakaz.vue'
@@ -43,36 +43,41 @@ import projectItem from '@/components/ProjectItem.vue';
 const projectStore =  useProjectStore()
 const modalStore =  useModalStore()
 const burgerActive = ref(false)
+const projectItemArrayMob = ref([])
+const showHideButton = ref(false)
+const isMobile = ref(false);
+onMounted(() => {
+  isMobile.value = window.innerWidth <= 450;
+  window.addEventListener('resize', () => {
+    isMobile.value = window.innerWidth <= 450;
+  });
+  if (isMobile.value) {
+    projectItemArrayMob.value = projectStore.projectItemArray.slice(0, 5);
+  }
+});
+const hideProjects = () => {
+  isMobile.value = true
+  showHideButton.value = false
+};
+const loadMore = () => {
+  isMobile.value = false
+  showHideButton.value = true
+};
+const displayedProjects = computed(() => {
+  return projectStore.projectItemArraySelect.length > 0 ? projectStore.projectItemArraySelect : projectStore.projectItemArray
+});
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
 }
-const isMobile = ref(false);
-const visibleCount = ref(0);
-const showHideButton = computed(() => {
-  return isMobile.value && visibleCount.value > 6;
-});
-const hideProjects = () => {
-  visibleCount.value = 6;
-};
-
-const checkScreenSize = () => {
-  isMobile.value = window.innerWidth < 450; // 768px - обычная точка перелома для мобильных устройств
-  visibleCount.value = isMobile.value ? 6 : projectStore.projectItemArray.length;
-};
-const loadMore = () => {
-  const remaining = projectStore.projectItemArray.length - visibleCount.value;
-  visibleCount.value += Math.min(4, remaining); // Показываем ещё 4 или сколько осталось
-};
-const displayedProjects = computed(() => {
-  return projectStore.projectItemArraySelect.length > 0 ? projectStore.projectItemArraySelect : projectStore.projectItemArray.slice(0, visibleCount.value);
-});
-onMounted(() => {
-  checkScreenSize();
-  window.addEventListener('resize', checkScreenSize);
-});
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', checkScreenSize);
-});
+watch(
+  () => projectStore.projectItemArraySelect.length, // Следим только за длиной
+  (newLength) => {
+    if (newLength > 0) {
+      isMobile.value = false
+    }
+  },
+)
+ 
 </script>
 
 <style scoped>
@@ -90,9 +95,10 @@ onBeforeUnmount(() => {
   display: none;
 }
 @media(max-width: 450px) {
-    .header_mid-oneFon-projects .main_projects {
+  .header_mid-oneFon-projects .main_projects {
   padding-bottom: 0;
 }
+
 .watch_add {
   display: flex;
   border: 1px solid #0000001A;

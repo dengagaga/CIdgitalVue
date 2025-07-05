@@ -145,38 +145,48 @@ defineProps({
     line-height: 130%;
     letter-spacing: -3%;
 }
-.header_mid-oneFon-right-bot-item-title {
-    animation: countUp 3s ease-out forwards;
-    counter-reset: num var(--num);
+
+.header_mid-oneFon-right-bot-item-title::after {
+  content: '0';
+  animation: countUp 3s ease-out forwards;
 }
-.header_mid-oneFon-right-bot-item-title-2 {
-    animation: countUp2 3.5s ease-out forwards;
-    counter-reset: num var(--num);
+
+.header_mid-oneFon-right-bot-item-title-2::after {
+  content: '0';
+  animation: countUp2 3.5s ease-out forwards;
 }
+
 @keyframes countUp {
-    from {
-        --num: 0;
-    }
-    to {
-        --num: 20;
-    }
+  0% { content: '0'; }
+  5% { content: '1'; } /* Добавлено */
+  10% { content: '2'; }
+  15% { content: '3'; } /* Добавлено */
+  20% { content: '4'; }
+  25% { content: '5'; } /* Добавлено */
+  30% { content: '6'; }
+  35% { content: '7'; } /* Добавлено */
+  40% { content: '8'; }
+  45% { content: '9'; } /* Добавлено */
+  50% { content: '10'; }
+  55% { content: '11'; } /* Добавлено */
+  60% { content: '12'; }
+  65% { content: '13'; } /* Добавлено */
+  70% { content: '14'; }
+  75% { content: '15'; } /* Добавлено */
+  80% { content: '16'; }
+  85% { content: '17'; } /* Добавлено */
+  90% { content: '18'; }
+  95% { content: '19'; } /* Добавлено */
+  100% { content: '20'; }
 }
+
 @keyframes countUp2 {
-    from {
-        --num: 0;
-    }
-    to {
-        --num: 5;
-    }
-}
-    
-.header_mid-oneFon-right-bot-item h2::after {  
-    content: counter(num);
-}
- @property --num {
-    syntax: '<integer>';
-    inherits: false;
-    initial-value: 0;
+  0% { content: '0'; }
+  20% { content: '1'; }
+  40% { content: '2'; }
+  60% { content: '3'; }
+  80% { content: '4'; }
+  100% { content: '5'; }
 }
 .header_mid-oneFon-right-bot-item p{
     color: #696D73;

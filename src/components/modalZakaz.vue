@@ -173,7 +173,7 @@ watch(number, () => {
 .modal {
     backdrop-filter: blur(2px);
     background-color: #00000080;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;

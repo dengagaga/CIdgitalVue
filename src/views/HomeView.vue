@@ -74,7 +74,7 @@ const toggleBurger = () => {
 }
 @media(max-width: 450px) {
   .header_fon {
-
+    height: 80vh;
   background-position: left;
 }
 }
