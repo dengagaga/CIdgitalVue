@@ -1,14 +1,15 @@
 <template>
   <MobilBurgerMenu v-if="burgerStore.mobilBurgerActive" />
   <nav class="nav">
-    <router-link to="/" class="logotype" ><img src="@/assets/Logo.svg" alt="" v-if="!burgerStore.mobilBurgerActive" /></router-link>
+    <router-link to="/" class="logotype"
+      ><img src="@/assets/Logo.svg" alt="" v-if="!burgerStore.mobilBurgerActive"
+    /></router-link>
     <div class="nav_right">
-      <div class="nav_right-burger " @click="$emit('toggleBurger')">
+      <div class="nav_right-burger" @click="$emit('toggleBurger')">
         <svg
           :class="burgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'"
           viewBox="0 0 100 100"
           width="42"
-         
         >
           <path
             class="line top"
@@ -20,12 +21,13 @@
           />
         </svg>
       </div>
-       <div class="nav_right-burger nav_right-burger-mob" @click="burgerStore.toggleMobilBurger()">
+      <div class="nav_right-burger nav_right-burger-mob" @click="burgerStore.toggleMobilBurger()">
         <svg
-          :class="burgerStore.mobilBurgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'"
+          :class="
+            burgerStore.mobilBurgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'
+          "
           viewBox="0 0 100 100"
           width="42"
-         
         >
           <path
             class="line top"
@@ -44,15 +46,14 @@
       <slot></slot>
     </div>
   </nav>
-  
 </template>
 <script setup>
 import { ref } from 'vue'
 import LinkNav from './LinkNav.vue'
-import navRightLink from './navRightLink.vue';
-import MobilBurgerMenu from '@/components/MobilBurgerMenu.vue';
+import navRightLink from './navRightLink.vue'
+import MobilBurgerMenu from '@/components/MobilBurgerMenu.vue'
 import { RouterLink } from 'vue-router'
-import { useBurgerStore } from '@/stores/burger';
+import { useBurgerStore } from '@/stores/burger'
 const burgerStore = useBurgerStore()
 defineProps({
   burgerActive: Boolean,
@@ -62,18 +63,17 @@ defineEmits(['toggleBurger'])
 const NavArray = ref([
   {
     title: 'проекты',
-    link:'/project'
+    link: '/project',
   },
   {
     title: 'услуги',
-    link:'/services'
+    link: '/services',
   },
   {
     title: 'агентство',
-    link:'/'
+    link: '/',
   },
 ])
-
 </script>
 <style>
 .nav {
@@ -106,7 +106,6 @@ const NavArray = ref([
   background-color: var(--bgc-btn);
   position: relative;
   overflow: hidden;
-
 }
 .nav_right-link svg {
   width: 17px;
@@ -154,7 +153,7 @@ const NavArray = ref([
   background-color: #fff;
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
-  transition: 
+  transition:
     transform 0.4s ease-out,
     opacity 0.3s ease-out,
     width 0.4s ease-out,
@@ -194,7 +193,6 @@ const NavArray = ref([
 .ham4 .top {
   stroke-dasharray: 30 121;
   transform: translateY(4px);
-
 }
 .ham4 .bottom {
   stroke-dasharray: 40 121;
@@ -296,7 +294,7 @@ const NavArray = ref([
 }
 /*/BURGER*/
 
-@media(max-width:1440px) {
+@media (max-width: 1440px) {
   .logotype {
     max-width: 120px;
     width: 100%;
@@ -310,26 +308,25 @@ const NavArray = ref([
   }
 }
 
-@media(max-width: 450px) {
-    .nav_right-all {
-      display: none;
-    }
-    .nav_right-link-end {
-      display: none;
-    }
-    .logotype {
-      max-width: 96px;
-    }
-    .nav_right-burger {
-      order: 2;
-      display: none;
-    }
-    .nav_right-burger-mob {
-      display: flex;
-    }
-    .nav_right-link {
-        max-width: 129px;
-    }
-   
- }
+@media (max-width: 450px) {
+  .nav_right-all {
+    display: none;
+  }
+  .nav_right-link-end {
+    display: none;
+  }
+  .logotype {
+    max-width: 96px;
+  }
+  .nav_right-burger {
+    order: 2;
+    display: none;
+  }
+  .nav_right-burger-mob {
+    display: flex;
+  }
+  .nav_right-link {
+    max-width: 129px;
+  }
+}
 </style>

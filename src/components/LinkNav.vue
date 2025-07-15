@@ -11,13 +11,12 @@
       <p class="nav_right-link-text_abs">{{ title }}</p>
     </div>
   </router-link>
-  
 </template>
 
 <script setup>
 defineProps({
-  item:Object,
-  title:String
+  item: Object,
+  title: String,
 })
 </script>
 <style>
@@ -102,12 +101,12 @@ defineProps({
   transition: all 0.3s;
 }
 
-@media(max-width: 1366px) {
+@media (max-width: 1366px) {
   .nav_right-link-one:hover .nav_right-link-text_abs {
     transform: translateY(-19px);
-}
-.befAll-1366 .nav_right-link-one:hover .nav_right-link-text_abs {
-transform: translateY(-22px);
-}
+  }
+  .befAll-1366 .nav_right-link-one:hover .nav_right-link-text_abs {
+    transform: translateY(-22px);
+  }
 }
 </style>

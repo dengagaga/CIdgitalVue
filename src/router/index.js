@@ -6,10 +6,12 @@ import ServicesView from '../views/ServicesView.vue'
 import ClientsView from '../views/ClientsView.vue'
 import DocumentsView from '../views/DocumentsView.vue'
 import DetailsView from '../views/DetailsView.vue'
+import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
+import PersonalDataView from '../views/PersonalDataView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
-    scrollBehavior() {
+  scrollBehavior() {
     return window.scrollTo(0, 0)
   },
   routes: [
@@ -48,7 +50,16 @@ const router = createRouter({
       name: 'DetailsView',
       component: DetailsView,
     },
-    
+    {
+      path: '/policy',
+      name: 'PrivacyPolicyView',
+      component: PrivacyPolicyView,
+    },
+    {
+      path: '/personal',
+      name: 'PersonalDataView',
+      component: PersonalDataView,
+    },
   ],
 })
 

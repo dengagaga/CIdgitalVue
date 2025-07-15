@@ -3,10 +3,9 @@
     <span class="menu">меню</span>
     <div class="header_burger-all">
       <div class="header_burger_left">
-        
         <headerBurgerLeftItem :item="headerBurgerLeft[0]" />
-        <headerBurgerLeftItem  class="befAll-two-uslugi"  :item="headerBurgerLeft[1]" />
-        <headerBurgerLeftItem  class="befAll-two-agenstvo"  :item="headerBurgerLeft[3]" />
+        <headerBurgerLeftItem class="befAll-two-uslugi" :item="headerBurgerLeft[1]" />
+        <headerBurgerLeftItem class="befAll-two-agenstvo" :item="headerBurgerLeft[3]" />
         <div class="header_burger_right header_burger_right-three">
           <h4 class="header_burger_right-title">Агентство</h4>
           <LinkNav
@@ -40,13 +39,18 @@
     <div class="header_burger-bottom">
       <div class="header_burger-bottom-top">
         <div class="header_burger-bottom-top_left">
-          <LinkNav class="befAll-two" title="Документы" />
+          <LinkNav class="befAll-two" :item="{ id: 1, title: 'Документы', link: '/documents' }" />
           <LinkNav class="befAll-two" title="m: hi@cidgital.ru" />
         </div>
         <LinkNav class="befAll-two" title="p: 8 (981) 997-50-00" />
       </div>
       <div class="header_burger-bottom-bot">
-        <LinkNav class="befAll-two" v-for="item in burgerStore.social" :title="item.title" :key="item.title" />
+        <LinkNav
+          class="befAll-two"
+          v-for="item in burgerStore.social"
+          :title="item.title"
+          :key="item.title"
+        />
       </div>
     </div>
   </div>
@@ -58,42 +62,41 @@ import iconTwo from '@/assets/img/icon2.svg'
 import iconThree from '@/assets/img/icon3.png'
 import iconFour from '@/assets/img/icon4.png'
 import headerBurgerLeftItem from './headerBurgerLeftItem.vue'
-import { useBurgerStore } from '@/stores/burger';
+import { useBurgerStore } from '@/stores/burger'
 import { ref } from 'vue'
 const burgerStore = useBurgerStore()
 const headerBurgerLeft = ref([
-    {
-      id:1,
-      img:icon,
-      title:'Проекты',
-      link:'/project',
-      text:''
-    },
-    {
-      id:2,
-      img:iconTwo,
-      title:'Услуги',
-      link:'/services',
-      text:''
-    },
-    {
-      id:3,
-      img:iconThree,
-      title:'Блог',
-      link:'/',
-      text:'Интересные истории'
-    },
-    {
-      id:4,
-      img:iconFour,
-      title:'Агентство',
-      link:'/',
-      text:'Подробнее о нас'
-    },
+  {
+    id: 1,
+    img: icon,
+    title: 'Проекты',
+    link: '/project',
+    text: '',
+  },
+  {
+    id: 2,
+    img: iconTwo,
+    title: 'Услуги',
+    link: '/services',
+    text: '',
+  },
+  {
+    id: 3,
+    img: iconThree,
+    title: 'Блог',
+    link: '/',
+    text: 'Интересные истории',
+  },
+  {
+    id: 4,
+    img: iconFour,
+    title: 'Агентство',
+    link: '/',
+    text: 'Подробнее о нас',
+  },
 ])
 </script>
 <style>
-
 .header_burger {
   background-color: var(--frame-color);
   position: absolute;
@@ -206,7 +209,6 @@ const headerBurgerLeft = ref([
   visibility: hidden;
 }
 @media (max-width: 450px) {
-
   .header_burger {
     display: none;
   }
