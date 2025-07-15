@@ -1,5 +1,8 @@
 <template>
   <ModalZakaz v-if="modalStore.modalActive" />
+  <Transition name="cook-fade">
+    <CookModal />
+  </Transition>
   <header class="header">
     <div class="header_fon cliets_view-header_fon"></div>
     <div class="container">
@@ -44,6 +47,7 @@
 <script setup>
 import Foter from '@/components/Foter.vue'
 import Navigation from '@/components/Navigation.vue'
+import CookModal from '@/components/CookModal.vue'
 import burgerMenu from '@/components/BurgerMenu.vue'
 import ClietsAllTop from '@/components/ClietsAllTop.vue'
 import { useRoute } from 'vue-router'

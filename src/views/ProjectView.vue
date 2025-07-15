@@ -1,6 +1,9 @@
 <template>
   <ModalZakaz v-if="modalStore.modalActive" />
   <modalResume v-if="modalStore.modalResume" />
+  <Transition name="cook-fade">
+    <CookModal />
+  </Transition>
   <header class="header">
     <div class="container">
       <Navigation @toggleBurger="toggleBurger" :burgerActive="burgerActive">
@@ -33,6 +36,7 @@
   <Foter />
 </template>
 <script setup>
+import CookModal from '@/components/CookModal.vue'
 import Foter from '@/components/Foter.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue'

@@ -97,8 +97,20 @@
         <div class="modal_main-btns">
           <button class="modal_main-btn" @click="sendToTelegram()">Отправить</button>
           <p class="modal_main-btn-text">
-            Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с
-            политикой конфиденциальности.
+            Нажимая на кнопку, вы даете согласие на
+            <router-link
+              @click="modalStore.modalZakazClose"
+              class="cook_modal_left-link"
+              to="/personal"
+              >обработку персональных данных</router-link
+            >
+            и соглашаетесь с
+            <router-link
+              @click="modalStore.modalZakazClose"
+              class="cook_modal_left-link"
+              to="/policy"
+              >политикой конфиденциальности</router-link
+            >.
           </p>
         </div>
       </div>
@@ -214,6 +226,9 @@ watch(number, () => {
   max-height: 100vh;
   display: flex;
   justify-content: center;
+}
+.cook_modal_left-link {
+  color: #717171;
 }
 .modal_all {
   max-width: 1000px;

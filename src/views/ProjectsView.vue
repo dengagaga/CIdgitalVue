@@ -1,6 +1,8 @@
 <template>
   <modalZakaz v-if="modalStore.modalActive" />
-
+  <Transition name="cook-fade">
+    <CookModal />
+  </Transition>
   <header class="header">
     <div class="header_fon"></div>
     <div class="container">
@@ -33,9 +35,9 @@
   <Foter />
 </template>
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import Foter from '@/components/Foter.vue'
-
+import CookModal from '@/components/CookModal.vue'
 import modalZakaz from '@/components/modalZakaz.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue'

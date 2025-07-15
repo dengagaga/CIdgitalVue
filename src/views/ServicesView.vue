@@ -1,5 +1,8 @@
 <template>
   <modalZakaz v-if="modalStore.modalActive" />
+  <Transition name="cook-fade">
+    <CookModal />
+  </Transition>
   <header class="header">
     <div class="header_fon"></div>
     <div class="container">
@@ -22,6 +25,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import CookModal from '@/components/CookModal.vue'
 import Solutions from '@/components/Solutions.vue'
 import Foter from '@/components/Foter.vue'
 import modalZakaz from '@/components/modalZakaz.vue'
@@ -38,9 +42,6 @@ const toggleBurger = () => {
 </script>
 
 <style scoped>
-.services_view {
-  margin-top: 0;
-}
 @media (max-width: 450px) {
 }
 </style>

@@ -3,11 +3,13 @@
     <div class="cook_modal_left">
       <h3 class="cook_modal_left-title">Без cookies никак!</h3>
       <p class="cook_modal_left-text">
-        Используя данный сайт, вы даете согласие на использование файлов cookies, помогающих нам
-        сделать его удобнее для вас.
+        Используя данный сайт, вы даете согласие на
+        <router-link class="cook_modal_left-link" to="/policy"
+          >использование файлов cookies</router-link
+        >, помогающих нам сделать его удобнее для вас.
       </p>
     </div>
-    <button class="cook_modal-btn" @click="modal = !modal">Я понял</button>
+    <button class="cook_modal-btn" @click="close()">Я понял</button>
   </div>
 </template>
 <script setup>
@@ -18,10 +20,13 @@ onMounted(() => {
   if (!wasModalShown) {
     setTimeout(() => {
       modal.value = true
-      sessionStorage.setItem('modalShown', 'true')
     }, 5000)
   }
 })
+const close = () => {
+  modal.value = !modal.value
+  sessionStorage.setItem('modalShown', 'true')
+}
 </script>
 <style>
 .cook_modal {
@@ -35,6 +40,10 @@ onMounted(() => {
   display: flex;
   gap: 45px;
   align-items: center;
+}
+.cook_modal_left-link {
+  color: #a6a6a6;
+  text-decoration: underline !important;
 }
 .cook_modal_left-title {
   font-size: 22px;

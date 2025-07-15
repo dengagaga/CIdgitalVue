@@ -22,7 +22,20 @@ import { RouterView } from 'vue-router'
   background-color: rgba(0, 0, 0, 0.658);
   z-index: 9998;
 }
-
+.services_view {
+  margin-top: 0;
+}
+.cook-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+.cook-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.cook-fade-enter-from,
+.cook-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
 .swiper-button-next,
 .swiper-button-prev {
   background: #fff;

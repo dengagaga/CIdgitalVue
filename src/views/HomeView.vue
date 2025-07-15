@@ -1,6 +1,8 @@
 <template>
   <modalZakaz v-if="modalStore.modalActive" />
-  <CookModal />
+  <Transition name="cook-fade">
+    <CookModal />
+  </Transition>
   <header class="header">
     <projectModal v-if="modalStore.projectModal" />
     <div class="header_fon"></div>

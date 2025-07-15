@@ -1,5 +1,8 @@
 <template>
   <modalZakaz v-if="modalStore.modalActive" />
+  <Transition name="cook-fade">
+    <CookModal />
+  </Transition>
   <header class="header">
     <div class="header_fon"></div>
     <div class="container">
@@ -133,6 +136,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import CookModal from '@/components/CookModal.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue'
 import modalZakaz from '@/components/modalZakaz.vue'
