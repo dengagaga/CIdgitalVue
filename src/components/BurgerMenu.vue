@@ -45,12 +45,12 @@
         <LinkNav class="befAll-two" title="p: 8 (981) 997-50-00" />
       </div>
       <div class="header_burger-bottom-bot">
-        <LinkNav
-          class="befAll-two"
-          v-for="item in burgerStore.social"
-          :title="item.title"
-          :key="item.title"
-        />
+         <a :href="item.link" target="_blank" class="befAll-two befAll"   v-for="item in burgerStore.social" :key="item.title">
+          <div class="nav_right-link-one">
+            <p class="nav_right-link-text_rel">{{ item.title }}</p>
+            <p class="nav_right-link-text_abs">{{ item.title }}</p>
+          </div>
+        </a>
       </div>
     </div>
   </div>

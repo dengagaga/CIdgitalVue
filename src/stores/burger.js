@@ -114,22 +114,27 @@ export const useBurgerStore = defineStore('burger', () => {
     {
       id: 1,
       title: 'Vkontakte',
+      link: 'https://vk.com/cidgital',
     },
     {
       id: 2,
       title: 'Behance',
+      link: 'https://www.behance.net/cidgital',
     },
     {
       id: 3,
       title: 'Telegram',
+      link: 'https://t.me/+_ksoh5c4HopmYTZi',
     },
     {
       id: 4,
       title: 'Dprofile',
+      link: 'https://dribbble.com/cidgital',
     },
     {
       id: 5,
       title: 'Dribble',
+      link: 'https://dprofile.ru/cidgital',
     },
   ])
   return { mobilBurgerActive, social, toggleMobilBurger, mobileBurger }

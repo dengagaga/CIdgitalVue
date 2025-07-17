@@ -3,6 +3,9 @@
   <Transition name="cook-fade">
     <CookModal />
   </Transition>
+  <Transition name="cook-fade">
+    <NewModal />
+  </Transition>
   <header class="header">
     <projectModal v-if="modalStore.projectModal" />
     <div class="header_fon"></div>
@@ -34,6 +37,7 @@
 <script setup>
 import { ref } from 'vue'
 import CookModal from '@/components/CookModal.vue'
+import NewModal from '@/components/NewModal.vue'
 import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue'
 import headerMid from '@/components/headerMid.vue'

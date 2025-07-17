@@ -115,7 +115,7 @@
         </div>
       </div>
       <div class="modal_bot">
-        <p class="modal_bot-text">Защита от спама Yandex SmartCaptcha. Условия обработки данных</p>
+        <p class="modal_bot-text">Защита от спама Yandex SmartCaptcha. <a href="https://yandex.ru/legal/smartcaptcha_notice/ru/" target="_blank" class="modal_link">Условия обработки данных</a></p>
       </div>
     </div>
   </div>
@@ -263,6 +263,8 @@ watch(number, () => {
   margin-top: -25px;
   background-color: #fff;
   padding: 40px 42px;
+  position: relative;
+  z-index: 2;
   border-radius: 22px;
 }
 .modal_main-title {
@@ -424,7 +426,7 @@ watch(number, () => {
   padding-left: 42px;
   margin-top: -20px;
   position: relative;
-  z-index: -1;
+  z-index: 0;
   border-radius: 0 0 22px 22px;
 }
 .modal_bot-text {
@@ -452,6 +454,11 @@ watch(number, () => {
 .eror {
   color: #ff0033 !important;
   border-color: #ff0033 !important ;
+}
+.modal_link {
+  color: #717171;
+  cursor: pointer;
+  text-decoration: underline !important;
 }
 /* .underlane--active {
     bottom: 23px;

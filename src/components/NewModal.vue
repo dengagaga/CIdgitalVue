@@ -1,13 +1,11 @@
 <template>
   <div class="cook_modal" v-if="modal">
     <div class="cook_modal_left">
-      <h3 class="cook_modal_left-title">Без cookies никак!</h3>
-      <p class="cook_modal_left-text">
-        Используя данный сайт, вы даете согласие на
-        <router-link class="cook_modal_left-link" to="/policy"
-          >использование файлов cookies</router-link
-        >, помогающих нам сделать его удобнее для вас.
-      </p>
+      <h3 class="cook_modal_left-title">Новый сайт – новый уровень!</h3>
+      <ul class="cook_modal_left-list">
+        <li class="cook_modal_left-item">Мы обновились!  В настоящее время переносим наше портфолио, поэтому все проекты пока недоступны для просмотра онлайн.</li>
+        <li class="cook_modal_left-item">Хотите увидеть наши работы? Просто свяжитесь с нами [ссылка на форму обратной связи] – мы будем рады предоставить их по запросу!</li>
+      </ul>
     </div>
     <button class="cook_modal-btn" @click="close()">Я понял</button>
   </div>
@@ -16,8 +14,8 @@
 import { ref, onMounted } from 'vue'
 const modal = ref(false)
 onMounted(() => {
-  const wasModalShown = sessionStorage.getItem('modalShown')
-  if (!wasModalShown) {
+  const newModalShown = sessionStorage.getItem('newModalShown')
+  if (!newModalShown) {
     setTimeout(() => {
       modal.value = true
     }, 5000)
@@ -25,16 +23,16 @@ onMounted(() => {
 })
 const close = () => {
   modal.value = !modal.value
-  sessionStorage.setItem('modalShown', 'true')
+  sessionStorage.setItem('newModalShown', 'true')
 }
 </script>
-<style>
+<style scoped>
 .cook_modal {
-  background-color: #080808;
+  background-color: #F5F7F9;
   padding: 20px 14px;
   border-radius: 9px;
   position: fixed;
-  bottom: 15px;
+  bottom:144px;
   right: 41px;
   z-index: 999;
   display: flex;
@@ -51,17 +49,20 @@ const close = () => {
 .cook_modal_left-title {
   font-size: 22px;
   font-weight: 600;
-  color: white;
+  color: #080808;
+  margin-bottom: 10px;
 }
-.cook_modal_left-text {
+.cook_modal_left-item {
   font-size: 14px;
-  margin-top: 10px;
+  
   font-weight: 500;
-  color: #a6a6a6;
-  max-width: 550px;
+  color: #696D73;
+  max-width: 540px;
+  list-style: disc !important;
+  margin-left: 20px;
 }
 .cook_modal-btn {
-  background-color: #1e1e1e;
+  background-color: #015EF9;
   border-radius: 8px;
   padding: 12px 23px;
   font-size: 14px;
@@ -72,22 +73,19 @@ const close = () => {
   .cook_modal {
     gap: 36px;
     right: 20px;
+    bottom:138px;
     max-width: 614px;
   }
   .cook_modal_left-title {
     font-size: 20px;
     font-weight: 600;
-    color: white;
   }
-  .cook_modal_left-text {
+  .cook_modal_left-item {
     font-size: 12px;
-    margin-top: 10px;
-    font-weight: 500;
-    color: #a6a6a6;
-    max-width: 450px;
+    max-width: 410px;
   }
   .cook_modal-btn {
-    background-color: #1e1e1e;
+    
     border-radius: 8px;
     padding: 12px 23px;
     font-size: 14px;
@@ -100,25 +98,38 @@ const close = () => {
     gap: 10px;
     right: 16px;
     left: 16px;
-    justify-content: space-between;
     width: auto;
+    bottom: 164px;
   }
   .cook_modal-btn {
-    background-color: #1e1e1e;
+    width: 82px;
     border-radius: 8px;
     padding: 9px 17px;
     font-size: 12px;
     font-weight: 600;
     color: white;
   }
-  .cook_modal_left-text {
-    max-width: 210px;
-    margin-top: 5px;
+  .cook_modal_left {
+    max-width: 230px;
+  }
+  .cook_modal_left-item {
+    max-width: 230px;
+    
   }
   .cook_modal_left-title {
     font-size: 18px;
     font-weight: 600;
-    color: white;
+    
+  }
+}
+@media (max-width: 396px) {
+      .cook_modal_left {
+    max-width: 210px;
+  }
+  .cook_modal_left-item {
+    max-width: 210px;
+    margin-left: 15px;
+    
   }
 }
 </style>

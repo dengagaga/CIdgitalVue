@@ -9,11 +9,17 @@
     <div class="project" v-if="item" :class="!item.tags ? 'project--none_tags' : ''">
       <div class="project_top" :class="active ? 'project_top--active' : ''">
         <img
+          v-if="item.img != 'нет'"
           class="project_img"
-          @click="modalStore.toggleProjectModal(item.id)"
+          @click="item.img == 'нет' ? '' : modalStore.toggleProjectModal(item.id)"
           :src="item.img"
           alt=""
         />
+        <div v-else class="projectitem_top">
+            <img class="projectitem_top-img" src="../assets/img/sat.png" alt="">
+            <h3 class="projectitem_top-title">Изображение не загружено.</h3>
+            <p class="projectitem_top-text">В настоящее время переносим наше портфолио, поэтому все проекты пока недоступны для просмотра онлайн.</p>
+        </div>
         <video class="project_video" :src="item.video"></video>
         <div class="drop_list" v-if="active">
           <button class="drop_list-btn">Backend</button>
@@ -31,7 +37,7 @@
             <img src="../assets/img/elips3.png" alt="" />
           </div>
         </div>
-        <div class="project_plus" @click="active = !active">
+        <div v-if="item.img != 'нет'" class="project_plus" @click="active = !active">
           <img
             class="project_plus-img"
             :class="active ? 'project_plus-img--active' : ''"
@@ -46,7 +52,7 @@
         </div>
       </div>
       <img class="project_logo" src="../assets/img/logoProj.png" alt="" v-else />
-      <h4 @click="modalStore.toggleProjectModal(item.id)" class="services_item-top-title">
+      <h4 @click="item.img == 'нет' ? '' : modalStore.toggleProjectModal(item.id)" class="services_item-top-title">
         {{ item.name }}
       </h4>
     </div>
@@ -232,12 +238,51 @@ defineProps({
   margin-left: -12px;
 }
 
+
+.projectitem_top {
+  height: 500px;
+  padding: 50px;
+  background-color: #FFFFFFCC;
+}
+.projectitem_top-img {
+}
+.projectitem_top-title {
+  margin-bottom: 40px;
+  margin-top: 50px;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+  max-width: 326px;
+}
+.projectitem_top-text {
+  color: #696D73;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 346px;
+}
 @media (max-width: 1440px) {
   .project_img {
     width: 100%;
     height: 380px;
     border-radius: 6px;
   }
+  .projectitem_top-title {
+  margin-bottom: 40px;
+  margin-top: 50px;
+  color: #000000;
+  font-size: 22px;
+  font-weight: 700;
+  max-width: 286px;
+}
+.projectitem_top-text {
+  color: #696D73;
+  font-size: 12px;
+  font-weight: 500;
+  max-width: 286px;
+}
+  .projectitem_top {
+  height: 380px;
+}
   .project_logo {
     max-width: 91px;
     width: 100%;
@@ -300,6 +345,20 @@ defineProps({
     height: 220px;
     border-radius: 6px;
   }
+  .projectitem_top {
+  height: 220px;
+  padding: 20px;
+  padding-left: 0px;
+}
+.projectitem_top-img {
+    max-width: 40px;
+}
+.projectitem_top-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  max-width: 200px;
+}
   .project_plus {
     opacity: 1;
     background-color: #ffffff4b;

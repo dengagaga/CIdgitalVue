@@ -8,6 +8,7 @@ import oblLzTwo from '/src/assets/img/oblLzTwo.png'
 import oblLZ from '/src/assets/img/oblLZ.png'
 import ReegamesGlav from '/src/assets/img/ReegamesGlav.png'
 
+
 export const useProjectStore = defineStore('project', () => {
   const projectItemArraySelect = ref([])
   const selectedProject = ref([])
@@ -75,7 +76,7 @@ export const useProjectStore = defineStore('project', () => {
       id: 2,
       name: 'Медвежьегорс Втормет - сервис по приёму металла с админ панелью ',
       title: 'Медвежьегорс Втормет',
-      img: keus,
+      img: 'нет',
       video: '',
       tags: ['Лендинг', 'Кейс | Сайт', 'Металлургия'],
       text: 'Первая студия лазерной эпиляции в Петрозаводске с 2018 года',
@@ -133,7 +134,7 @@ export const useProjectStore = defineStore('project', () => {
       id: 3,
       name: 'Сайт и айдентика по строительству домов из карельской сосны кело “Кархум Кело”',
       title: 'Кархум Кело',
-      img: keus,
+      img: 'нет',
       video: '',
       tags: ['Лендинг', 'Кейс | Сайт', 'Строительство и ремонт'],
     },
@@ -141,7 +142,7 @@ export const useProjectStore = defineStore('project', () => {
       id: 4,
       name: 'Сайт для Карельского перевозчика “Карел экспресс”',
       title: 'Карел экспресс',
-      img: keus,
+      img: 'нет',
       video: '',
       tags: ['Система сайтов', 'Кейс | Сайт', 'Транспорт и логистика'],
     },
@@ -149,7 +150,7 @@ export const useProjectStore = defineStore('project', () => {
       id: 5,
       name: 'Разработка сайта для узнаваемости игры “Beat the Humans”',
       title: 'Beat the Humans',
-      img: keus,
+      img: 'нет',
       video: '',
       tags: ['Лендинг', 'Кейс | Сайт', 'Gamedev'],
     },
@@ -157,7 +158,7 @@ export const useProjectStore = defineStore('project', () => {
       id: 6,
       name: 'АЗС КиТЭК — современный сайт для автозаправочной станции',
       title: 'АЗС КиТЭК',
-      img: keus,
+      img: 'нет',
       video: '',
       tags: ['Система сайтов', 'Кейс | Сайт', 'Промышленность'],
     },
@@ -165,7 +166,7 @@ export const useProjectStore = defineStore('project', () => {
       id: 7,
       name: 'Финант — аналитический сервис по финансам и экономическим новостям',
       title: 'Финант',
-      img: keus,
+      img: 'нет',
       video: '',
       tags: ['Лендинг', 'Кейс | Сайт', 'Финансы'],
     },
@@ -173,7 +174,7 @@ export const useProjectStore = defineStore('project', () => {
       id: 8,
       name: 'Олклин — интернет-магазин стеклоомывающей жидкости от производителя',
       title: 'Олклин',
-      img: keus,
+      img: 'нет',
       video: '',
       tags: ['Control Place', 'Кейс | Сайт', 'Промышленность'],
     },
