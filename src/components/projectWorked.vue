@@ -2,22 +2,24 @@
   <section class="project_worked">
     <h3 class="project_worked-title">Над проектом работали</h3>
     <div class="project_worked-one-all">
-      <projectWorkedOne title="Арт-директор" :text="project.art" />
-      <projectWorkedOne title="Арт-директор UX-UI" :text="project.artUx" />
-      <projectWorkedOne title="Куратор проекта" :text="project.kurator" />
+      <projectWorkedOne v-if="project.art" title="Арт-директор" :text="project.art" />
+      <projectWorkedOne v-if="project.tilda" title="Дизайнер на Tilda" :text="project.tilda" />
+      <projectWorkedOne v-if="project.osn" title="Основатель рекламного агентства Pofit Advance" :text="project.osn" />
+      <projectWorkedOne v-if="project.artUx" title="Арт-директор UX-UI" :text="project.artUx" />
+      <projectWorkedOne v-if="project.kurator" title="Куратор проекта" :text="project.kurator" />
     </div>
     <div class="project_worked-one-all">
-      <projectWorkedOne title="Продюсеры" :text="project.producers" />
-      <projectWorkedOne title="Графические дизайнеры" :text="project.designers" />
-      <projectWorkedOne title="3D и моушен-дизайнер" :text="project.ThreeD" />
+      <projectWorkedOne v-if="project.producers" title="Продюсеры" :text="project.producers" />
+      <projectWorkedOne v-if="project.designers" title="Графические дизайнеры" :text="project.designers" />
+      <projectWorkedOne v-if="project.ThreeD" title="3D и моушен-дизайнер" :text="project.ThreeD" />
     </div>
     <div class="project_worked-one-all">
-      <projectWorkedOne title="UX-UI-дизайнер" :text="project.designerUx" />
-      <projectWorkedOne title="Куратор" :text="project.kurators" />
-      <projectWorkedOne title="UX-аналитик" :text="project.analUx" />
+      <projectWorkedOne v-if="project.designerUx" title="UX-UI-дизайнер" :text="project.designerUx" />
+      <projectWorkedOne v-if="project.kurators" title="Куратор" :text="project.kurators" />
+      <projectWorkedOne v-if="project.analUx" title="UX-аналитик" :text="project.analUx" />
     </div>
     <div class="project_worked-one-all">
-      <projectWorkedOne title="Frontend" :text="project.frontend" />
+      <projectWorkedOne v-if="project.frontend" title="Frontend" :text="project.frontend" />
     </div>
   </section>
 </template>

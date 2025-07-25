@@ -23,7 +23,7 @@
           <ProjectDescription :project="project[0]" />
           <div class="container_sw">
             <swiper :project="project[0]" />
-            <img class="project_img" :src="project[0].imgGlav" alt="" />
+            <img class="project_img" v-if="project[0].imgGlav" :src="project[0].imgGlav" alt="" />
           </div>
           <ProjectWorked :project="project[0]" />
           <div class="project_footer-container">
@@ -86,6 +86,7 @@ onMounted(() => {
 .project_cover img {
   width: 100%;
   max-height: 721px;
+  border-radius: 30px 30px 0 0;
 }
 .project {
   margin-top: -200px;
