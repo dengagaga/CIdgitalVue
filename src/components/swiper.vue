@@ -34,8 +34,8 @@
       </swiper-slide>
     </swiper>
   </div>
-  <p class="swiper_text">{{ text }}</p>
-  <p class="swiper_title">{{ title }}</p>
+  <p class="swiper_text" v-if="text">{{ text }}</p>
+  <p class="swiper_title" v-if="title">{{ title }}</p>
 </template>
 
 <script setup>

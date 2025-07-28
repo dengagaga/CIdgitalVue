@@ -16,6 +16,7 @@ defineProps({
   margin-left: auto;
   margin-top: 50px;
   max-width: 503px;
+  width: 100%;
   padding: 0 27px;
 }
 .project_description-title_3 {

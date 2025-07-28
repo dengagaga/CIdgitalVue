@@ -28,6 +28,7 @@ defineProps({
 .project_worked-one-span {
   color: #696d73;
   font-size: 14px;
+  
 }
 .project_worked-one-text {
   font-size: 18px;

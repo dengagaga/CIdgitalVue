@@ -36,8 +36,11 @@
             <img src="@/assets/img/vue.svg" alt="" />
           </div>
           <div class="project_command-two-text-imgs" v-if="item === 'Design'">
-            <img src="@/assets/img/figma.svg" alt="" />
-            <img src="@/assets/img/ai.svg" alt="" />
+            <div class="project_command-two-text-imgs" v-for="img in project.stackImg" :key="img">
+              <img src="@/assets/img/figma.svg" v-if="item === 'Design' && img === 'figma'"  alt="" />
+              <img src="@/assets/img/ai.svg" v-if="item === 'Design' && img === 'ai'" alt="" />
+              <img src="@/assets/img/ph.svg" v-if="item === 'Design' && img === 'ph'" alt="" />
+            </div>
           </div>
         </div>
       </div>
