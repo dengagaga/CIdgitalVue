@@ -326,6 +326,8 @@ const clientStore = useClientStore()
     height: 120px;
     border-radius: 12px;
     display: flex;
+    padding-right: 10px;
+    padding-left: 10px;
     width: 170px;
     max-width: 170px;
     align-items: center;

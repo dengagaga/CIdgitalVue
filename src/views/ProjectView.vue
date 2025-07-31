@@ -30,6 +30,8 @@
             <img class="project_img-dop" v-if="project[0].imgGlavDop" :src="project[0].imgGlavDop" alt="" />
             <p v-if="project[0].descFour" class="project_text-prodiction mobil"><span class="mobil_span">02</span> {{ project[0].descFour[0] }}</p>
             <img class="project_img-dop" v-if="project[0].imgGlavDopTwo" :src="project[0].imgGlavDopTwo" alt="" />
+            <img class="project_img-dop" v-if="project[0].imgGlavDopThree" :src="project[0].imgGlavDopThree" alt="" />
+            <p v-if="project[0].descFive" class="project_text-prodiction mobil"><span class="mobil_span">03</span> {{ project[0].descFive[0] }}</p>
             <swiper :project="project[0]" v-if="project[0].swiper" />
             <img class="project_img" v-if="project[0].imgGlav" :src="project[0].imgGlav" alt="" />
             <p v-if="project[0].title == 'План Production'" class="project_text-prodiction mobil"><span class="mobil_span">03</span>Структурированное представление услуг. Детализировали пошаговую схему сотрудничества, показывая этапы поддержки психологов и перспективы развития личного бренда и финансовых доходов.
@@ -40,6 +42,7 @@
               <br>
               Благодаря такому подходу новый сайт обеспечивал клиентам агентства полное понимание предлагаемой программы продвижения, создавал чувство комфорта и уверенности в сотрудничестве с командой экспертов Plan Production.
             </p>
+            <p v-if="project[0].descSix" class="project_text-prodiction mobil"><span class="mobil_span">04</span> {{ project[0].descSix[0] }}</p>
           </div>
           <a target="_blank" :href="project[0].behance" v-if="project[0].behance" class="project_link"><img src="@/assets/img/bh.png" alt="">Смотреть проект на Behance<img src="@/assets/img/arrowRight.svg" alt="" /></a>
           <ProjectWorked :project="project[0]" />

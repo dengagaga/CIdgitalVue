@@ -22,14 +22,14 @@
         </div>
         <video class="project_video" :src="item.video"></video>
         <div class="drop_list" v-if="active">
-          <button class="drop_list-btn">Backend</button>
-          <button class="drop_list-btn">Frontend</button>
-          <button class="drop_list-btn">UX/UI дизайн</button>
-          <button class="drop_list-btn">Аналитика</button>
+          <button v-for="stack in item.stack" :key="stack" class="drop_list-btn">{{ stack }}</button>
+          <!-- <button class="drop_list-btn"></button> -->
+          <!-- <button class="drop_list-btn">UX/UI дизайн</button>
+          <button class="drop_list-btn">Аналитика</button> -->
         </div>
         <div class="drop_list-right" v-if="active">
           <a href="https://www.laserzon.ru/" target="_blank" class="drop_list-right-link"
-            ><img src="../assets/img/lzLogo.png" alt="" />Laser Zone</a
+            ><img :src="item.ava" alt="" />{{ item.title }}</a
           >
           <div class="drop_list-right-developers">
             <img src="../assets/img/elips2.png" alt="" />
@@ -177,20 +177,21 @@ defineProps({
 .drop_list-btn {
   font-size: 16px;
   font-weight: 400;
-  max-width: 94px;
+  /* max-width: 94px; */
   width: 100%;
+  padding: 0 12px;
   height: 35px;
   border-radius: 16px;
   background-color: #fff;
 }
-.drop_list-btn:nth-child(3) {
+/* .drop_list-btn:nth-child(3) {
   max-width: 126px;
   width: 126px;
-}
-.drop_list-btn:nth-child(4) {
+} */
+/* .drop_list-btn:nth-child(4) {
   max-width: 126px;
   width: 105px;
-}
+} */
 .drop_list-right {
   position: absolute;
   bottom: 20px;
@@ -212,12 +213,19 @@ defineProps({
   gap: 8px;
   align-items: center;
   justify-content: center;
-  max-width: 154px;
-  width: 154px;
+  /* max-width: 154px; */
+  /* width: 154px; */
+  padding-right: 12px;
+  padding-left: 12px;
   height: 40px;
   background-color: #fff;
   color: #000;
   border-radius: 20px;
+}
+.drop_list-right-link img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
 }
 .drop_list-right-developers img {
   width: 40px;
@@ -308,18 +316,18 @@ defineProps({
   }
   .drop_list-btn {
     font-size: 14px;
-    max-width: 84px;
+    /* max-width: 84px; */
     width: 100%;
     height: 32px;
   }
-  .drop_list-btn:nth-child(3) {
+  /* .drop_list-btn:nth-child(3) {
     max-width: 116px;
     width: 116px;
   }
   .drop_list-btn:nth-child(4) {
     max-width: 116px;
     width: 99px;
-  }
+  } */
 
   .drop_list-right {
     position: absolute;
@@ -329,8 +337,8 @@ defineProps({
   .drop_list-right-link {
     font-size: 14px;
     gap: 8px;
-    max-width: 124px;
-    width: 124px;
+    /* max-width: 124px;
+    width: 124px; */
     border-radius: 16px;
     height: 32px;
   }
@@ -378,15 +386,15 @@ defineProps({
   .drop_list-btn {
     font-size: 12px;
     height: 25px;
-    max-width: 68px;
+    /* max-width: 68px; */
   }
-  .drop_list-btn:nth-child(3) {
+  /* .drop_list-btn:nth-child(3) {
     max-width: 100px;
     width: 100px;
   }
   .drop_list-btn:nth-child(4) {
     max-width: 100px;
     width: 90px;
-  }
+  } */
 }
 </style>

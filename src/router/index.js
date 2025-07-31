@@ -8,6 +8,7 @@ import DocumentsView from '../views/DocumentsView.vue'
 import DetailsView from '../views/DetailsView.vue'
 import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 import PersonalDataView from '../views/PersonalDataView.vue'
+import ResumeView from '../views/ResumeView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -59,6 +60,11 @@ const router = createRouter({
       path: '/personal',
       name: 'PersonalDataView',
       component: PersonalDataView,
+    },
+    {
+      path: '/resume',
+      name: 'resumeView',
+      component: ResumeView,
     },
   ],
 })

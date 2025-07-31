@@ -21,6 +21,7 @@ import avaSilver from '/src/assets/img/avaSilver.png'
 import selverGlav from '/src/assets/img/selverGlav.png'
 import selverGlavDop from '/src/assets/img/selverGlavDop.png'
 import selverGlavDopTwo from '/src/assets/img/selverGlavDopTwo.png'
+import selverGlavDopThree from '/src/assets/img/selverGlavDopThree.png'
 
 
 export const useProjectStore = defineStore('project', () => {
@@ -41,7 +42,7 @@ export const useProjectStore = defineStore('project', () => {
       linkTitle: 'laserzon.ru',
       year: '2020',
       team: '3 человека',
-      duration: '3 месяца',
+      duration: '7 месяцев',
       platform: 'Web',
       stack: ['Frontend', 'Backend', 'Design'],
       stackImg: ['figma'],
@@ -182,6 +183,7 @@ export const useProjectStore = defineStore('project', () => {
       imgGlav: selverGlav,
       imgGlavDop: selverGlavDop,
       imgGlavDopTwo: selverGlavDopTwo,
+      imgGlavDopThree: selverGlavDopThree,
       video: '',
       tags: ['Кейс | Дизайн баннеров', 'Ритейлер'],
       text: 'Лидер российского рынка по импорту оборудования для обжарки кофе родом из Турции.',
@@ -209,6 +211,12 @@ export const useProjectStore = defineStore('project', () => {
       ],
       descFour: [
         'UI-дизайн и адаптация. В результате проведенных исследований был разработан свежий и динамичный дизайн, ориентированный на пользователей. Особое внимание уделялось интуитивно понятной навигации и четкому представлению основных функциональных зон.'
+      ],
+      descFive: [
+        'Детализированные страницы товаров. Каждая модель ростера обзавелась отдельной страницей с полным набором технической документации, рекомендациями по эксплуатации и возможностью скачать документацию для изучения. Были интегрированы видео-обзоры, демонстрирующие работу оборудования, а также реалистичные 3D-модели, позволяющие изучить внешний вид машины со всех ракурсов.'
+      ],
+      descSix: [
+        'Инструменты кастомизации. Одной из главных фишек нового сайта стал специальный модуль выбора цвета оборудования. Пользователи получили возможность виртуально красить выбранную модель в понравившийся цвет и получать заводской заказ с индивидуальным оформлением.'
       ],
       service: ['Предпроектные исследования', 'Аналитика', 'UX/UI дизайн', 'Разработка сайта', 'Продвижение'],
       art: ['Денис Горин'],

@@ -10,7 +10,7 @@
       <a target="_blank" :href="project.link" class="project_top-rigth-link">
         <img src="@/assets/img/link.svg" alt="" />
         {{ project.linkTitle }}
-        <img src="@/assets/img/arrowRight.svg" alt="" />
+        <img src="@/assets/img/arrowRight.svg" class="project_top-rigth-link-img" alt="" />
       </a>
     </div>
   </section>
@@ -63,6 +63,16 @@ defineProps({
   gap: 12px;
   font-size: 18px;
   color: #000;
+  transition: all 0.3s;
+}
+.project_top-rigth-link-img {
+transition: all 0.3s;
+}
+.project_top-rigth-link:hover .project_top-rigth-link-img{
+  transform: rotate(45deg);
+}
+.project_top-rigth-link:hover {
+  color: #696d73;
 }
 @media (max-width: 450px) {
   .project_top {

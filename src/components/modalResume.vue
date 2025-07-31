@@ -13,11 +13,11 @@
           <h4 class="modal_resume-all-mid-top-h4">Frontend</h4>
           <h4 class="modal_resume-all-mid-top-h4">Backend</h4>
         </div>
-        <h2 class="modal_resume-all-mid-h2">Денис Нефёдов</h2>
+        <h2 class="modal_resume-all-mid-h2">{{ modalStore.modalResumeName }}</h2>
         <h3 class="modal_resume-all-mid-h3">Senior разработчик на Vue</h3>
       </div>
       <div class="modal_resume-all-bot">
-        <button class="modal_resume-all-bot-btn">Открыть резюме</button>
+        <router-link to="/resume" class="modal_resume-all-bot-btn" >Открыть резюме</router-link>
       </div>
     </div>
   </div>
@@ -82,6 +82,8 @@ const modalStore = useModalStore()
   color: #080808;
 }
 .modal_resume-all-bot-btn {
+  display: block;
+  text-align: center;
   width: 100%;
   background-color: #f8f7ff;
   border-radius: 0 0 6px 6px;

@@ -32,14 +32,33 @@
         <div class="project_command-two-text" v-for="item in project.stack" :key="item">
           {{ item }}
           <div class="project_command-two-text-imgs" v-if="item === 'Frontend'">
-            <img src="@/assets/img/react.svg" alt="" />
-            <img src="@/assets/img/vue.svg" alt="" />
+            <div class="project_command-hover">
+              <img src="@/assets/img/react.svg" class="project_command-hover-img" alt="" />
+              <p class="project_command-hover-text">React</p>
+            </div>
+            <div class="project_command-hover">
+              <img src="@/assets/img/vue.svg" class="project_command-hover-img" alt="" />
+              <p class="project_command-hover-text">Vue</p>
+            </div>
+            
           </div>
           <div class="project_command-two-text-imgs" v-if="item === 'Design'">
             <div class="project_command-two-text-imgs" v-for="img in project.stackImg" :key="img">
-              <img src="@/assets/img/figma.svg" v-if="item === 'Design' && img === 'figma'"  alt="" />
-              <img src="@/assets/img/ai.svg" v-if="item === 'Design' && img === 'ai'" alt="" />
-              <img src="@/assets/img/ph.svg" v-if="item === 'Design' && img === 'ph'" alt="" />
+              <div class="project_command-hover" v-if="item === 'Design' && img === 'figma'">
+                <img src="@/assets/img/figma.svg" class="project_command-hover-img" alt="" />
+                <p class="project_command-hover-text">Figma</p>
+              </div>
+              <div class="project_command-hover" v-if="item === 'Design' && img === 'ai'">
+                <img src="@/assets/img/ai.svg" class="project_command-hover-img" alt="" />
+                <p class="project_command-hover-text">Ai</p>
+              </div>
+              <div class="project_command-hover" v-if="item === 'Design' && img === 'ph'">
+                <img src="@/assets/img/ph.svg" class="project_command-hover-img" alt="" />
+                <p class="project_command-hover-text project_command-hover-text-2">Photoshop</p>
+              </div>
+              <!-- <img src="@/assets/img/figma.svg"   alt="" /> -->
+              <!-- <img src="@/assets/img/ai.svg" v-if="item === 'Design' && img === 'ai'" alt="" />
+              <img src="@/assets/img/ph.svg" v-if="item === 'Design' && img === 'ph'" alt="" /> -->
             </div>
           </div>
         </div>
@@ -109,6 +128,44 @@ defineProps({
   margin-top: 10px;
   font-size: 18px;
   color: #080808;
+}
+.project_command-hover {
+  position: relative;
+  cursor: pointer;
+}
+.project_command-hover-img {
+}
+.project_command-hover-text {
+  position: absolute;
+  padding: 6px 7px;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  background: #2C2C2C;
+  top: -40px;
+  left: -8px;
+  opacity: 0;
+  transition: all 0.3s;
+  min-width: 48px;
+  text-align: center;
+}
+.project_command-hover-text-2 {
+  left: -22px;
+}
+.project_command-hover:hover .project_command-hover-text {
+  opacity: 1;
+  
+}
+.project_command-hover-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2C2C2C transparent transparent transparent;
 }
 @media (max-width: 450px) {
   .project_command-one {

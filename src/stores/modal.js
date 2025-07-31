@@ -85,7 +85,9 @@ export const useModalStore = defineStore('modal', () => {
   }
   const modalActive = ref(false)
   const modalResume = ref(false)
-  const modalResumeToggle = () => {
+  const modalResumeName = ref('')
+  const modalResumeToggle = (item) => {
+    modalResumeName.value = item
     modalResume.value = !modalResume.value
   }
   const modalZakazToggle = () => {
@@ -110,5 +112,6 @@ export const useModalStore = defineStore('modal', () => {
     arrayСonnection,
     projectModal,
     toggleProjectModal,
+    modalResumeName
   }
 })

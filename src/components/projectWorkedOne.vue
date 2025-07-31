@@ -3,7 +3,7 @@
     <span class="project_worked-one-span">{{ title }}</span>
     <p
       class="project_worked-one-text"
-      @click="modalStore.modalResumeToggle()"
+      @click="modalStore.modalResumeToggle(item)"
       v-for="item in text"
       :key="item"
     >
