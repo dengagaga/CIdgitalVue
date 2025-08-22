@@ -7,18 +7,26 @@
           <LinkNav class="befAll-two footer-link" :item="footerLinks[0]" />
         </div>
         <div class="footer_right">
-          <a href="https://t.me/+_ksoh5c4HopmYTZi" target="_blank" class="befAll-two footer-link befAll">
-              <div class="nav_right-link-one">
-                <p class="nav_right-link-text_rel">Telegram</p>
-                <p class="nav_right-link-text_abs">Telegram</p>
-              </div>
+          <a
+            href="https://t.me/+_ksoh5c4HopmYTZi"
+            target="_blank"
+            class="befAll-two footer-link befAll"
+          >
+            <div class="nav_right-link-one">
+              <p class="nav_right-link-text_rel">Telegram</p>
+              <p class="nav_right-link-text_abs">Telegram</p>
+            </div>
           </a>
-          <a href="https://vk.com/cidgital" target="_blank" class="befAll-two footer-link befAll">
-              <div class="nav_right-link-one">
-                <p class="nav_right-link-text_rel">ВКонтакте</p>
-                <p class="nav_right-link-text_abs">ВКонтакте</p>
-              </div>
-          </a> 
+          <a
+            href="https://vk.com/cidgital"
+            target="_blank"
+            class="befAll-two footer-link befAll"
+          >
+            <div class="nav_right-link-one">
+              <p class="nav_right-link-text_rel">ВКонтакте</p>
+              <p class="nav_right-link-text_abs">ВКонтакте</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>

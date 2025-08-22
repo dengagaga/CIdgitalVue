@@ -1,5 +1,9 @@
 <template>
-  <div class="solutions_item" v-for="item in solutionStore.solution" :key="item.id">
+  <div
+    class="solutions_item"
+    v-for="item in solutionStore.solution"
+    :key="item.id"
+  >
     <h4 class="solutions_item-title">{{ item.title }}</h4>
     <div class="solutions_item-right">
       <p class="solutions_item-text">{{ item.text }}</p>

@@ -14,82 +14,90 @@
       <h1 class="title_1"></h1>
       <div class="header_mid-oneFon">
         <div class="resume_top">
-            <img class="resume_top-img" src="@/assets/img/person.jpg" alt="">
-            <div class="resume_top-right">
-                <h2 class="resume_top-right-title">Денис Нефёдов</h2>
-                <p class="resume_top-right-text">Senior разработчик на Vue</p>
-            </div>
+          <img class="resume_top-img" src="@/assets/img/person.jpg" alt="" />
+          <div class="resume_top-right">
+            <h2 class="resume_top-right-title">Денис Нефёдов</h2>
+            <p class="resume_top-right-text">Senior разработчик на Vue</p>
+          </div>
         </div>
         <div class="resume_stack">
-            <h2 class="resume_stack-title">Основной стек:</h2>
-            <div class="resume_stack-right">
-                <div class="resume_stack-right-item" v-for="item in stack" :key="item">
-                    <img :src="item.img" alt="">
-                    <p>{{ item.title }}</p>
-                    <div class="resume_stack-right-item_all">
-                      <h4 class="resume_stack-right-item_all-title">
-                        {{ item.title }}
-                      </h4>
-                      <p class="resume_stack-right-item_all-text">
-                        {{ item.desc }}
-                      </p>
-                    </div>
-                </div>
+          <h2 class="resume_stack-title">Основной стек:</h2>
+          <div class="resume_stack-right">
+            <div
+              class="resume_stack-right-item"
+              v-for="item in stack"
+              :key="item"
+            >
+              <img :src="item.img" alt="" />
+              <p>{{ item.title }}</p>
+              <div class="resume_stack-right-item_all">
+                <h4 class="resume_stack-right-item_all-title">
+                  {{ item.title }}
+                </h4>
+                <p class="resume_stack-right-item_all-text">
+                  {{ item.desc }}
+                </p>
+              </div>
             </div>
-            <div>
-
-            </div>
+          </div>
+          <div></div>
         </div>
         <div class="resume_stack-2">
-            <h2 class="resume_stack-title">Коммерческая разработка:</h2>
-            <div class="resume_stack-right-2">
-                <div class="resume_stack-right-item-2">
-                   4 года
-                </div>
-            </div>
-            <div>
-              
-            </div>
+          <h2 class="resume_stack-title">Коммерческая разработка:</h2>
+          <div class="resume_stack-right-2">
+            <div class="resume_stack-right-item-2">4 года</div>
+          </div>
+          <div></div>
         </div>
         <div class="resume_skils">
-            <h2 class="resume_skils-title">Навыки</h2>
-            <ul class="resume_skils-list">
-              <li class="resume_skils-list-item" v-for="item in list" :key="item">{{ item.title }}</li>
-            </ul>
+          <h2 class="resume_skils-title">Навыки</h2>
+          <ul class="resume_skils-list">
+            <li class="resume_skils-list-item" v-for="item in list" :key="item">
+              {{ item.title }}
+            </li>
+          </ul>
         </div>
         <div class="resume_experience">
-          
           <h2 class="resume_skils-title">Опыт работы</h2>
-           <ul class="resume_experience-list">
-             <li class="resume_experience-list-item" v-for="item in experience" :key="item">
+          <ul class="resume_experience-list">
+            <li
+              class="resume_experience-list-item"
+              v-for="item in experience"
+              :key="item"
+            >
               <div class="resume_experience-list-item-left">
                 <p class="resume_experience-list-item-title">{{ item.date }}</p>
                 <p class="resume_experience-list-item-place">{{ item.city }}</p>
               </div>
               <div class="resume_experience-list-item-right">
-                <h3 class="resume_experience-list-item-title">{{ item.title }}</h3>
+                <h3 class="resume_experience-list-item-title">
+                  {{ item.title }}
+                </h3>
                 <p class="resume_experience-list-item-text">{{ item.text }}</p>
               </div>
-               
-             </li>
-           </ul>
+            </li>
+          </ul>
         </div>
         <div class="resume_experience">
-          
           <h2 class="resume_skils-title">Образование</h2>
-           <ul class="resume_experience-list">
-             <li class="resume_experience-list-item" v-for="item in experience" :key="item">
+          <ul class="resume_experience-list">
+            <li
+              class="resume_experience-list-item"
+              v-for="item in experience"
+              :key="item"
+            >
               <div class="resume_experience-list-item-left">
                 <p class="resume_experience-list-item-title">{{ item.date }}</p>
                 <p class="resume_experience-list-item-place">{{ item.city }}</p>
               </div>
               <div class="resume_experience-list-item-right">
-                <h3 class="resume_experience-list-item-title">{{ item.title }}</h3>
+                <h3 class="resume_experience-list-item-title">
+                  {{ item.title }}
+                </h3>
                 <p class="resume_experience-list-item-text">{{ item.text }}</p>
               </div>
-               
-             </li>
-           </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -142,77 +150,77 @@ const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
 }
 const stack = ref([
-    {
-        id:1,
-        img:html,
-        title:'HTML',
-        desc:'Cтандартный язык разметки, используемый для создания веб-страниц'
-    },
-    {
-        id:2,
-        img:js,
-        title:'JavaScript',
-        desc:'Язык программирования, который в основном используется для создания интерактивных веб-страниц'
-    },
-    {
-        id:3,
-        img:vue,
-        title:'Vue.js',
-        desc:'JavaScript-фреймворк для создания пользовательских интерфейсов и одностраничных веб-приложений.'
-    },
-    {
-        id:5,
-        img:css,
-        title:'CSS',
-        desc:'Язык, используемый для описания внешнего вида (стиля) веб-страниц, написанных на HTML, XHTML или XML'
-    }
+  {
+    id: 1,
+    img: html,
+    title: 'HTML',
+    desc: 'Cтандартный язык разметки, используемый для создания веб-страниц',
+  },
+  {
+    id: 2,
+    img: js,
+    title: 'JavaScript',
+    desc: 'Язык программирования, который в основном используется для создания интерактивных веб-страниц',
+  },
+  {
+    id: 3,
+    img: vue,
+    title: 'Vue.js',
+    desc: 'JavaScript-фреймворк для создания пользовательских интерфейсов и одностраничных веб-приложений.',
+  },
+  {
+    id: 5,
+    img: css,
+    title: 'CSS',
+    desc: 'Язык, используемый для описания внешнего вида (стиля) веб-страниц, написанных на HTML, XHTML или XML',
+  },
 ])
 const list = ref([
-    {
-        id:1,
-        title:'Владею навыками адаптивной вёрстки на HTML и CSS'
-    },
-    {
-        id:2,
-        title:'Работаю в графическом редакторе Figma'
-    },
-    {
-        id:3,
-        title:'Использую препроцессор Sass'
-    },
-    {
-        id:4,
-        title:'Работаю в системе контроля версий Git'
-    },
-    {
-        id:5,
-        title:'Владею инструментами оптимизации изображений и кода'
-    },
-    {
-        id:6,
-        title:'Программирую на JavaScript, использую REST API'
-    },
-    {
-        id:7,
-        title:'Владею Vue.js'
-    },
-    {
-        id:8,
-        title:'Придерживаюсь компонентного подхода'
-    },
-    {
-        id:9,
-        title:'Коммуникабельный, понимаю свою роль в команде разработки'
-    },
+  {
+    id: 1,
+    title: 'Владею навыками адаптивной вёрстки на HTML и CSS',
+  },
+  {
+    id: 2,
+    title: 'Работаю в графическом редакторе Figma',
+  },
+  {
+    id: 3,
+    title: 'Использую препроцессор Sass',
+  },
+  {
+    id: 4,
+    title: 'Работаю в системе контроля версий Git',
+  },
+  {
+    id: 5,
+    title: 'Владею инструментами оптимизации изображений и кода',
+  },
+  {
+    id: 6,
+    title: 'Программирую на JavaScript, использую REST API',
+  },
+  {
+    id: 7,
+    title: 'Владею Vue.js',
+  },
+  {
+    id: 8,
+    title: 'Придерживаюсь компонентного подхода',
+  },
+  {
+    id: 9,
+    title: 'Коммуникабельный, понимаю свою роль в команде разработки',
+  },
 ])
 const experience = ref([
-    {
-        id:1,
-        title:'UI Designer at Market Studios',
-        date:'12.2023 - по настоящее время',
-        city:'Липецк',
-        text:'Successfully translated subject matter into concrete design for newsletters, promotional materials and sales collateral. Created design theme and graphics for marketing and sales presentations, training videos and corporate websites.'
-    },
+  {
+    id: 1,
+    title: 'UI Designer at Market Studios',
+    date: '12.2023 - по настоящее время',
+    city: 'Липецк',
+    text: 'Successfully translated subject matter into concrete design for newsletters, promotional materials and sales collateral. Created design theme and graphics for marketing and sales presentations, training videos and corporate websites.',
+  },
 ])
 </script>
 
@@ -222,59 +230,59 @@ const experience = ref([
   background-position: bottom;
 }
 .resume_top {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 100px;
 }
 .resume_top-img {
-    border-radius: 22px;
-    width: 85px;
-    object-fit: cover;
-    height: 85px;
+  border-radius: 22px;
+  width: 85px;
+  object-fit: cover;
+  height: 85px;
 }
 .resume_top-right-title {
-    font-size: 32px;
-    font-weight: 600;
+  font-size: 32px;
+  font-weight: 600;
 }
 .resume_top-right-text {
-    color: #696D73;
-    font-size: 22px;
+  color: #696d73;
+  font-size: 22px;
 }
 .resume_stack-title {
-    font-size: 24px;
-    font-weight: 500;
-    color: #696D73;
-    max-width: 320px;
-    width: 100%;
+  font-size: 24px;
+  font-weight: 500;
+  color: #696d73;
+  max-width: 320px;
+  width: 100%;
 }
 .resume_stack {
-    padding-top: 21px;
-    padding-bottom: 21px;
-    border-top: 1px solid #0000001A;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  border-top: 1px solid #0000001a;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
 }
 .resume_stack-right {
-    display: flex;
-    gap: 10px;
- max-width: 560px;
+  display: flex;
+  gap: 10px;
+  max-width: 560px;
   width: 100%;
 }
 .resume_stack-right-item {
-    padding: 6px;
-    padding-right: 17px;
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    font-size: 18px;
-    
-    position: relative;
-    font-weight: 500;
-    background-color: #F5F5F5;
-    color: #080808;
-    border-radius: 10px;
+  padding: 6px;
+  padding-right: 17px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 18px;
+
+  position: relative;
+  font-weight: 500;
+  background-color: #f5f5f5;
+  color: #080808;
+  border-radius: 10px;
 }
 
 .resume_stack-right-item_all {
@@ -292,7 +300,7 @@ const experience = ref([
   flex-direction: column;
   opacity: 0;
   gap: 12px;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 /* .resume_stack-right-item:hover .resume_stack-right-item_all {
     opacity: 1;
@@ -301,7 +309,6 @@ const experience = ref([
 .resume_stack-right-item_all-title {
   font-weight: 700;
   font-size: 16px;
-
 }
 .resume_stack-right-item_all::after {
   content: '';
@@ -316,15 +323,15 @@ const experience = ref([
   transform: translateX(-50%);
 }
 .resume_stack-right-item img {
-    width: 31px;
-    height: 31px;
-    border-radius: 6px;
-    cursor: pointer;
+  width: 31px;
+  height: 31px;
+  border-radius: 6px;
+  cursor: pointer;
 }
-.resume_stack-right-item img:hover ~ .resume_stack-right-item_all{
+.resume_stack-right-item img:hover ~ .resume_stack-right-item_all {
   opacity: 1;
 }
-.resume_stack-right-item p:hover ~ .resume_stack-right-item_all{
+.resume_stack-right-item p:hover ~ .resume_stack-right-item_all {
   opacity: 1;
 }
 .resume_stack-right-item p {
@@ -333,16 +340,16 @@ const experience = ref([
 }
 .resume_stack-2 {
   margin-bottom: 50px;
-   padding-top: 21px;
-    padding-bottom: 21px;
-    border-top: 1px solid #0000001A;
-    border-bottom: 1px solid #0000001A;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  border-top: 1px solid #0000001a;
+  border-bottom: 1px solid #0000001a;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
 }
 .resume_stack-right-2 {
-   max-width: 560px;
+  max-width: 560px;
   width: 100%;
 }
 .resume_stack-right-item-2 {
@@ -353,9 +360,9 @@ const experience = ref([
 .resume_skils {
 }
 .resume_skils-title {
-      font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 50px;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 50px;
 }
 .resume_skils-list {
   margin-bottom: 80px;
@@ -381,7 +388,7 @@ const experience = ref([
 
 .resume_experience-list-item-place {
   font-size: 20px;
-  color: #696D73;
+  color: #696d73;
 }
 .resume_experience-list-item-right {
   max-width: 1200px;
@@ -394,7 +401,7 @@ const experience = ref([
 }
 .resume_experience-list-item-text {
   font-size: 18px;
-  color: #696D73;
+  color: #696d73;
 }
 @media (max-width: 1440px) {
   .resume_top-right-title {
@@ -403,7 +410,7 @@ const experience = ref([
   .resume_top-right-text {
     font-size: 18px;
   }
-  .resume_top-img  {
+  .resume_top-img {
     width: 80px;
     height: 80px;
   }
@@ -461,7 +468,6 @@ const experience = ref([
   }
   .resume_stack-right {
     flex-wrap: wrap;
-    
   }
   .resume_skils-title {
     font-size: 24px;

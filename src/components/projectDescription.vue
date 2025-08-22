@@ -2,7 +2,13 @@
   <section class="project_description">
     <h3 class="project_description-title_3">Описание проекта</h3>
     <div class="project_description-texts">
-      <p class="project_description-text" v-for="item in project.desc" :key="item">{{ item }}</p>
+      <p
+        class="project_description-text"
+        v-for="item in project.desc"
+        :key="item"
+      >
+        {{ item }}
+      </p>
     </div>
   </section>
 </template>

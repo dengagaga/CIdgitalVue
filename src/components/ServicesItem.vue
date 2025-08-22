@@ -7,7 +7,11 @@
     data-aos-easing="ease-in-out"
   >
     <div
-      :class="servicesItemActive ? 'services_item services_item--active' : 'services_item'"
+      :class="
+        servicesItemActive
+          ? 'services_item services_item--active'
+          : 'services_item'
+      "
       @click="servicesItemActive = !servicesItemActive"
     >
       <div class="services_item-top">
@@ -43,12 +47,18 @@
         <div class="services_item-bot-left"></div>
         <div class="services_item-bot-right">
           <div class="services_item-bot-all">
-            <button class="services_item-bot_btn" v-for="item in item.tegs" :key="item">
+            <button
+              class="services_item-bot_btn"
+              v-for="item in item.tegs"
+              :key="item"
+            >
               {{ item.teg }}
             </button>
           </div>
           <div class="services_item-bot-links">
-            <a href="Brief.html" class="blog-btn blog-btn-link">Заполнить бриф</a>
+            <a href="Brief.html" class="blog-btn blog-btn-link"
+              >Заполнить бриф</a
+            >
             <a href="portfolio.html" class="services_item-bot-link case"
               >Смотреть кейс<svg
                 xmlns="http://www.w3.org/2000/svg"

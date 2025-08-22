@@ -3,6 +3,7 @@
     <div class="container">
       <h3 class="title_3">Решения</h3>
       <div class="solutions_all">
+        
         <SolutionsItem />
       </div>
     </div>

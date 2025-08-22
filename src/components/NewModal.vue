@@ -3,8 +3,14 @@
     <div class="cook_modal_left">
       <h3 class="cook_modal_left-title">Новый сайт – новый уровень!</h3>
       <ul class="cook_modal_left-list">
-        <li class="cook_modal_left-item">Мы обновились!  В настоящее время переносим наше портфолио, поэтому все проекты пока недоступны для просмотра онлайн.</li>
-        <li class="cook_modal_left-item">Хотите увидеть наши работы? Просто свяжитесь с нами [ссылка на форму обратной связи] – мы будем рады предоставить их по запросу!</li>
+        <li class="cook_modal_left-item">
+          Мы обновились! В настоящее время переносим наше портфолио, поэтому все
+          проекты пока недоступны для просмотра онлайн.
+        </li>
+        <li class="cook_modal_left-item">
+          Хотите увидеть наши работы? Просто свяжитесь с нами [ссылка на форму
+          обратной связи] – мы будем рады предоставить их по запросу!
+        </li>
       </ul>
     </div>
     <button class="cook_modal-btn" @click="close()">Я понял</button>
@@ -28,11 +34,11 @@ const close = () => {
 </script>
 <style scoped>
 .cook_modal {
-  background-color: #F5F7F9;
+  background-color: #f5f7f9;
   padding: 20px 14px;
   border-radius: 9px;
   position: fixed;
-  bottom:144px;
+  bottom: 144px;
   right: 41px;
   z-index: 999;
   display: flex;
@@ -54,15 +60,15 @@ const close = () => {
 }
 .cook_modal_left-item {
   font-size: 14px;
-  
+
   font-weight: 500;
-  color: #696D73;
+  color: #696d73;
   max-width: 540px;
   list-style: disc !important;
   margin-left: 20px;
 }
 .cook_modal-btn {
-  background-color: #015EF9;
+  background-color: #015ef9;
   border-radius: 8px;
   padding: 12px 23px;
   font-size: 14px;
@@ -73,7 +79,7 @@ const close = () => {
   .cook_modal {
     gap: 36px;
     right: 20px;
-    bottom:138px;
+    bottom: 138px;
     max-width: 614px;
   }
   .cook_modal_left-title {
@@ -85,7 +91,6 @@ const close = () => {
     max-width: 410px;
   }
   .cook_modal-btn {
-    
     border-radius: 8px;
     padding: 12px 23px;
     font-size: 14px;
@@ -114,22 +119,19 @@ const close = () => {
   }
   .cook_modal_left-item {
     max-width: 230px;
-    
   }
   .cook_modal_left-title {
     font-size: 18px;
     font-weight: 600;
-    
   }
 }
 @media (max-width: 396px) {
-      .cook_modal_left {
+  .cook_modal_left {
     max-width: 210px;
   }
   .cook_modal_left-item {
     max-width: 210px;
     margin-left: 15px;
-    
   }
 }
 </style>

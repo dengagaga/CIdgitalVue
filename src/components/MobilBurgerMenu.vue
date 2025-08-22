@@ -12,7 +12,9 @@
         >
           <img :src="item.img" alt="" />
           <div class="header_burger_left-item-texts">
-            <div class="befAll-two mobil_header_burger-btn">{{ item.title }}</div>
+            <div class="befAll-two mobil_header_burger-btn">
+              {{ item.title }}
+            </div>
             <p>{{ item.text }}</p>
           </div>
         </div>
@@ -27,7 +29,11 @@
       <div class="mobil_header_burger-bgc">
         <h3 class="mobil_header_burger-bgc-title">Денис Горин</h3>
         <p class="mobil_header_burger-bgc-text">Ответственный за ваш проект</p>
-        <a href="https://t.me/realgorin" target="_blank" class="mobil_header_burger-bgc-button">
+        <a
+          href="https://t.me/realgorin"
+          target="_blank"
+          class="mobil_header_burger-bgc-button"
+        >
           <div class="mobil_header_burger-bgc-button-left">
             <!-- <img src="@/assets/img/person.png" alt=""> -->
             <div class="nav_right-link-img-video">
@@ -58,7 +64,10 @@
             ></path>
           </svg>
         </a>
-        <a class="mobil_header_burger-bgc-button-2" @click="modalStore.modalZakazToggle">
+        <a
+          class="mobil_header_burger-bgc-button-2"
+          @click="modalStore.modalZakazToggle"
+        >
           <p>Заказать проект</p>
           <svg
             width="12"
@@ -67,7 +76,11 @@
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M1 11L11 1M11 1V10.82M11 1H1.15275" stroke="#717171" stroke-width="1.1" />
+            <path
+              d="M1 11L11 1M11 1V10.82M11 1H1.15275"
+              stroke="#717171"
+              stroke-width="1.1"
+            />
           </svg>
         </a>
       </div>
@@ -81,15 +94,23 @@
 
     <div class="mobil_header_burger_bot">
       <div class="mobil_header_burger_bot-top">
-        <LinkNav class="befAll-two" :item="{ id: 1, title: 'Документы', link: '/documents' }" />
+        <LinkNav
+          class="befAll-two"
+          :item="{ id: 1, title: 'Документы', link: '/documents' }"
+        />
       </div>
       <div class="mobil_header_burger_bot-mid">
         <LinkNav class="befAll-two" title="m: hi@cidgital.ru" />
         <LinkNav class="befAll-two" title="p: 8 (981) 997-50-00" />
       </div>
       <div class="mobil_header_burger_bot-bot">
- 
-         <a :href="item.link" target="_blank" class="befAll-two befAll"   v-for="item in burgerStore.social" :key="item.title">
+        <a
+          :href="item.link"
+          target="_blank"
+          class="befAll-two befAll"
+          v-for="item in burgerStore.social"
+          :key="item.title"
+        >
           <div class="nav_right-link-one">
             <p class="nav_right-link-text_rel">{{ item.title }}</p>
             <p class="nav_right-link-text_abs">{{ item.title }}</p>
@@ -110,11 +131,11 @@ const burgerStore = useBurgerStore()
 const modalStore = useModalStore()
 const mobilMenu = ref(false)
 const mobilMenuTitle = ref('')
-const avtiveMobilMenu = (item) => {
+const avtiveMobilMenu = item => {
   mobilMenu.value = !mobilMenu.value
   mobilMenuTitle.value = item.title
 }
-const mobilMenuLink = (item) => {
+const mobilMenuLink = item => {
   router.push(item.link)
   burgerStore.toggleMobilBurger()
 }

@@ -5,7 +5,12 @@
         <div class="clients_top">
           <div class="clients_top-left">
             <div class="circle-text">
-              <svg id="rotatingText" viewBox="0 0 200 200" width="354" height="354">
+              <svg
+                id="rotatingText"
+                viewBox="0 0 200 200"
+                width="354"
+                height="354"
+              >
                 <defs>
                   <path
                     id="circle"
@@ -23,18 +28,26 @@
                 </text>
               </svg>
             </div>
-            <img class="clients_top-left-logo" src="@/assets/img/logo.svg" alt="" />
+            <img
+              class="clients_top-left-logo"
+              src="@/assets/img/logo.svg"
+              alt=""
+            />
           </div>
 
           <div class="clients_top-right">
             <h2>
-              “В основе каждой нашей работы лежит стремление создать что‑то большее, чем просто
-              типовой сайт. Это и объединяет нас. <br />
-              Мы хотим создавать и видеть проект, который сможет принести максимальную пользу своему
-              заказчику”
+              “В основе каждой нашей работы лежит стремление создать что‑то
+              большее, чем просто типовой сайт. Это и объединяет нас. <br />
+              Мы хотим создавать и видеть проект, который сможет принести
+              максимальную пользу своему заказчику”
             </h2>
             <hr class="hr" />
-            <a href="https://t.me/realgorin" target="_blank" class="clients_top-right-link">
+            <a
+              href="https://t.me/realgorin"
+              target="_blank"
+              class="clients_top-right-link"
+            >
               <div class="clients_top-right-link-left">
                 <div class="nav_right-link-img-video">
                   <video
@@ -47,7 +60,9 @@
                 </div>
                 <div class="clients_top-right-link-left-texts">
                   <p class="clients_top-right-link-left-text1">Денис Горин</p>
-                  <p class="clients_top-right-link-left-text2">Ответственный за ваш проект</p>
+                  <p class="clients_top-right-link-left-text2">
+                    Ответственный за ваш проект
+                  </p>
                 </div>
               </div>
               <div class="clients_top-right-link-right">
@@ -75,7 +90,14 @@
             <!-- <div class="clients_bot-list">
                         <clientsItem  v-for="item in clientStore.clientsItemArray" :item="item" :key="item"></clientsItem>
                       </div> -->
-            <Vue3Marquee>
+            <Vue3Marquee
+              :duration="20"
+              :class="{
+                hovered: isHovered,
+              }"
+              @mouseenter="isHovered = true"
+              @mouseleave="isHovered = false"
+            >
               <clientsItem
                 v-for="item in clientStore.clientsItemArray"
                 :item="item"
@@ -102,6 +124,8 @@ import clientsItem from '@/components/ClientsItem.vue'
 import { Vue3Marquee } from 'vue3-marquee'
 import { useClientStore } from '@/stores/client'
 const clientStore = useClientStore()
+import { ref, computed, onUnmounted } from 'vue'
+const isHovered = ref(false)
 </script>
 <style>
 .vue3-marquee.horizontal > .marquee {
@@ -112,6 +136,9 @@ const clientStore = useClientStore()
   gap: 26px;
   position: relative;
   overflow: hidden;
+}
+.hovered .marquee {
+  animation-play-state: paused !important;
 }
 
 .clients_all {

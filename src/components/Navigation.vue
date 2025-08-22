@@ -2,12 +2,17 @@
   <MobilBurgerMenu v-if="burgerStore.mobilBurgerActive" />
   <nav class="nav">
     <router-link to="/" class="logotype"
-      ><img src="@/assets/Logo.svg" alt="" v-if="!burgerStore.mobilBurgerActive"
+      ><img
+        src="@/assets/Logo.svg"
+        alt=""
+        v-if="!burgerStore.mobilBurgerActive"
     /></router-link>
     <div class="nav_right">
       <div class="nav_right-burger" @click="$emit('toggleBurger')">
         <svg
-          :class="burgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'"
+          :class="
+            burgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'
+          "
           viewBox="0 0 100 100"
           width="42"
         >
@@ -21,10 +26,15 @@
           />
         </svg>
       </div>
-      <div class="nav_right-burger nav_right-burger-mob" @click="burgerStore.toggleMobilBurger()">
+      <div
+        class="nav_right-burger nav_right-burger-mob"
+        @click="burgerStore.toggleMobilBurger()"
+      >
         <svg
           :class="
-            burgerStore.mobilBurgerActive ? 'ham hamRotate ham4 active' : 'ham hamRotate ham4'
+            burgerStore.mobilBurgerActive
+              ? 'ham hamRotate ham4 active'
+              : 'ham hamRotate ham4'
           "
           viewBox="0 0 100 100"
           width="42"
@@ -241,11 +251,15 @@ const NavArray = ref([
   opacity: 0;
   visibility: hidden;
 }
-.befAll-two-agenstvo:hover + .header_burger_right-three + .header_burger_right-two {
+.befAll-two-agenstvo:hover
+  + .header_burger_right-three
+  + .header_burger_right-two {
   opacity: 0;
   visibility: hidden;
 }
-.header_burger_right-three:hover + .header_burger_right-two + .header_burger_right-one {
+.header_burger_right-three:hover
+  + .header_burger_right-two
+  + .header_burger_right-one {
   opacity: 0;
   visibility: hidden;
 }

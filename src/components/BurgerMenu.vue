@@ -4,8 +4,14 @@
     <div class="header_burger-all">
       <div class="header_burger_left">
         <headerBurgerLeftItem :item="headerBurgerLeft[0]" />
-        <headerBurgerLeftItem class="befAll-two-uslugi" :item="headerBurgerLeft[1]" />
-        <headerBurgerLeftItem class="befAll-two-agenstvo" :item="headerBurgerLeft[3]" />
+        <headerBurgerLeftItem
+          class="befAll-two-uslugi"
+          :item="headerBurgerLeft[1]"
+        />
+        <headerBurgerLeftItem
+          class="befAll-two-agenstvo"
+          :item="headerBurgerLeft[3]"
+        />
         <div class="header_burger_right header_burger_right-three">
           <h4 class="header_burger_right-title">Агентство</h4>
           <LinkNav
@@ -39,13 +45,22 @@
     <div class="header_burger-bottom">
       <div class="header_burger-bottom-top">
         <div class="header_burger-bottom-top_left">
-          <LinkNav class="befAll-two" :item="{ id: 1, title: 'Документы', link: '/documents' }" />
+          <LinkNav
+            class="befAll-two"
+            :item="{ id: 1, title: 'Документы', link: '/documents' }"
+          />
           <LinkNav class="befAll-two" title="m: hi@cidgital.ru" />
         </div>
         <LinkNav class="befAll-two" title="p: 8 (981) 997-50-00" />
       </div>
       <div class="header_burger-bottom-bot">
-         <a :href="item.link" target="_blank" class="befAll-two befAll"   v-for="item in burgerStore.social" :key="item.title">
+        <a
+          :href="item.link"
+          target="_blank"
+          class="befAll-two befAll"
+          v-for="item in burgerStore.social"
+          :key="item.title"
+        >
           <div class="nav_right-link-one">
             <p class="nav_right-link-text_rel">{{ item.title }}</p>
             <p class="nav_right-link-text_abs">{{ item.title }}</p>

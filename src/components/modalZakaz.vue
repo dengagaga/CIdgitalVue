@@ -19,7 +19,11 @@
           <h4 class="modal_title_4">Тип проекта</h4>
           <div class="modal_main-type-list">
             <div
-              :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'"
+              :class="
+                item.active
+                  ? 'modal_main-type-item active'
+                  : 'modal_main-type-item'
+              "
               @click="selectType(item, modalStore.arrayType)"
               v-for="item in modalStore.arrayType"
               :key="item.id"
@@ -30,7 +34,11 @@
         </div>
         <div class="modal_main-task">
           <h4 class="modal_title_4">Задача</h4>
-          <textarea v-model="task" class="modal_main-task-inp" type="text"></textarea>
+          <textarea
+            v-model="task"
+            class="modal_main-task-inp"
+            type="text"
+          ></textarea>
           <p class="modal_main-task-text">
             В чем заключается задача? Какие сроки? Сфера деятельности компании?
           </p>
@@ -46,9 +54,15 @@
                 :class="erorName ? 'eror' : ''"
                 required
               />
-              <label for="input0" :class="erorName ? 'eror' : ''">Имя и фамилия *</label>
-              <span :class="erorName ? 'underlane--active underline' : 'underline'"></span>
-              <p class="eror_modal" v-if="erorName">Поле необходимо заполнить</p>
+              <label for="input0" :class="erorName ? 'eror' : ''"
+                >Имя и фамилия *</label
+              >
+              <span
+                :class="erorName ? 'underlane--active underline' : 'underline'"
+              ></span>
+              <p class="eror_modal" v-if="erorName">
+                Поле необходимо заполнить
+              </p>
             </dd>
             <dd class="inputbox-content">
               <input
@@ -59,9 +73,17 @@
                 :class="erorNumber ? 'eror' : ''"
                 required
               />
-              <label for="input1" :class="erorNumber ? 'eror' : ''">Телефон *</label>
-              <span :class="erorNumber ? 'underlane--active underline' : 'underline'"></span>
-              <p class="eror_modal" v-if="erorNumber">Поле необходимо заполнить</p>
+              <label for="input1" :class="erorNumber ? 'eror' : ''"
+                >Телефон *</label
+              >
+              <span
+                :class="
+                  erorNumber ? 'underlane--active underline' : 'underline'
+                "
+              ></span>
+              <p class="eror_modal" v-if="erorNumber">
+                Поле необходимо заполнить
+              </p>
             </dd>
             <dd class="inputbox-content">
               <input id="input2" v-model="email" type="text" required />
@@ -79,7 +101,11 @@
           <h4 class="modal_title_4">Способ связи</h4>
           <div class="modal_main-type-list">
             <div
-              :class="item.active ? 'modal_main-type-item active' : 'modal_main-type-item'"
+              :class="
+                item.active
+                  ? 'modal_main-type-item active'
+                  : 'modal_main-type-item'
+              "
               @click="selectConnection(item, modalStore.arrayСonnection)"
               v-for="item in modalStore.arrayСonnection"
               :key="item.id"
@@ -95,7 +121,9 @@
           data-sitekey="ysc1_c50mkeZfZGNW5oSYbdcWpqm0LYs4VRiawvda6Onff025fc54"
         ></div>
         <div class="modal_main-btns">
-          <button class="modal_main-btn" @click="sendToTelegram()">Отправить</button>
+          <button class="modal_main-btn" @click="sendToTelegram()">
+            Отправить
+          </button>
           <p class="modal_main-btn-text">
             Нажимая на кнопку, вы даете согласие на
             <router-link
@@ -115,7 +143,15 @@
         </div>
       </div>
       <div class="modal_bot">
-        <p class="modal_bot-text">Защита от спама Yandex SmartCaptcha. <a href="https://yandex.ru/legal/smartcaptcha_notice/ru/" target="_blank" class="modal_link">Условия обработки данных</a></p>
+        <p class="modal_bot-text">
+          Защита от спама Yandex SmartCaptcha.
+          <a
+            href="https://yandex.ru/legal/smartcaptcha_notice/ru/"
+            target="_blank"
+            class="modal_link"
+            >Условия обработки данных</a
+          >
+        </p>
       </div>
     </div>
   </div>
@@ -137,13 +173,13 @@ const erorNumber = ref(false)
 
 const selectType = (item, array) => {
   const wasActive = item.active
-  array.forEach((el) => (el.active = false))
+  array.forEach(el => (el.active = false))
   item.active = !wasActive
   type.value = item.title
 }
 const selectConnection = (item, array) => {
   const wasActive = item.active
-  array.forEach((el) => (el.active = false))
+  array.forEach(el => (el.active = false))
   item.active = !wasActive
   connection.value = item.title
 }
@@ -165,8 +201,11 @@ const formatPhone = () => {
       (match[4] ? '-' + match[4] : '') +
       (match[5] ? '-' + match[5] : '')
 }
-const handlePhoneInput = (e) => {
-  if (e.inputType === 'deleteContentBackward' && number.value.replace(/\D/g, '').length <= 1) {
+const handlePhoneInput = e => {
+  if (
+    e.inputType === 'deleteContentBackward' &&
+    number.value.replace(/\D/g, '').length <= 1
+  ) {
     number.value = ''
     return
   }
@@ -227,9 +266,7 @@ watch(number, () => {
   display: flex;
   justify-content: center;
 }
-.cook_modal_left-link {
-  color: #717171;
-}
+
 .modal_all {
   max-width: 1000px;
   border-radius: 22px;
@@ -239,6 +276,9 @@ watch(number, () => {
   margin-bottom: auto;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+.cook_modal_left-link {
+  color: #717171;
 }
 .close {
   position: absolute;

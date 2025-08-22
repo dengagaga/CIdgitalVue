@@ -21,30 +21,80 @@
           <projectTop :project="project[0]" />
           <projectCommand :project="project[0]" />
           <ProjectDescription :project="project[0]" />
-            <ul  v-if="project[0].list" class="project_list-prodiction mt-33">
-              <li v-for="item in project[0].list" :key="item">{{ item }}</li>
-            </ul>
-          <p v-if="project[0].descTwo" class="project_text-prodiction mt-33">{{ project[0].descTwo[0] }}</p>
-          <p v-if="project[0].descThree" class="project_text-prodiction mt-33"><span>01</span> {{ project[0].descThree[0] }}</p>
+          <ul v-if="project[0].list" class="project_list-prodiction mt-33">
+            <li v-for="item in project[0].list" :key="item">{{ item }}</li>
+          </ul>
+          <p v-if="project[0].descTwo" class="project_text-prodiction mt-33">
+            {{ project[0].descTwo[0] }}
+          </p>
+          <p v-if="project[0].descThree" class="project_text-prodiction mt-33">
+            <span>01</span> {{ project[0].descThree[0] }}
+          </p>
           <div class="container_sw">
-            <img class="project_img-dop" v-if="project[0].imgGlavDop" :src="project[0].imgGlavDop" alt="" />
-            <p v-if="project[0].descFour" class="project_text-prodiction mobil"><span class="mobil_span">02</span> {{ project[0].descFour[0] }}</p>
-            <img class="project_img-dop" v-if="project[0].imgGlavDopTwo" :src="project[0].imgGlavDopTwo" alt="" />
-            <img class="project_img-dop" v-if="project[0].imgGlavDopThree" :src="project[0].imgGlavDopThree" alt="" />
-            <p v-if="project[0].descFive" class="project_text-prodiction mobil"><span class="mobil_span">03</span> {{ project[0].descFive[0] }}</p>
-            <swiper :project="project[0]" v-if="project[0].swiper" />
-            <img class="project_img" v-if="project[0].imgGlav" :src="project[0].imgGlav" alt="" />
-            <p v-if="project[0].title == 'План Production'" class="project_text-prodiction mobil"><span class="mobil_span">03</span>Структурированное представление услуг. Детализировали пошаговую схему сотрудничества, показывая этапы поддержки психологов и перспективы развития личного бренда и финансовых доходов.
-              <br>
-              <br>
-              Используя аналитику, наши дизайнеры разработали сайт, который выглядел профессионально и привлекательно. Благодаря удобной навигации пользователи могут легко находить нужную информацию и понимать ценность предложений агентства.
-              <br>
-              <br>
-              Благодаря такому подходу новый сайт обеспечивал клиентам агентства полное понимание предлагаемой программы продвижения, создавал чувство комфорта и уверенности в сотрудничестве с командой экспертов Plan Production.
+            <img
+              class="project_img-dop"
+              v-if="project[0].imgGlavDop"
+              :src="project[0].imgGlavDop"
+              alt=""
+            />
+            <p v-if="project[0].descFour" class="project_text-prodiction mobil">
+              <span class="mobil_span">02</span> {{ project[0].descFour[0] }}
             </p>
-            <p v-if="project[0].descSix" class="project_text-prodiction mobil"><span class="mobil_span">04</span> {{ project[0].descSix[0] }}</p>
+            <img
+              class="project_img-dop"
+              v-if="project[0].imgGlavDopTwo"
+              :src="project[0].imgGlavDopTwo"
+              alt=""
+            />
+            <img
+              class="project_img-dop"
+              v-if="project[0].imgGlavDopThree"
+              :src="project[0].imgGlavDopThree"
+              alt=""
+            />
+            <p v-if="project[0].descFive" class="project_text-prodiction mobil">
+              <span class="mobil_span">03</span> {{ project[0].descFive[0] }}
+            </p>
+            <swiper :project="project[0]" v-if="project[0].swiper" />
+            <img
+              class="project_img"
+              v-if="project[0].imgGlav"
+              :src="project[0].imgGlav"
+              alt=""
+            />
+            <p
+              v-if="project[0].title == 'План Production'"
+              class="project_text-prodiction mobil"
+            >
+              <span class="mobil_span">03</span>Структурированное представление
+              услуг. Детализировали пошаговую схему сотрудничества, показывая
+              этапы поддержки психологов и перспективы развития личного бренда и
+              финансовых доходов.
+              <br />
+              <br />
+              Используя аналитику, наши дизайнеры разработали сайт, который
+              выглядел профессионально и привлекательно. Благодаря удобной
+              навигации пользователи могут легко находить нужную информацию и
+              понимать ценность предложений агентства.
+              <br />
+              <br />
+              Благодаря такому подходу новый сайт обеспечивал клиентам агентства
+              полное понимание предлагаемой программы продвижения, создавал
+              чувство комфорта и уверенности в сотрудничестве с командой
+              экспертов Plan Production.
+            </p>
+            <p v-if="project[0].descSix" class="project_text-prodiction mobil">
+              <span class="mobil_span">04</span> {{ project[0].descSix[0] }}
+            </p>
           </div>
-          <a target="_blank" :href="project[0].behance" v-if="project[0].behance" class="project_link"><img src="@/assets/img/bh.png" alt="">Смотреть проект на Behance<img src="@/assets/img/arrowRight.svg" alt="" /></a>
+          <a
+            target="_blank"
+            :href="project[0].behance"
+            v-if="project[0].behance"
+            class="project_link"
+            ><img src="@/assets/img/bh.png" alt="" />Смотреть проект на
+            Behance<img src="@/assets/img/arrowRight.svg" alt=""
+          /></a>
           <ProjectWorked :project="project[0]" />
           <div class="project_footer-container">
             <ProjectFooter />
@@ -82,7 +132,10 @@ const route = useRoute()
 const id = ref(route.params.id)
 const project = ref([])
 onMounted(() => {
-  project.value = projectStore.projectItemArray.filter((item) => item.id == id.value)
+  window.scrollTo(0, 0)
+  project.value = projectStore.projectItemArray.filter(
+    item => item.id == id.value
+  )
 })
 </script>
 <style scoped>
@@ -107,7 +160,7 @@ onMounted(() => {
   color: black;
   font-size: 18px;
   font-weight: 400;
-  text-decoration: underline!important;
+  text-decoration: underline !important;
   gap: 12px;
   display: flex;
   margin-left: 26px;
@@ -131,31 +184,29 @@ onMounted(() => {
   margin-top: 33px;
 }
 .project_text-prodiction {
-    margin-left: auto;
-    font-size: 16px;
-    font-weight: 500;
-    position: relative;
-    max-width: 503px;
-    padding: 0 27px;
+  margin-left: auto;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  max-width: 503px;
+  padding: 0 27px;
 }
 .project_list-prodiction {
-    font-style: italic;
-    font-size: 14px;
-    font-weight: 300;
-    position: relative;
-    max-width: 503px;
-    padding: 0 27px;
-    
-    margin-left: auto;
-    
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 300;
+  position: relative;
+  max-width: 503px;
+  padding: 0 27px;
 
+  margin-left: auto;
 }
-.project_list-prodiction li{
+.project_list-prodiction li {
   margin-left: 27px;
   list-style: disc !important;
 }
-.project_text-prodiction span{
-  color: #696D73;
+.project_text-prodiction span {
+  color: #696d73;
   font-size: 16px;
   font-weight: 400;
   position: absolute;
@@ -190,20 +241,20 @@ onMounted(() => {
     margin-left: 12px;
     font-size: 14px;
   }
-  
+
   .project_text-prodiction {
     padding: 0 27px;
   }
   .project_text-prodiction span {
-      left: 5px;
-    }
+    left: 5px;
+  }
   .project_list-prodiction {
     padding: 0 16px;
   }
   .project_list-prodiction li {
     margin-left: 12px;
     list-style: disc !important;
-}
+  }
   .project {
     padding: 0;
     margin-top: -40px;
@@ -216,10 +267,10 @@ onMounted(() => {
     margin-bottom: 50px;
   }
   .mobil {
-    padding: 0 16px; 
+    padding: 0 16px;
   }
   .mobil_span {
-    left: -8px!important;
+    left: -8px !important;
   }
   .project_img-dop {
     margin-top: 40px;

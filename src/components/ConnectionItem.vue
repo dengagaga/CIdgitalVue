@@ -1,7 +1,11 @@
 <template>
   <a
     target="_blank"
-    :href="text == 'Связаться по телефону' ? 'tel:+79819975000' : 'mailto:hi@cidgital.ru'"
+    :href="
+      text == 'Связаться по телефону'
+        ? 'tel:+79819975000'
+        : 'mailto:hi@cidgital.ru'
+    "
     ref="button"
     @mousemove="handleMouseMove"
     @mouseleave="handleMouseLeave"
@@ -34,7 +38,7 @@ const rippleStyle = ref({
   left: '0',
   top: '0',
 })
-const handleMouseMove = (e) => {
+const handleMouseMove = e => {
   if (!button.value) return
 
   const rect = button.value.getBoundingClientRect()
@@ -45,7 +49,7 @@ const handleMouseMove = (e) => {
   rippleStyle.value.top = `${relY}px`
 }
 
-const handleMouseEnter = (e) => {
+const handleMouseEnter = e => {
   handleMouseMove(e)
   rippleStyle.value.opacity = '1'
   rippleStyle.value.width = '1700px'

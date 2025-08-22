@@ -1,8 +1,16 @@
 <template>
-  <div class="select_wrapper" v-for="item in projectStore.selectProject" :key="item.id">
-    <button class="select_wrapper-btn" @click="toggleSelect(item, projectStore.selectProject)">
+  <div
+    class="select_wrapper"
+    v-for="item in projectStore.selectProject"
+    :key="item.id"
+  >
+    <button
+      class="select_wrapper-btn"
+      @click="toggleSelect(item, projectStore.selectProject)"
+    >
       <p class="select_wrapper-title">
-        {{ item.title }}<span class="select_wrapper-count">{{ item.select.length }}</span>
+        {{ item.title
+        }}<span class="select_wrapper-count">{{ item.select.length }}</span>
       </p>
       <img src="@/assets/img/arrow.png" alt="" />
     </button>
@@ -25,7 +33,11 @@
   </div>
   <div v-if="projectStore.selectedProject">
     <ul>
-      <li class="select_wrapper-item" v-for="item in projectStore.selectedProject" :key="item">
+      <li
+        class="select_wrapper-item"
+        v-for="item in projectStore.selectedProject"
+        :key="item"
+      >
         {{ item.title }}
       </li>
     </ul>
@@ -36,7 +48,7 @@ import { useProjectStore } from '@/stores/project'
 const projectStore = useProjectStore()
 const toggleSelect = (item, array) => {
   const wasActive = item.active
-  array.forEach((el) => (el.active = false))
+  array.forEach(el => (el.active = false))
   item.active = !wasActive
 }
 
@@ -70,7 +82,7 @@ const toggleSelect = (item, array) => {
 //     console.log('Filtered items:', projectStore.projectItemArraySelect);
 // };
 
-const toggleSelectItem = (item) => {
+const toggleSelectItem = item => {
   // Переключаем активное состояние элемента
   item.active = !item.active
 
@@ -90,15 +102,22 @@ const toggleSelectItem = (item) => {
     projectStore.projectItemArraySelect = []
   } else {
     // Получаем все выбранные теги
-    const selectedTags = projectStore.selectedProject.map((project) => project.title)
+    const selectedTags = projectStore.selectedProject.map(
+      project => project.title
+    )
 
     // Фильтруем элементы, которые содержат ВСЕ выбранные теги
-    projectStore.projectItemArraySelect = projectStore.projectItemArray.filter((item) => {
-      return selectedTags.every((tag) => item.tags.includes(tag))
-    })
+    projectStore.projectItemArraySelect = projectStore.projectItemArray.filter(
+      item => {
+        return selectedTags.every(tag => item.tags.includes(tag))
+      }
+    )
   }
 
-  console.log('Filtered items (must match ALL tags):', projectStore.projectItemArraySelect)
+  console.log(
+    'Filtered items (must match ALL tags):',
+    projectStore.projectItemArraySelect
+  )
 }
 </script>
 <style scoped>

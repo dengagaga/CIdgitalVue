@@ -12,8 +12,19 @@ import ResumeView from '../views/ResumeView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
-  scrollBehavior() {
-    return window.scrollTo(0, 0)
+
+  // scrollBehavior() {
+  //   return window.scrollTo(0, 0)
+  // },
+  scrollBehavior(to, from, savedPosition) {
+    if (to.meta.noScroll) {
+      return {}
+    }
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
   },
   routes: [
     {
@@ -40,6 +51,7 @@ const router = createRouter({
       path: '/project/:id',
       name: 'ProjectView',
       component: ProjectView,
+      meta: { noScroll: true },
     },
     {
       path: '/documents',

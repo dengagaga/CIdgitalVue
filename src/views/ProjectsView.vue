@@ -24,11 +24,17 @@
             :item="item"
             :key="item"
           ></projectItem>
-          <button v-if="!showHideButton && isMobile" class="watch_add" @click="loadMore">
+          <button
+            v-if="!showHideButton && isMobile"
+            class="watch_add"
+            @click="loadMore"
+          >
             Показать ещё
           </button>
         </div>
-        <button v-if="showHideButton" class="watch_add" @click="hideProjects">Скрыть</button>
+        <button v-if="showHideButton" class="watch_add" @click="hideProjects">
+          Скрыть
+        </button>
       </div>
     </div>
   </header>
@@ -78,11 +84,11 @@ const toggleBurger = () => {
 }
 watch(
   () => projectStore.projectItemArraySelect.length, // Следим только за длиной
-  (newLength) => {
+  newLength => {
     if (newLength > 0) {
       isMobile.value = false
     }
-  },
+  }
 )
 </script>
 

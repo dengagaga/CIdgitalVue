@@ -2,8 +2,14 @@
   <section class="connection">
     <div class="container">
       <div class="connection_all">
-        <ConnectionItem title="hi@cidgital.ru" text="Написать на почту"></ConnectionItem>
-        <ConnectionItem title="+7 981 997 50 00" text="Связаться по телефону"></ConnectionItem>
+        <ConnectionItem
+          title="hi@cidgital.ru"
+          text="Написать на почту"
+        ></ConnectionItem>
+        <ConnectionItem
+          title="+7 981 997 50 00"
+          text="Связаться по телефону"
+        ></ConnectionItem>
       </div>
     </div>
   </section>

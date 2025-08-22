@@ -2,7 +2,11 @@
   <section class="project_footer">
     <h3 class="project_footer-title">Хотите обсудить проект?</h3>
     <div class="project_footer-all">
-      <a href="https://t.me/realgorin" target="_blank" class="project_footer-btn">
+      <a
+        href="https://t.me/realgorin"
+        target="_blank"
+        class="project_footer-btn"
+      >
         <div class="project_footer-btn-left">
           <div class="nav_right-link-img-video">
             <video

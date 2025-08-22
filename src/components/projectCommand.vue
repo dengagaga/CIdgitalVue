@@ -21,7 +21,11 @@
     <div class="project_command-two">
       <span class="project_command-one-span">Услуга:</span>
       <div class="project_command-two-texts">
-        <p class="project_command-two-text" v-for="item in project.service" :key="item">
+        <p
+          class="project_command-two-text"
+          v-for="item in project.service"
+          :key="item"
+        >
           {{ item }}
         </p>
       </div>
@@ -29,32 +33,72 @@
     <div class="project_command-three">
       <span class="project_command-one-span">Стек:</span>
       <div class="project_command-two-texts">
-        <div class="project_command-two-text" v-for="item in project.stack" :key="item">
+        <div
+          class="project_command-two-text"
+          v-for="item in project.stack"
+          :key="item"
+        >
           {{ item }}
           <div class="project_command-two-text-imgs" v-if="item === 'Frontend'">
             <div class="project_command-hover">
-              <img src="@/assets/img/react.svg" class="project_command-hover-img" alt="" />
+              <img
+                src="@/assets/img/react.svg"
+                class="project_command-hover-img"
+                alt=""
+              />
               <p class="project_command-hover-text">React</p>
             </div>
             <div class="project_command-hover">
-              <img src="@/assets/img/vue.svg" class="project_command-hover-img" alt="" />
+              <img
+                src="@/assets/img/vue.svg"
+                class="project_command-hover-img"
+                alt=""
+              />
               <p class="project_command-hover-text">Vue</p>
             </div>
-            
           </div>
           <div class="project_command-two-text-imgs" v-if="item === 'Design'">
-            <div class="project_command-two-text-imgs" v-for="img in project.stackImg" :key="img">
-              <div class="project_command-hover" v-if="item === 'Design' && img === 'figma'">
-                <img src="@/assets/img/figma.svg" class="project_command-hover-img" alt="" />
+            <div
+              class="project_command-two-text-imgs"
+              v-for="img in project.stackImg"
+              :key="img"
+            >
+              <div
+                class="project_command-hover"
+                v-if="item === 'Design' && img === 'figma'"
+              >
+                <img
+                  src="@/assets/img/figma.svg"
+                  class="project_command-hover-img"
+                  alt=""
+                />
                 <p class="project_command-hover-text">Figma</p>
               </div>
-              <div class="project_command-hover" v-if="item === 'Design' && img === 'ai'">
-                <img src="@/assets/img/ai.svg" class="project_command-hover-img" alt="" />
+              <div
+                class="project_command-hover"
+                v-if="item === 'Design' && img === 'ai'"
+              >
+                <img
+                  src="@/assets/img/ai.svg"
+                  class="project_command-hover-img"
+                  alt=""
+                />
                 <p class="project_command-hover-text">Ai</p>
               </div>
-              <div class="project_command-hover" v-if="item === 'Design' && img === 'ph'">
-                <img src="@/assets/img/ph.svg" class="project_command-hover-img" alt="" />
-                <p class="project_command-hover-text project_command-hover-text-2">Photoshop</p>
+              <div
+                class="project_command-hover"
+                v-if="item === 'Design' && img === 'ph'"
+              >
+                <img
+                  src="@/assets/img/ph.svg"
+                  class="project_command-hover-img"
+                  alt=""
+                />
+                <p
+                  class="project_command-hover-text project_command-hover-text-2"
+                >
+                  Photoshop
+                </p>
               </div>
               <!-- <img src="@/assets/img/figma.svg"   alt="" /> -->
               <!-- <img src="@/assets/img/ai.svg" v-if="item === 'Design' && img === 'ai'" alt="" />
@@ -67,7 +111,11 @@
     <div class="project_command-four">
       <span class="project_command-one-span">Отрасли:</span>
       <div class="project_command-two-texts">
-        <p class="project_command-two-text" v-for="item in project.industries" :key="item">
+        <p
+          class="project_command-two-text"
+          v-for="item in project.industries"
+          :key="item"
+        >
           {{ item }}
         </p>
       </div>
@@ -139,10 +187,10 @@ defineProps({
   position: absolute;
   padding: 6px 7px;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 700;
-  background: #2C2C2C;
+  background: #2c2c2c;
   top: -40px;
   left: -8px;
   opacity: 0;
@@ -155,7 +203,6 @@ defineProps({
 }
 .project_command-hover:hover .project_command-hover-text {
   opacity: 1;
-  
 }
 .project_command-hover-text::after {
   content: '';
@@ -165,7 +212,7 @@ defineProps({
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #2C2C2C transparent transparent transparent;
+  border-color: #2c2c2c transparent transparent transparent;
 }
 @media (max-width: 450px) {
   .project_command-one {

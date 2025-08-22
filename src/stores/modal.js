@@ -2,7 +2,8 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useBurgerStore } from './burger'
 import router from '@/router'
-
+import { useRouter, useRoute } from 'vue-router'
+// const route = useRoute()
 export const useModalStore = defineStore('modal', () => {
   const burgerStore = useBurgerStore()
   const arrayType = ref([
@@ -74,32 +75,38 @@ export const useModalStore = defineStore('modal', () => {
       active: false,
     },
   ])
+  const idProject = ref(0)
+  const body = document.querySelector('body')
+  const toggleProjectModal = id => {
+    window.history.pushState({}, '', `/project/${id}`)
+    modalProject.value = true
+    idProject.value = id
 
-  const projectModal = ref(false)
-  const toggleProjectModal = (id) => {
-    // projectModal.value = !projectModal.value
-    // console.log(projectModal.value);
-    // const body = document.querySelector('body')
-    // body.classList.toggle('body-active_fon')
-    router.push('/project/' + id)
+    body.classList.add('no-scroll')
   }
+  const projectModalClose = () => {
+    modalProject.value = false
+    window.history.pushState({}, '', `/`)
+    body.classList.remove('no-scroll')
+  }
+  const modalProject = ref(false)
   const modalActive = ref(false)
   const modalResume = ref(false)
   const modalResumeName = ref('')
-  const modalResumeToggle = (item) => {
+  const modalResumeToggle = item => {
     modalResumeName.value = item
     modalResume.value = !modalResume.value
   }
   const modalZakazToggle = () => {
     modalActive.value = true
-    const body = document.querySelector('body')
+
     body.classList.add('no-scroll')
     burgerStore.mobilBurgerActive = false
     window.scrollTo(0, 0)
   }
   const modalZakazClose = () => {
     modalActive.value = false
-    const body = document.querySelector('body')
+
     body.classList.remove('no-scroll')
   }
   return {
@@ -110,8 +117,10 @@ export const useModalStore = defineStore('modal', () => {
     modalZakazClose,
     modalResume,
     arrayСonnection,
-    projectModal,
+    modalProject,
+    idProject,
+    projectModalClose,
     toggleProjectModal,
-    modalResumeName
+    modalResumeName,
   }
 })

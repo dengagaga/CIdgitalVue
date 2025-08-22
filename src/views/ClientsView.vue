@@ -69,7 +69,9 @@ const route = useRoute()
 const id = ref(route.params.id)
 const client = ref([])
 onMounted(() => {
-  client.value = clientStore.clientsItemArray.filter((item) => item.id == id.value)
+  client.value = clientStore.clientsItemArray.filter(
+    item => item.id == id.value
+  )
 })
 </script>
 <style>

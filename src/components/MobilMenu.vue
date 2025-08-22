@@ -31,7 +31,7 @@ const props = defineProps({
 defineEmits(['closeMobilmenu'])
 const menu = ref([])
 onMounted(() => {
-  burgerStore.mobileBurger.forEach((item) => {
+  burgerStore.mobileBurger.forEach(item => {
     if (item.title == props.mobilMenuTitle) {
       menu.value = []
       if (item.links) {

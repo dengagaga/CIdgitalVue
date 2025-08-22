@@ -10,7 +10,9 @@
           <p>Проектов реализовано</p>
         </div>
         <div class="header_mid-oneFon-right-bot-item">
-          <h2 class="header_mid-oneFon-right-bot-item-title-2"><span>></span></h2>
+          <h2 class="header_mid-oneFon-right-bot-item-title-2">
+            <span>></span>
+          </h2>
           <p>Лет разрабатываем сайты</p>
         </div>
       </div>

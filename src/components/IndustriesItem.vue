@@ -1,5 +1,9 @@
 <template>
-  <div class="industries_item" v-for="item in industriesStore.industries" :key="item.id">
+  <div
+    class="industries_item"
+    v-for="item in industriesStore.industries"
+    :key="item.id"
+  >
     <button class="solutions_item-btn industries_item-btn-abs">
       <img src="@/assets/img/arrowSolution.svg" alt="" />
     </button>
@@ -15,7 +19,9 @@
             <img src="@/assets/img/lzLogo.png" alt="" />
             <img src="@/assets/img/lzLogo.png" alt="" />
           </div>
-          <p class="industries_item-btn-left-projects">{{ item.projects }} проектов</p>
+          <p class="industries_item-btn-left-projects">
+            {{ item.projects }} проектов
+          </p>
         </div>
         <div class="industries_item-btn-right">
           <img src="@/assets/img/greyArrow.png" alt="" />

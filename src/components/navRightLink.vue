@@ -4,18 +4,32 @@
     :target="item.title === 'заказать проект' ? '_self' : '_blank'"
     :key="item.title"
     :href="item.link"
-    @click="item.title === 'заказать проект' ? modalStore.modalZakazToggle() : ''"
-    :class="
-      item.title === 'заказать проект' ? 'nav_right-link nav_right-link-end' : 'nav_right-link'
+    @click="
+      item.title === 'заказать проект' ? modalStore.modalZakazToggle() : ''
     "
-    @mousemove="(e) => handleMouseMove(e, index)"
+    :class="
+      item.title === 'заказать проект'
+        ? 'nav_right-link nav_right-link-end'
+        : 'nav_right-link'
+    "
+    @mousemove="e => handleMouseMove(e, index)"
     @mouseleave="handleMouseLeave(index)"
-    @mouseenter="(e) => handleMouseEnter(e, index)"
+    @mouseenter="e => handleMouseEnter(e, index)"
   >
     <p>{{ item.title }}</p>
     <img v-if="item.title === 'заказать проект'" :src="item.img" alt="" />
-    <video class="nav_right-link-img" v-else autoplay loop muted :src="item.img"></video>
-    <span :style="rippleStyles[index] || rippleStyle" class="nav_right-link-span"></span>
+    <video
+      class="nav_right-link-img"
+      v-else
+      autoplay
+      loop
+      muted
+      :src="item.img"
+    ></video>
+    <span
+      :style="rippleStyles[index] || rippleStyle"
+      class="nav_right-link-span"
+    ></span>
   </a>
 </template>
 
@@ -84,7 +98,7 @@ const handleMouseEnter = (e, index) => {
   }
 }
 
-const handleMouseLeave = (index) => {
+const handleMouseLeave = index => {
   rippleStyles.value[index] = {
     ...rippleStyles.value[index],
     opacity: '0',

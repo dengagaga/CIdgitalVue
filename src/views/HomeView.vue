@@ -1,5 +1,6 @@
 <template>
   <modalZakaz v-if="modalStore.modalActive" />
+  <modalProject v-if="modalStore.modalProject" />
   <Transition name="cook-fade">
     <CookModal />
   </Transition>
@@ -7,7 +8,6 @@
     <NewModal />
   </Transition>
   <header class="header">
-    <projectModal v-if="modalStore.projectModal" />
     <div class="header_fon"></div>
     <div class="container">
       <Navigation @toggleBurger="toggleBurger" :burgerActive="burgerActive">
@@ -44,7 +44,8 @@ import headerMid from '@/components/headerMid.vue'
 import Services from '@/components/Services.vue'
 import Clients from '@/components/Clients.vue'
 import Brifs from '@/components/Brifs.vue'
-import projectModal from '@/components/projectModal.vue'
+
+import modalProject from '@/components/modalProject.vue'
 import Projects from '@/components/Projects.vue'
 import Connection from '@/components/Connection.vue'
 import modalZakaz from '@/components/modalZakaz.vue'

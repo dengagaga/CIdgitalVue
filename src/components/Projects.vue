@@ -2,7 +2,11 @@
   <section class="projects">
     <div class="container">
       <div class="main_projects">
-        <projectItem v-for="item in projectItemArrayLimit" :item="item" :key="item"></projectItem>
+        <projectItem
+          v-for="item in projectItemArrayLimit"
+          :item="item"
+          :key="item"
+        ></projectItem>
       </div>
     </div>
   </section>

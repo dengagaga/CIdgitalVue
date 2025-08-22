@@ -56,7 +56,7 @@ const title = ref('')
 const modules = [FreeMode, Navigation, Thumbs]
 const thumbsSwiper = ref(null)
 
-const setThumbsSwiper = (swiper) => {
+const setThumbsSwiper = swiper => {
   thumbsSwiper.value = swiper
 }
 onMounted(() => {

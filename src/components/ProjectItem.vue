@@ -6,29 +6,45 @@
     data-aos-duration="800"
     data-aos-easing="ease-in-out"
   >
-    <div class="project" v-if="item" :class="!item.tags ? 'project--none_tags' : ''">
+    <div
+      class="project"
+      v-if="item"
+      :class="!item.tags ? 'project--none_tags' : ''"
+    >
       <div class="project_top" :class="active ? 'project_top--active' : ''">
         <img
           v-if="item.img != 'нет'"
           class="project_img"
-          @click="item.img == 'нет' ? '' : modalStore.toggleProjectModal(item.id)"
+          @click="
+            item.img == 'нет' ? '' : modalStore.toggleProjectModal(item.id)
+          "
           :src="item.img"
           alt=""
         />
         <div v-else class="projectitem_top">
-            <img class="projectitem_top-img" src="../assets/img/sat.png" alt="">
-            <h3 class="projectitem_top-title">Изображение не загружено.</h3>
-            <p class="projectitem_top-text">В настоящее время переносим наше портфолио, поэтому все проекты пока недоступны для просмотра онлайн.</p>
+          <img class="projectitem_top-img" src="../assets/img/sat.png" alt="" />
+          <h3 class="projectitem_top-title">Изображение не загружено.</h3>
+          <p class="projectitem_top-text">
+            В настоящее время переносим наше портфолио, поэтому все проекты пока
+            недоступны для просмотра онлайн.
+          </p>
         </div>
+
         <video class="project_video" :src="item.video"></video>
         <div class="drop_list" v-if="active">
-          <button v-for="stack in item.stack" :key="stack" class="drop_list-btn">{{ stack }}</button>
-          <!-- <button class="drop_list-btn"></button> -->
-          <!-- <button class="drop_list-btn">UX/UI дизайн</button>
-          <button class="drop_list-btn">Аналитика</button> -->
+          <button
+            v-for="stack in item.stack"
+            :key="stack"
+            class="drop_list-btn"
+          >
+            {{ stack }}
+          </button>
         </div>
         <div class="drop_list-right" v-if="active">
-          <a href="https://www.laserzon.ru/" target="_blank" class="drop_list-right-link"
+          <a
+            href="https://www.laserzon.ru/"
+            target="_blank"
+            class="drop_list-right-link"
             ><img :src="item.ava" alt="" />{{ item.title }}</a
           >
           <div class="drop_list-right-developers">
@@ -37,7 +53,11 @@
             <img src="../assets/img/elips3.png" alt="" />
           </div>
         </div>
-        <div v-if="item.img != 'нет'" class="project_plus" @click="active = !active">
+        <div
+          v-if="item.img != 'нет'"
+          class="project_plus"
+          @click="active = !active"
+        >
           <img
             class="project_plus-img"
             :class="active ? 'project_plus-img--active' : ''"
@@ -51,8 +71,16 @@
           {{ tag }}
         </div>
       </div>
-      <img class="project_logo" src="../assets/img/logoProj.png" alt="" v-else />
-      <h4 @click="item.img == 'нет' ? '' : modalStore.toggleProjectModal(item.id)" class="services_item-top-title">
+      <img
+        class="project_logo"
+        src="../assets/img/logoProj.png"
+        alt=""
+        v-else
+      />
+      <h4
+        @click="item.img == 'нет' ? '' : modalStore.toggleProjectModal(item.id)"
+        class="services_item-top-title"
+      >
         {{ item.name }}
       </h4>
     </div>
@@ -90,7 +118,11 @@ defineProps({
   right: 0;
   bottom: 0;
   opacity: 0;
-  background: linear-gradient(69.72deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 99.38%);
+  background: linear-gradient(
+    69.72deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.1) 99.38%
+  );
   transition: all 0.3s;
 }
 .project_top:hover.project_top--active::after {
@@ -223,9 +255,9 @@ defineProps({
   border-radius: 20px;
 }
 .drop_list-right-link img {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
 .drop_list-right-developers img {
   width: 40px;
@@ -246,11 +278,10 @@ defineProps({
   margin-left: -12px;
 }
 
-
 .projectitem_top {
   height: 500px;
   padding: 50px;
-  background-color: #FFFFFFCC;
+  background-color: #ffffffcc;
 }
 .projectitem_top-img {
 }
@@ -263,7 +294,7 @@ defineProps({
   max-width: 326px;
 }
 .projectitem_top-text {
-  color: #696D73;
+  color: #696d73;
   font-size: 14px;
   font-weight: 500;
   max-width: 346px;
@@ -275,22 +306,22 @@ defineProps({
     border-radius: 6px;
   }
   .projectitem_top-title {
-  margin-bottom: 40px;
-  margin-top: 50px;
-  color: #000000;
-  font-size: 22px;
-  font-weight: 700;
-  max-width: 286px;
-}
-.projectitem_top-text {
-  color: #696D73;
-  font-size: 12px;
-  font-weight: 500;
-  max-width: 286px;
-}
+    margin-bottom: 40px;
+    margin-top: 50px;
+    color: #000000;
+    font-size: 22px;
+    font-weight: 700;
+    max-width: 286px;
+  }
+  .projectitem_top-text {
+    color: #696d73;
+    font-size: 12px;
+    font-weight: 500;
+    max-width: 286px;
+  }
   .projectitem_top {
-  height: 380px;
-}
+    height: 380px;
+  }
   .project_logo {
     max-width: 91px;
     width: 100%;
@@ -354,19 +385,19 @@ defineProps({
     border-radius: 6px;
   }
   .projectitem_top {
-  height: 220px;
-  padding: 20px;
-  padding-left: 0px;
-}
-.projectitem_top-img {
+    height: 220px;
+    padding: 20px;
+    padding-left: 0px;
+  }
+  .projectitem_top-img {
     max-width: 40px;
-}
-.projectitem_top-title {
-  font-size: 18px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  max-width: 200px;
-}
+  }
+  .projectitem_top-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    max-width: 200px;
+  }
   .project_plus {
     opacity: 1;
     background-color: #ffffff4b;
