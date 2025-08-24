@@ -130,6 +130,7 @@ defineProps({
 }
 .project_img {
   width: 100%;
+  object-fit: cover;
   height: 500px;
   border-radius: 6px;
 }
@@ -299,7 +300,7 @@ defineProps({
   font-weight: 500;
   max-width: 346px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   .project_img {
     width: 100%;
     height: 380px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="modal">
+  <div class="modal" @click.self="handleClickOutside">
     <div class="modal_all">
       <ModalZakaz v-if="modalStore.modalActive" />
       <img
@@ -152,6 +152,9 @@ onMounted(() => {
     item => item.id == idProject.value
   )
 })
+const handleClickOutside = () => {
+  modalStore.projectModalClose()
+}
 </script>
 
 <style scoped>
@@ -189,9 +192,9 @@ onMounted(() => {
   border-radius: 22px;
   width: 100%;
   position: relative;
-  margin-top: auto;
+  margin-top: 30px;
   margin-bottom: auto;
-  padding-top: 30px;
+  
   padding-bottom: 30px;
 }
 .container_project {
