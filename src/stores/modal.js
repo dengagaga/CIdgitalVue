@@ -99,6 +99,7 @@ export const useModalStore = defineStore('modal', () => {
   }
   const modalZakazToggle = () => {
     modalActive.value = true
+    modalProject.value = false
 
     body.classList.add('no-scroll')
     burgerStore.mobilBurgerActive = false
