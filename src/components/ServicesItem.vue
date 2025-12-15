@@ -88,7 +88,7 @@ defineProps({
   item: Object,
 })
 </script>
-<style>
+<style scoped>
 .services_item {
   padding: 44px 0;
   display: flex;
