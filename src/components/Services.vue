@@ -1,14 +1,17 @@
 <template>
-  <div class="services">
+  <div class="container">
+     <div class="services">
     <h3 class="title_3">Услуги</h3>
     <div class="services_item-list">
-      <ServicesItem v-for="item in servicesArray" :item="item" :key="item" />
+      <ServicesItemNew v-for="item in servicesArray" :item="item" :key="item" />
     </div>
   </div>
+  </div>
+ 
 </template>
 <script setup>
 import { ref } from 'vue'
-import ServicesItem from './ServicesItem.vue'
+import ServicesItemNew from './ServicesItemNew.vue'
 import analitika from '@/assets/img/analitika.png'
 import stylus from '@/assets/img/stylus.png'
 import development from '@/assets/img/development.png'
@@ -19,7 +22,7 @@ const servicesArray = ref([
   {
     id: '01',
     title: 'Аналитика',
-    text: 'Изучаем бизнес клиента, поведение пользователей, подбираем метрики и способы продвижения',
+    text: 'Анализируем бизнес-процессы, метрики и поведение пользователей',
     tegs: [
       {
         id: 1,
@@ -39,7 +42,7 @@ const servicesArray = ref([
   {
     id: '02',
     title: 'Дизайн',
-    text: 'Привлекательный веб-дизайн, объединённый с уникальным пользовательским опытом.',
+    text: 'Интерфейсы на основе аналитики и данных',
     tegs: [
       {
         id: 1,
@@ -79,7 +82,7 @@ const servicesArray = ref([
   {
     id: '03',
     title: 'Разработка',
-    text: 'Инновационные продукты, созданные с использованием передовых технологий',
+    text: 'Доверьте нам разработку сайта, сервиса или приложения: от идеи до внедрения ',
     img: development,
     tegs: [
       {
@@ -123,7 +126,7 @@ const servicesArray = ref([
   {
     id: '04',
     title: 'Продвижение',
-    text: 'Улучшение видимости бренда в поисковых результатах для привлечения целевой аудитории',
+    text: 'Приведем клиентов через платный и поисковый трафик ',
     tegs: [
       {
         id: 1,
@@ -154,8 +157,28 @@ const servicesArray = ref([
   },
   {
     id: '05',
+    title: 'Аутстаффинг',
+    text: 'Подберём специалиста и начнём работу',
+    tegs: [
+      {
+        id: 1,
+        teg: 'Wordpress',
+      },
+      {
+        id: 2,
+        teg: 'OpenCart',
+      },
+      {
+        id: 3,
+        teg: 'Control Place',
+      },
+    ],
+    img: crm,
+  },
+  {
+    id: '06',
     title: 'CRM',
-    text: 'Эффективное взаимодействие с клиентами через интегрированные CRM-решения',
+    text: 'Интерфейсы на основе аналитики и данных',
     tegs: [
       {
         id: 1,
@@ -181,6 +204,7 @@ const servicesArray = ref([
 }
 .services_item-list {
   display: flex;
+  gap: 12px;
   flex-direction: column;
   padding-top: 50px;
 }
