@@ -22,12 +22,12 @@
           title="Разработка и дизайн Онлайн-сервисов в России."
           text="Наши услуги — это путь к созданию неповторимого и успешного образа вашего бизнеса, любимого дела или продукта"
         />
-        <Services />
       </div>
     </div>
   </header>
   <main class="main">
     <Projects :limit="6" />
+    <Services />
     <Clients />
     <Brifs />
     <Connection />
