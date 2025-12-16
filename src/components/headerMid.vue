@@ -1,6 +1,6 @@
 <template>
   <div class="header_mid-oneFon-all">
-    <img src="@/assets/img/logo.svg" alt="" />
+    <img src="@/assets/img/logoMin.svg" alt="" />
     <div class="header_mid-oneFon-right">
       <h2 class="title_2">{{ title }}</h2>
       <p class="text">{{ text }}</p>

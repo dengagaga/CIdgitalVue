@@ -83,7 +83,7 @@
           <ul class="resume_experience-list">
             <li
               class="resume_experience-list-item"
-              v-for="item in experience"
+              v-for="item in experienceTwo"
               :key="item"
             >
               <div class="resume_experience-list-item-left">
@@ -202,7 +202,7 @@ const list = ref([
   },
   {
     id: 7,
-    title: 'Владею Vue.js',
+    title: 'Владею Vue.js / Nuxt 3',
   },
   {
     id: 8,
@@ -216,10 +216,26 @@ const list = ref([
 const experience = ref([
   {
     id: 1,
-    title: 'UI Designer at Market Studios',
+    title: 'Coffee Way',
     date: '12.2023 - по настоящее время',
     city: 'Липецк',
-    text: 'Successfully translated subject matter into concrete design for newsletters, promotional materials and sales collateral. Created design theme and graphics for marketing and sales presentations, training videos and corporate websites.',
+    text: ' Разработка и доработка большой CRM системы (более 80 страниц с огромным функционалом). Переписал систему с Options API на Composition API, уменьшив объем кода на 25%. Сделал полный редизайн системы.  Разработал кассу для барист - высоконагруженное приложение (Vue 3 + Pinia), обрабатывающее 1000+ транзакций ежедневно. Огромное количество логики (подсчеты, меню, программа лояльности, оплата и тд.). Разрабатывал и обновлял UI Kit компании (Более 100 кастомных компонентов). Интерфейс и логика для Кассы самообслуживания и интеграция ее в работу компании. (Nuxt)',
+  },
+  {
+    id: 2,
+    title: 'Elastomeric Systems',
+    date: '02.2021 - 12.2023',
+    city: 'Липецк',
+    text: 'Реорганизовал существующие store: замена Vuex сторов на Pinia, изоляция и разделение бизнес логики в composables. Также оптимизировал продукт с помощью lazy-load, CDN, code splitting. В результате чего уменьшился размер бандла, а также в разы улучшились метрики Lighthouse, Core Web Vitals. Участвовал в code review, внедрил ESLint + Prettier для единого стиля кода.',
+  },
+])
+const experienceTwo = ref([
+  {
+    id: 1,
+    title: 'ВИВТ',
+    date: '06.2025 - по настоящее время',
+    city: 'Липецк',
+    text:'ВИВТ - Воронежский институт высоких технологий'
   },
 ])
 </script>
@@ -378,12 +394,16 @@ const experience = ref([
   margin-bottom: 80px;
 }
 .resume_experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 .resume_experience-list-item {
   display: flex;
   gap: 100px;
 }
 .resume_experience-list-item-left {
+  min-width: 350px;
 }
 
 .resume_experience-list-item-place {
@@ -444,6 +464,7 @@ const experience = ref([
   .resume_experience-list-item-right {
     max-width: 760px;
   }
+  
 }
 @media (max-width: 450px) {
   .header_fon {

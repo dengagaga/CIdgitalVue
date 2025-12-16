@@ -1,5 +1,6 @@
 <template>
   <modalZakaz v-if="modalStore.modalActive" />
+   <modalProject v-if="modalStore.modalProject" />
   <Transition name="cook-fade">
     <CookModal />
   </Transition>
@@ -51,6 +52,7 @@ import headerMid from '@/components/headerMid.vue'
 import { useProjectStore } from '@/stores/project'
 import { useModalStore } from '@/stores/modal'
 import projectItem from '@/components/ProjectItem.vue'
+import modalProject from '@/components/modalProject.vue'
 const projectStore = useProjectStore()
 const modalStore = useModalStore()
 const burgerActive = ref(false)

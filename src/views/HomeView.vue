@@ -42,16 +42,14 @@ import Navigation from '@/components/Navigation.vue'
 import burgerMenu from '@/components/BurgerMenu.vue'
 import headerMid from '@/components/headerMid.vue'
 import Services from '@/components/Services.vue'
-import Clients from '@/components/Clients.vue'
+import Clients from '@/assets/img/Clients.vue'
 import Brifs from '@/components/Brifs.vue'
-
 import modalProject from '@/components/modalProject.vue'
 import Projects from '@/components/Projects.vue'
 import Connection from '@/components/Connection.vue'
 import modalZakaz from '@/components/modalZakaz.vue'
 import Foter from '@/components/Foter.vue'
 import { useModalStore } from '../stores/modal'
-
 const burgerActive = ref(false)
 const modalStore = useModalStore()
 const toggleBurger = () => {
@@ -70,10 +68,11 @@ const toggleBurger = () => {
 .no-scroll {
   overflow: hidden;
 }
+
 .header_fon {
   position: absolute;
   padding-top: 28px;
-  background: url('@/assets/headerFonThree.png');
+  background: url('@/assets/img/headerFonThree.png');
   height: 100vh;
   width: 100%;
   z-index: 0;

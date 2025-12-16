@@ -3,7 +3,7 @@
   <nav class="nav">
     <router-link to="/" class="logotype"
       ><img
-        src="@/assets/Logo.svg"
+        src="@/assets/img/Logo.svg"
         alt=""
         v-if="!burgerStore.mobilBurgerActive"
     /></router-link>

@@ -1,7 +1,7 @@
 <template>
   <div class="header_mid">
     <div class="header_mid-left">
-      <img src="@/assets/headerFon.png" alt="" />
+      <img src="@/assets/img/headerFon.png" alt="" />
     </div>
     <div class="header_mid-right">
       <h1 class="title-1">

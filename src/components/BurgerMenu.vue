@@ -72,7 +72,7 @@
 </template>
 <script setup>
 import LinkNav from './LinkNav.vue'
-import icon from '@/assets/icon.svg'
+import icon from '@/assets/img/icon.svg'
 import iconTwo from '@/assets/img/icon2.svg'
 import iconThree from '@/assets/img/icon3.png'
 import iconFour from '@/assets/img/icon4.png'

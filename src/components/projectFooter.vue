@@ -19,11 +19,11 @@
           </div>
           <p>Написать в Telegram</p>
         </div>
-        <img class="project_footer-btn-img" src="@/assets/arrow.svg" alt="" />
+        <img class="project_footer-btn-img" src="@/assets/img/arrow.svg" alt="" />
       </a>
       <button class="project_footer-btn" @click="modalStore.modalZakazToggle()">
         <p>Заказать проект</p>
-        <img class="project_footer-btn-img" src="@/assets/arrow.svg" alt="" />
+        <img class="project_footer-btn-img" src="@/assets/img/arrow.svg" alt="" />
       </button>
     </div>
   </section>

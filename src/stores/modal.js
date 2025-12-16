@@ -1,8 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useBurgerStore } from './burger'
-import router from '@/router'
-import { useRouter, useRoute } from 'vue-router'
 // const route = useRoute()
 export const useModalStore = defineStore('modal', () => {
   const burgerStore = useBurgerStore()
@@ -94,6 +92,7 @@ export const useModalStore = defineStore('modal', () => {
   const modalResume = ref(false)
   const modalResumeName = ref('')
   const modalResumeToggle = item => {
+    body.classList.remove('no-scroll')
     modalResumeName.value = item
     modalResume.value = !modalResume.value
   }

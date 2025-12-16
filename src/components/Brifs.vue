@@ -20,7 +20,7 @@
   </section>
 </template>
 <script setup></script>
-<style>
+<style scoped>
 .brifs_all {
   background: url('@/assets/img/brifFons.png');
   background-position: left;

@@ -1,7 +1,7 @@
 <template>
   <div class="mobil_header_burger">
     <div class="container">
-      <img class="mobil_header_burger-logo" src="@/assets/Logo.svg" alt="" />
+      <img class="mobil_header_burger-logo" src="@/assets/img/logoMin.svg" alt="" />
       <h4 class="header_mobburger_right-title">меню</h4>
       <div class="mobil_header_burger_list">
         <div

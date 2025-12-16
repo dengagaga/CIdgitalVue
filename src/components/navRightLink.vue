@@ -36,7 +36,7 @@
 <script setup>
 import { ref } from 'vue'
 import ava from '@/assets/img/ava.gif.mp4'
-import arrow from '@/assets/arrow.svg'
+import arrow from '@/assets/img/arrow.svg'
 import { useModalStore } from '@/stores/modal'
 
 const modalStore = useModalStore()

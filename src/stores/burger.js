@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import project from '@/assets/icon.svg'
+import project from '@/assets/img/icon.svg'
 import services from '@/assets/img/icon2.svg'
 import agency from '@/assets/img/icon3.png'
 import blog from '@/assets/img/icon4.png'
