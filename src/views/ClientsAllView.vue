@@ -16,26 +16,23 @@
       <div class="header_mid-oneFon header_mid-oneFon-projects">
         <div class="header_mid-threeFon"></div>
         <headerMid
-          title="Проекты"
-          text="Мы накопили уникальный опыт, работая с клиентами из различных сфер, и каждый из них подарил нам уникальные знания и навыки."
+          title="Клиенты"
+          text="Мы любим наших клиентов, поэтому умеем слышать, погружаться в бизнес, становясь частью их команды."
         />
-        <div class="main_projects">
-          <projectItem
-            v-for="item in isMobile ? projectItemArrayMob : displayedProjects"
-            :item="item"
-            :key="item"
-          ></projectItem>
-          <button
-            v-if="!showHideButton && isMobile"
-            class="watch_add"
-            @click="loadMore"
-          >
-            Показать ещё
-          </button>
-        </div>
-        <button v-if="showHideButton" class="watch_add" @click="hideProjects">
-          Скрыть
-        </button>
+            <div class="clientsView_all">
+                <div class="clintesView_item" v-for="value in clientStore.clientsItemArray" :key="value">
+                    <div class="clintesView_item-top">
+                        <img class="clintesView_item-top-img" :src="value.img" alt="">
+                    </div>
+                    <div class="clintesView_item-bot">
+                        <p class="clintesView_item-bot-text">Поддерживаем и развиваем проект постоянного клиента</p>
+                        <div class="clintesView_item-bot-all">
+                            <p class="clintesView_item-bot-all-text">{{ value.cooperat }}</p>
+                            <router-link class="clintesView_item-bot-all-link" :to="'/clients/' + value.id"><img src="@/assets/img/arrow.svg" alt=""></router-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
       </div>
     </div>
   </header>
@@ -51,13 +48,13 @@ import burgerMenu from '@/components/BurgerMenu.vue'
 import headerMid from '@/components/headerMid.vue'
 import { useProjectStore } from '@/stores/projectStore'
 import { useModalStore } from '@/stores/modal'
-import projectItem from '@/components/ProjectItem.vue'
+import { useClientStore } from '@/stores/clientStore'
 import modalProject from '@/components/modalProject.vue'
 const projectStore = useProjectStore()
 const modalStore = useModalStore()
+const clientStore = useClientStore()
 const burgerActive = ref(false)
 const projectItemArrayMob = ref([])
-const showHideButton = ref(false)
 const isMobile = ref(false)
 onMounted(() => {
   isMobile.value = window.innerWidth <= 450
@@ -67,19 +64,6 @@ onMounted(() => {
   if (isMobile.value) {
     projectItemArrayMob.value = projectStore.projectItemArray.slice(0, 5)
   }
-})
-const hideProjects = () => {
-  isMobile.value = true
-  showHideButton.value = false
-}
-const loadMore = () => {
-  isMobile.value = false
-  showHideButton.value = true
-}
-const displayedProjects = computed(() => {
-  return projectStore.projectItemArraySelect.length > 0
-    ? projectStore.projectItemArraySelect
-    : projectStore.projectItemArray
 })
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value
@@ -106,6 +90,64 @@ watch(
 }
 .watch_add {
   display: none;
+}
+.clientsView_all {
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.clintesView_item {
+    border: 1px solid #0000001A;
+    overflow: hidden;
+    width: 24.4%;
+    border-radius: 22px;
+    background-color: #F8F7FF;
+}
+.clintesView_item-top {
+    width: 100%;
+    display: flex;
+    padding: 45px 74px;
+    max-height: 130px;
+    height: 100%;
+}
+.clintesView_item-top-img {
+    margin: 0 auto;
+    
+}
+.clintesView_item-bot {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 21px 21px 0 0;
+}
+.clintesView_item-bot-text {
+    margin-bottom: 140px;
+    color: #696D73;
+    
+    font-size: 14px;
+    max-width: 290px;
+}
+.clintesView_item-bot-all {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.clintesView_item-bot-all-text {
+    color: #696D73;
+    font-size: 14px;
+    font-weight: 600;
+}
+.clintesView_item-bot-all-link {
+    border-radius: 50%;
+    background-color: #F4F4F4;
+    display: flex;
+    padding: 12px;
+    width: 35px;
+    height: 35px;
 }
 @media (max-width: 450px) {
   .header_mid-oneFon-projects .main_projects {

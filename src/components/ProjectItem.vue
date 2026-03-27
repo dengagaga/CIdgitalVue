@@ -151,10 +151,10 @@ defineProps({
   word-spacing: 3px;
 }
 .tag:nth-child(1) {
-  background-color: #ff9900;
+  background-color: var(--yellow-color);
 }
 .tag:nth-child(2) {
-  background-color: #015ef9;
+  background-color: var(--blue-color);
 }
 .tag:nth-child(3) {
   background-color: #696d73;

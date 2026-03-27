@@ -9,6 +9,7 @@ import DetailsView from '../views/DetailsView.vue'
 import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 import PersonalDataView from '../views/PersonalDataView.vue'
 import ResumeView from '../views/ResumeView.vue'
+import ClientsAllView from '../views/ClientsAllView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,6 +47,11 @@ const router = createRouter({
       path: '/clients/:id',
       name: 'ClientsView',
       component: ClientsView,
+    },
+    {
+      path: '/clients',
+      name: 'ClientsAllView',
+      component: ClientsAllView,
     },
     {
       path: '/project/:id',

@@ -23,7 +23,7 @@
         <li
           class="cliets_view-item"
           :class="item.active ? 'cliets_view-item--active' : ''"
-          v-for="item in articleStore.article"
+          v-for="item in articles"
           :key="item.id"
         >
           <button class="cliets_view-item-btn">{{ item.title }}</button>
@@ -34,7 +34,7 @@
       <div class="container">
         <div class="main_projects cliets_view-main_projects">
           <projectItem
-            v-for="item in articleStore.articleItemArray"
+            v-for="item in articleItemArray"
             :item="item"
             :key="item"
           ></projectItem>
@@ -51,15 +51,17 @@ import CookModal from '@/components/CookModal.vue'
 import burgerMenu from '@/components/BurgerMenu.vue'
 import ClietsAllTop from '@/components/ClietsAllTop.vue'
 import { useRoute } from 'vue-router'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useArticleStore } from '@/stores/article'
 import projectItem from '@/components/ProjectItem.vue'
-import { useClientStore } from '@/stores/client'
+import { useClientStore } from '@/stores/clientStore'
 import { useModalStore } from '@/stores/modal'
 import ModalZakaz from '@/components/modalZakaz.vue'
 const modalStore = useModalStore()
 const clientStore = useClientStore()
 const articleStore = useArticleStore()
+const articleItemArray = computed(() => articleStore.articleItemArray)
+const articles = computed(() => articleStore.article)
 const burgerActive = ref(false)
 const toggleBurger = () => {
   burgerActive.value = !burgerActive.value

@@ -1,7 +1,7 @@
 <template>
   <div
     class="industries_item"
-    v-for="item in industriesStore.industries"
+    v-for="item in industries"
     :key="item.id"
   >
     <button class="solutions_item-btn industries_item-btn-abs">
@@ -31,9 +31,10 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
-import { useIndustriesStore } from '@/stores/industries'
+import { computed, ref } from 'vue'
+import { useIndustriesStore } from '@/stores/industriesStore'
 const industriesStore = useIndustriesStore()
+const industries = computed(() => industriesStore.industries)
 </script>
 <style>
 .industries_item {

@@ -13,7 +13,7 @@
 </template>
 <script setup>
 import projectItem from '@/components/ProjectItem.vue'
-import { useProjectStore } from '@/stores/project'
+import { useProjectStore } from '@/stores/projectStore'
 const projectStore = useProjectStore()
 const props = defineProps({
   limit: Number,

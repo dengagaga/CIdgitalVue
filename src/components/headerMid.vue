@@ -1,10 +1,13 @@
 <template>
   <div class="header_mid-oneFon-all">
-    <img src="@/assets/img/logoMin.svg" alt="" />
+    <!-- <img src="@/assets/img/logoMin.svg" alt="" /> -->
+     <div>
+      
+     </div>
     <div class="header_mid-oneFon-right">
       <h2 class="title_2">{{ title }}</h2>
       <p class="text">{{ text }}</p>
-      <div class="header_mid-oneFon-right-bot" v-if="title !== 'Проекты'">
+      <div class="header_mid-oneFon-right-bot" v-if="title !== 'Проекты' && title !== 'Клиенты'">
         <div class="header_mid-oneFon-right-bot-item">
           <h2 class="header_mid-oneFon-right-bot-item-title"><span>+</span></h2>
           <p>Проектов реализовано</p>
@@ -16,7 +19,7 @@
           <p>Лет разрабатываем сайты</p>
         </div>
       </div>
-      <div class="header_mid-oneFon-right-bot-proj" v-else>
+      <div class="header_mid-oneFon-right-bot-proj" v-if="title == 'Проекты'">
         <SelectWrapper />
       </div>
     </div>
@@ -33,16 +36,7 @@ defineProps({
 .header_mid {
   padding: 0 40px;
 }
-.title_1 {
-  font-size: 180px;
-  font-weight: 800;
-  margin-bottom: 140px;
-  margin-top: 250px;
-  text-transform: uppercase;
-  color: #fff;
-  position: relative;
-  z-index: 1;
-}
+
 .header_mid-oneFon {
   background-color: #fff;
   border-radius: 20px 20px 0 0;
@@ -261,10 +255,6 @@ defineProps({
   .header_mid-oneFon {
     padding: 49px 40px;
   }
-  .title_1 {
-    font-size: 120px;
-    margin-top: 180px;
-  }
   .title_2 {
     font-size: 30px;
     max-width: 430px;
@@ -303,10 +293,6 @@ defineProps({
   }
 }
 @media (max-width: 1024px) {
-  .title_1 {
-    font-size: 100px;
-    margin-top: 180px;
-  }
   .title_2 {
     font-size: 26px;
   }
@@ -318,13 +304,6 @@ defineProps({
 @media (max-width: 450px) {
   .header_mid {
     padding: 0 4px;
-  }
-  .title_1 {
-    font-size: 60px;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    text-align: center;
-    line-height: 60px;
   }
   .header_mid-oneFon {
     padding: 34px 14px;

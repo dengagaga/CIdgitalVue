@@ -1,7 +1,7 @@
 <template>
   <div
     class="solutions_item"
-    v-for="item in solutionStore.solution"
+    v-for="item in solutions"
     :key="item.id"
   >
     <h4 class="solutions_item-title">{{ item.title }}</h4>
@@ -14,8 +14,10 @@
   </div>
 </template>
 <script setup>
-import { useSolutionStore } from '@/stores/solution'
+import { useSolutionStore } from '@/stores/solutionStore'
+import { computed } from 'vue';
 const solutionStore = useSolutionStore()
+const solutions = computed(() => solutionStore.solution)
 </script>
 <style>
 .solutions_item {

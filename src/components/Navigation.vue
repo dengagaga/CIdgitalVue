@@ -95,13 +95,20 @@ const NavArray = ref([
   z-index: 2;
 }
 .nav_right {
-  background-color: var(--frame-color);
+   backdrop-filter: blur(40px);
+  box-shadow: 
+  0px 0px 22px 0px #F2F2F280 inset,
+  -0.2px -0.2px 1px -2px #B3B3B3 inset,
+  0.1px 0.1px 1px -2px #B3B3B3 inset,
+  0.3px 0.3px 0.5px -3.5px #FFFFFF80 inset;
+  background-color: #1D1D1D0A;
   padding: 5px;
   border-radius: 16px;
+  border: 1px solid #fff;
   display: flex;
   position: relative;
   align-items: center;
-  gap: 15px;
+  gap: 7px;
 }
 .nav_right-link {
   display: flex;
@@ -116,6 +123,9 @@ const NavArray = ref([
   background-color: var(--bgc-btn);
   position: relative;
   overflow: hidden;
+}
+.nav_right-link-end {
+  gap: 0;
 }
 .nav_right-link svg {
   width: 17px;

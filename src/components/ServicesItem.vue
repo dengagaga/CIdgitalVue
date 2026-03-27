@@ -70,8 +70,7 @@
                 <path
                   d="M12.9277 9.91125C12.2374 9.91125 11.6777 10.4709 11.6777 11.1613C11.6777 11.8516 12.2374 12.4113 12.9277 12.4113H25.82L10.2763 27.9549C9.78812 28.4431 9.78812 29.2346 10.2763 29.7227C10.7644 30.2109 11.5559 30.2109 12.044 29.7227L27.5876 14.1791V27.0712C27.5876 27.7615 28.1473 28.3212 28.8376 28.3212C29.528 28.3212 30.0876 27.7615 30.0876 27.0712V11.1613C30.0876 10.4709 29.528 9.91125 28.8376 9.91125H12.9277Z"
                   fill="#101010"
-                ></path></svg
-            ></a>
+                ></path></svg></a>
           </div>
         </div>
       </div>
@@ -168,7 +167,7 @@ defineProps({
 }
 .services_item--active .services_item-rigth-plus {
   background-color: #015ef91a;
-  border-bottom: 1px solid #015ef9;
+  border-bottom: 1px solid var(--blue-color);
 }
 .services_item--active .services_item-rigth-plus svg {
   transform: rotate(45deg);
@@ -176,7 +175,7 @@ defineProps({
   z-index: 2;
 }
 .services_item--active .services_item-rigth-plus svg path {
-  stroke: #015ef9;
+  stroke: var(--blue-color);
   stroke-opacity: 1;
 }
 .services_item-bot-all {

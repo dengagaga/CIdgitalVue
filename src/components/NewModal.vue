@@ -68,7 +68,7 @@ const close = () => {
   margin-left: 20px;
 }
 .cook_modal-btn {
-  background-color: #015ef9;
+  background-color: var(--blue-color);
   border-radius: 8px;
   padding: 12px 23px;
   font-size: 14px;

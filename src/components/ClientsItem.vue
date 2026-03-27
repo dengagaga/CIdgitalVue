@@ -71,13 +71,12 @@ const handleMouseLeave = () => {
 <style>
 .clients_bot-list-item {
   position: relative;
-  border: 2px solid #0000001a;
   background: transparent;
   border-radius: 12px;
   cursor: pointer;
   width: 100%;
   height: 190px;
-  background-color: #fff;
+  background-color: #FBFBFB;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +88,7 @@ const handleMouseLeave = () => {
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: all 0.7s ease-out;
-  background: #015EF9;
+  background: var(--blue-color);
   border-radius: 50%;
   color: #fff;
   left: 0;

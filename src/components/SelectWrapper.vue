@@ -44,43 +44,13 @@
   </div>
 </template>
 <script setup>
-import { useProjectStore } from '@/stores/project'
+import { useProjectStore } from '@/stores/projectStore'
 const projectStore = useProjectStore()
 const toggleSelect = (item, array) => {
   const wasActive = item.active
   array.forEach(el => (el.active = false))
   item.active = !wasActive
 }
-
-// const toggleSelectItem = (item) => {
-//     // Переключаем активное состояние элемента
-//     item.active = !item.active;
-
-//     // Добавляем или удаляем элемент из selectedProject
-//     if (projectStore.selectedProject.includes(item)) {
-//         projectStore.selectedProject.splice(projectStore.selectedProject.indexOf(item), 1);
-//     } else {
-//         projectStore.selectedProject.push(item);
-//     }
-
-//     console.log('Selected projects:', projectStore.selectedProject);
-
-//     // Пересчитываем projectItemArraySelect на основе всех выбранных проектов
-//     if (projectStore.selectedProject.length === 0) {
-//         // Если ничего не выбрано, очищаем массив
-//         projectStore.projectItemArraySelect = [];
-//     } else {
-//         // Иначе фильтруем projectItemArray по всем выбранным тегам
-//         const selectedTags = projectStore.selectedProject.map(project => project.title);
-
-//         projectStore.projectItemArraySelect = projectStore.projectItemArray.filter(item => {
-//             // Проверяем, содержит ли item хотя бы один из выбранных тегов
-//             return selectedTags.some(tag => item.tags.includes(tag));
-//         });
-//     }
-
-//     console.log('Filtered items:', projectStore.projectItemArraySelect);
-// };
 
 const toggleSelectItem = item => {
   // Переключаем активное состояние элемента

@@ -8,7 +8,7 @@
       item.title === 'заказать проект' ? modalStore.modalZakazToggle() : ''
     "
     :class="
-      item.title === 'заказать проект'
+      item.title === ''
         ? 'nav_right-link nav_right-link-end'
         : 'nav_right-link'
     "
@@ -17,7 +17,7 @@
     @mouseenter="e => handleMouseEnter(e, index)"
   >
     <p>{{ item.title }}</p>
-    <img v-if="item.title === 'заказать проект'" :src="item.img" alt="" />
+    <img v-if="item.title === ''" :src="item.img" alt="" />
     <video
       class="nav_right-link-img"
       v-else
@@ -37,19 +37,20 @@
 import { ref } from 'vue'
 import ava from '@/assets/img/ava.gif.mp4'
 import arrow from '@/assets/img/arrow.svg'
+import phone from '@/assets/img/phone.png'
 import { useModalStore } from '@/stores/modal'
 
 const modalStore = useModalStore()
 const navRightLink = ref([
   {
-    title: 'написать в telegram',
-    link: 'https://t.me/realgorin',
+    title: 'заказать проект',
+    link: '#',
     img: ava,
   },
   {
-    title: 'заказать проект',
-    link: '#',
-    img: arrow,
+    title: '',
+    link: 'https://t.me/realgorin',
+    img: phone,
   },
 ])
 
@@ -108,6 +109,10 @@ const handleMouseLeave = index => {
 }
 </script>
 <style>
+.nav_right-link {
+  justify-content: center;
+  height: stretch;
+}
 .nav_right-link-img {
   width: 26px;
   height: 26px;

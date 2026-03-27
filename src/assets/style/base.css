@@ -15,7 +15,6 @@
   --color-text: #cdcdcd;
   --color-menu: #97a3b7;
 }
-
 * {
   padding: 0px;
   margin: 0px;
@@ -147,39 +146,32 @@ body {
   color: #101010;
 }
 .title_3 {
-  font-size: 38px;
-  font-weight: 600;
-  color: #101010;
+  margin-bottom: 50px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #080808;
+}
+body {
+  cursor: url('../img/all.png'), auto; /* Путь к картинке и резервный тип */
 }
 @media (max-width: 1440px) {
   .container {
-    max-width: 1920px;
-    margin: 0 auto;
     padding: 0 60px;
   }
   .title_3 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #101010;
+    font-size: 16px;
   }
 }
 @media (max-width: 1024px) {
   .container {
-    max-width: 1920px;
-    margin: 0 auto;
     padding: 0 40px;
   }
   .title_3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #101010;
+    font-size: 14px;
   }
 }
 @media (max-width: 450px) {
   .container {
     padding: 0 16px;
-  }
-  .title_3 {
-    font-size: 20px;
   }
 }
